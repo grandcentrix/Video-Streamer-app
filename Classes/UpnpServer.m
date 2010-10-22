@@ -31,6 +31,8 @@
     NSString *serverName = [UIDevice currentDevice].name;
     connect = new PLT_MediaConnect([serverName UTF8String]);
     connect->SetByeByeFirst(false);
+
+    NSLog(@"FILEPATH:%@", [self filePath]);
     delegate = new PLT_FileMediaConnectDelegate("/", [[self filePath] UTF8String]);
     connect->SetDelegate((PLT_MediaServerDelegate*)delegate.AsPointer());
 
@@ -47,10 +49,8 @@
 
 - (NSString *)filePath
 {
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSString *path = [bundle bundlePath];
-    
-    return path;
+    // Returns the Documents directory
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 
 @end
