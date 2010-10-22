@@ -4,6 +4,7 @@
 @implementation AppDelegate
 
 @synthesize window = window_;
+@synthesize upnpServer = upnpServer_;
 
 
 #pragma mark -
@@ -11,6 +12,7 @@
 
 - (void)dealloc
 {
+    [upnpServer_ release];
     [window_ release];
     
     [super dealloc];
@@ -21,7 +23,13 @@
 #pragma mark UIApplicationDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{    
+{
+    UpnpServer *upnpServer = [[UpnpServer alloc] init];
+    self.upnpServer = upnpServer;
+    [upnpServer release];
+    
+    [self.upnpServer start];
+    
     [self.window makeKeyAndVisible];
     
     return YES;
