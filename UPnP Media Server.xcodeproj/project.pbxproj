@@ -16,6 +16,10 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		45117EF8127238B2002B821F /* libPlatinum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45117EDE1272381B002B821F /* libPlatinum.a */; };
 		45A5E805127242480061B207 /* UpnpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A5E804127242480061B207 /* UpnpServer.m */; };
+		45FBDF861274A93200FBCA62 /* background-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 45FBDF851274A93200FBCA62 /* background-iPad.png */; };
+		45FBDF8B1274AA4900FBCA62 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FBDF891274AA4900FBCA62 /* InstructionsViewController.m */; };
+		45FBDF8C1274AA4900FBCA62 /* InstructionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FBDF8A1274AA4900FBCA62 /* InstructionsView.xib */; };
+		45FBE09B1274D9FA00FBCA62 /* DirectoryWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FBE09A1274D9FA00FBCA62 /* DirectoryWatcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +130,12 @@
 		45117EA21272381B002B821F /* Platinum.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Platinum.xcodeproj; path = "Platinum/Platinum/Build/Targets/universal-apple-macosx/Platinum.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		45A5E803127242480061B207 /* UpnpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpnpServer.h; sourceTree = "<group>"; };
 		45A5E804127242480061B207 /* UpnpServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpnpServer.m; sourceTree = "<group>"; };
+		45FBDF851274A93200FBCA62 /* background-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-iPad.png"; path = "Images/background-iPad.png"; sourceTree = "<group>"; };
+		45FBDF881274AA4900FBCA62 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionsViewController.h; path = Classes/InstructionsViewController.h; sourceTree = "<group>"; };
+		45FBDF891274AA4900FBCA62 /* InstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstructionsViewController.m; path = Classes/InstructionsViewController.m; sourceTree = "<group>"; };
+		45FBDF8A1274AA4900FBCA62 /* InstructionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = InstructionsView.xib; path = Classes/InstructionsView.xib; sourceTree = "<group>"; };
+		45FBE0991274D9FA00FBCA62 /* DirectoryWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryWatcher.h; sourceTree = "<group>"; };
+		45FBE09A1274D9FA00FBCA62 /* DirectoryWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectoryWatcher.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* UPnP_Media_Server-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "UPnP_Media_Server-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +167,8 @@
 			children = (
 				45A5E803127242480061B207 /* UpnpServer.h */,
 				45A5E804127242480061B207 /* UpnpServer.m */,
+				45FBE0991274D9FA00FBCA62 /* DirectoryWatcher.h */,
+				45FBE09A1274D9FA00FBCA62 /* DirectoryWatcher.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -171,20 +183,15 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		28EEBF621118D79A00187D67 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Shared;
-			sourceTree = "<group>";
-		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
 				45117EA21272381B002B821F /* Platinum.xcodeproj */,
 				2860E32A111B888700E27156 /* App Delegate */,
+				45FBDF871274A9FE00FBCA62 /* Controllers */,
 				2860E324111B887F00E27156 /* Classes */,
-				28EEBF621118D79A00187D67 /* Shared */,
+				45FBDF801274A52400FBCA62 /* Views */,
+				45FBDF841274A92300FBCA62 /* Images */,
 				45117DA612722CE8002B821F /* Resources */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -239,6 +246,31 @@
 				45117EF41272381B002B821F /* TimeTest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		45FBDF801274A52400FBCA62 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				45FBDF8A1274AA4900FBCA62 /* InstructionsView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		45FBDF841274A92300FBCA62 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				45FBDF851274A93200FBCA62 /* background-iPad.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		45FBDF871274A9FE00FBCA62 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				45FBDF881274AA4900FBCA62 /* InstructionsViewController.h */,
+				45FBDF891274AA4900FBCA62 /* InstructionsViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +418,8 @@
 			files = (
 				2860E329111B887F00E27156 /* MainWindow_iPhone.xib in Resources */,
 				2860E32F111B888700E27156 /* MainWindow_iPad.xib in Resources */,
+				45FBDF861274A93200FBCA62 /* background-iPad.png in Resources */,
+				45FBDF8C1274AA4900FBCA62 /* InstructionsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +433,8 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				2860E32E111B888700E27156 /* AppDelegate.m in Sources */,
 				45A5E805127242480061B207 /* UpnpServer.m in Sources */,
+				45FBDF8B1274AA4900FBCA62 /* InstructionsViewController.m in Sources */,
+				45FBE09B1274D9FA00FBCA62 /* DirectoryWatcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

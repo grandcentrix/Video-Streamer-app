@@ -12,8 +12,9 @@
         NPT_Reference<PLT_FileMediaConnectDelegate> delegate;
 }
 
++ (NSString *)filePath;
++ (NSArray *)documentsDirectoryContents;
 - (void)start;
 - (void)stop;
-- (NSString *)filePath;
 
 @end

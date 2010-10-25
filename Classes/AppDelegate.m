@@ -4,6 +4,7 @@
 @implementation AppDelegate
 
 @synthesize window = window_;
+@synthesize viewController = viewController_;
 @synthesize upnpServer = upnpServer_;
 
 
@@ -30,6 +31,7 @@
     
     [self.upnpServer start];
     
+    [self.window addSubview:self.viewController.view];
     [self.window makeKeyAndVisible];
     
     return YES;

@@ -25,6 +25,19 @@
     [super dealloc];
 }
 
++ (NSString *)filePath
+{
+    // Returns the Documents directory
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+}
+
++ (NSArray *)documentsDirectoryContents
+{
+    NSString *filePath = [UpnpServer filePath];
+    
+    return [[NSFileManager defaultManager] contentsOfDirectoryAtPath:filePath error:NULL];
+}
+
 - (void)start
 {
     // Set up device
@@ -32,8 +45,8 @@
     connect = new PLT_MediaConnect([serverName UTF8String]);
     connect->SetByeByeFirst(false);
 
-    NSLog(@"FILEPATH:%@", [self filePath]);
-    delegate = new PLT_FileMediaConnectDelegate("/", [[self filePath] UTF8String]);
+    NSLog(@"FILEPATH:%@", [UpnpServer filePath]);
+    delegate = new PLT_FileMediaConnectDelegate("/", [[UpnpServer filePath] UTF8String]);
     connect->SetDelegate((PLT_MediaServerDelegate*)delegate.AsPointer());
 
     // Set up UPnP server
@@ -45,12 +58,6 @@
 - (void)stop
 {
     upnp.Stop();
-}
-
-- (NSString *)filePath
-{
-    // Returns the Documents directory
-    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 
 @end
