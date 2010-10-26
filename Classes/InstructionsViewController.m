@@ -172,6 +172,12 @@
     return self;
 }
 
+- (void)documentInteractionControllerDidEndPreview:(UIDocumentInteractionController *)interactionController
+{
+    NSIndexPath *selectedRowIndexPath = [self.tableView indexPathForSelectedRow];
+    [self.tableView deselectRowAtIndexPath:selectedRowIndexPath animated:YES];
+}
+
 
 #pragma mark -
 #pragma mark UITableViewDataSource
@@ -220,17 +226,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    // Presents a preview of the document if supported
+    NSURL *fileUrl = [self.documentUrls objectAtIndex:indexPath.row];
+    [self setupDocumentControllerWithURL:fileUrl];
+    BOOL canPreview = [self.docInteractionController presentPreviewAnimated:YES];
+    
+    // If cannot preview the document, then deselect the row
+    if (!canPreview)
+    {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
 }
-
-
-
-
-
-
-
-
-
-
 
 @end
