@@ -16,6 +16,7 @@
 @synthesize docInteractionController = docInteractionController_;
 @synthesize addFromiTunesView = addFromiTunesView_;
 @synthesize tableView = tableView_;
+@synthesize sectionHeaderView = sectionHeaderView_;
 
 
 #pragma mark -
@@ -28,6 +29,7 @@
     [docInteractionController_ release];
     [addFromiTunesView_ release];
     [tableView_ release];
+    [sectionHeaderView_ release];
 
     [super dealloc];
 }
@@ -185,6 +187,12 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.documentUrls.count;    
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{    
+    return self.sectionHeaderView;
+   
 }
 
 - (UITableViewCell *)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
