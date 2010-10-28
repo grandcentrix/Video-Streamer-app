@@ -12,6 +12,8 @@
         UITableView *tableView_;
         UIImageView *sectionHeaderViewiPad_;
         UIImageView *sectionHeaderViewiPhone_;
+        UILabel *sectionHeaderLabeliPad_;
+        UILabel *sectionHeaderLabeliPhone_;
         DirectoryWatcher *directoryWatcher_;
         NSMutableArray *documentUrls_;
         UIDocumentInteractionController *docInteractionController_;
@@ -21,5 +23,7 @@
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) IBOutlet UIView *sectionHeaderViewiPad;
 @property (nonatomic, retain) IBOutlet UIView *sectionHeaderViewiPhone;
+@property (nonatomic, retain) IBOutlet UILabel *sectionHeaderLabeliPad;
+@property (nonatomic, retain) IBOutlet UILabel *sectionHeaderLabeliPhone;
 
 @end

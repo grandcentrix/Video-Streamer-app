@@ -16,8 +16,10 @@
 @synthesize docInteractionController = docInteractionController_;
 @synthesize addFromiTunesView = addFromiTunesView_;
 @synthesize tableView = tableView_;
-@synthesize sectionHeaderViewiPhone = sectionHeaderViewiPhone_;
 @synthesize sectionHeaderViewiPad = sectionHeaderViewiPad_;
+@synthesize sectionHeaderViewiPhone = sectionHeaderViewiPhone_;
+@synthesize sectionHeaderLabeliPad = sectionHeaderLabeliPad_;
+@synthesize sectionHeaderLabeliPhone = sectionHeaderLabeliPhone_;
 
 
 #pragma mark -
@@ -31,6 +33,8 @@
     [addFromiTunesView_ release];
     [tableView_ release];
     [sectionHeaderViewiPad_ release];
+    [sectionHeaderViewiPhone_ release];
+    [sectionHeaderLabeliPad_ release];
     [sectionHeaderViewiPhone_ release];
 
     [super dealloc];
@@ -148,22 +152,6 @@
         self.view.backgroundColor = background;
         [background release];        
     }
-    //self.tableView.backgroundColor = [UIColor clearColor];
-    
-//    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background-iPad.png"]];    
-//    self.tableView.opaque = NO;
-
-    
-//    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-iPad.png"]];
-//    self.view.backgroundColor = background;
-//    [background release];
-    
-    //[self.tableView addSubview:self.imageView];
-    //[self.view addSubview:self.tableView];
-    
-    //self.tableView.backgroundColor = [UIColor clearColor];
-
-    //self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background-iPad.png"]];
     
     // Start monitoring the document directory
     NSMutableArray *documentUrls = [[NSMutableArray alloc] init];
@@ -205,36 +193,21 @@
     return self.documentUrls.count;    
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    CGFloat height = 0;
+    NSString *title = nil;
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    // Number of rows determines if singular or plural form used in copy
+    if ([self tableView:tableView numberOfRowsInSection:section] == 1)
     {
-        height = 125;
+        title = @"Ready to stream this file to your Xbox 360 or Playstation 3 followed by some other explanation text";
     }
     else
     {
-        height = 100;
+        title = @"Ready to stream these files to your Xbox 360 or Playstation 3 followed by some other explanation text";
     }
-    
-    return height;    
-}
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIView *sectionHeaderView = nil;
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        sectionHeaderView = self.sectionHeaderViewiPad;
-    }
-    else
-    {
-        sectionHeaderView = self.sectionHeaderViewiPhone;
-    }
-    
-    return sectionHeaderView;
+    return title;
 }
 
 - (UITableViewCell *)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -286,6 +259,48 @@
     {
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
+}
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    
+//}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    CGFloat height = 0;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        height = 125;
+    }
+    else
+    {
+        height = 100;
+    }
+    
+    return height;    
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *sectionHeaderView = nil;
+    
+    // Gets the instructions copy
+    NSString *sectionTitle = [self tableView:tableView titleForHeaderInSection:section];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        sectionHeaderView = self.sectionHeaderViewiPad;
+        self.sectionHeaderLabeliPad.text = sectionTitle;
+    }
+    else
+    {
+        sectionHeaderView = self.sectionHeaderViewiPhone;
+        self.sectionHeaderLabeliPhone.text = sectionTitle;
+    }
+    
+    return sectionHeaderView;
 }
 
 @end
