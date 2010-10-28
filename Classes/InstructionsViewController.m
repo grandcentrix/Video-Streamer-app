@@ -16,7 +16,8 @@
 @synthesize docInteractionController = docInteractionController_;
 @synthesize addFromiTunesView = addFromiTunesView_;
 @synthesize tableView = tableView_;
-@synthesize sectionHeaderView = sectionHeaderView_;
+@synthesize sectionHeaderViewiPhone = sectionHeaderViewiPhone_;
+@synthesize sectionHeaderViewiPad = sectionHeaderViewiPad_;
 
 
 #pragma mark -
@@ -29,7 +30,8 @@
     [docInteractionController_ release];
     [addFromiTunesView_ release];
     [tableView_ release];
-    [sectionHeaderView_ release];
+    [sectionHeaderViewiPad_ release];
+    [sectionHeaderViewiPhone_ release];
 
     [super dealloc];
 }
@@ -132,6 +134,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Sets appropriate background based on device type
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-iPad.png"]];
+        self.view.backgroundColor = background;
+        [background release];
+    }
+    else
+    {
+        UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-iPhone.png"]];
+        self.view.backgroundColor = background;
+        [background release];        
+    }
     //self.tableView.backgroundColor = [UIColor clearColor];
     
 //    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background-iPad.png"]];    
@@ -189,10 +205,36 @@
     return self.documentUrls.count;    
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    CGFloat height = 0;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        height = 125;
+    }
+    else
+    {
+        height = 100;
+    }
+    
+    return height;    
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{    
-    return self.sectionHeaderView;
-   
+{
+    UIView *sectionHeaderView = nil;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        sectionHeaderView = self.sectionHeaderViewiPad;
+    }
+    else
+    {
+        sectionHeaderView = self.sectionHeaderViewiPhone;
+    }
+    
+    return sectionHeaderView;
 }
 
 - (UITableViewCell *)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

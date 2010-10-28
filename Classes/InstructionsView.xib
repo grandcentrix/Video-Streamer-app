@@ -12,8 +12,8 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="92"/>
 			<integer value="87"/>
-			<integer value="75"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -43,23 +43,12 @@
 				<int key="NSvFlags">258</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="IBUIImageView" id="447757016">
-						<reference key="NSNextResponder" ref="872683713"/>
-						<int key="NSvFlags">274</int>
-						<string key="NSFrameSize">{768, 1004}</string>
-						<reference key="NSSuperview" ref="872683713"/>
-						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-						<object class="NSCustomResource" key="IBUIImage">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">background-iPad.png</string>
-						</object>
-					</object>
 					<object class="IBUITableView" id="1073673512">
 						<reference key="NSNextResponder" ref="872683713"/>
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{768, 1004}</string>
 						<reference key="NSSuperview" ref="872683713"/>
+						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="764281518">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MCAwAA</bytes>
@@ -77,6 +66,7 @@
 				</object>
 				<string key="NSFrameSize">{768, 1004}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MSAwIDAAA</bytes>
@@ -98,7 +88,7 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">sectionHeader.png</string>
+							<string key="NSResourceName">sectionHeader-iPad.png</string>
 						</object>
 					</object>
 					<object class="IBUILabel" id="346747456">
@@ -130,6 +120,52 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{768, 125}</string>
+				<reference key="NSSuperview"/>
+				<reference key="IBUIBackgroundColor" ref="764281518"/>
+				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+			</object>
+			<object class="IBUIView" id="170531932">
+				<reference key="NSNextResponder"/>
+				<int key="NSvFlags">290</int>
+				<object class="NSMutableArray" key="NSSubviews">
+					<bool key="EncodedWithXMLCoder">YES</bool>
+					<object class="IBUIImageView" id="5164851">
+						<reference key="NSNextResponder" ref="170531932"/>
+						<int key="NSvFlags">256</int>
+						<string key="NSFrameSize">{320, 100}</string>
+						<reference key="NSSuperview" ref="170531932"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<int key="IBUIContentMode">4</int>
+						<bool key="IBUIMultipleTouchEnabled">YES</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">sectionHeader-iPhone.png</string>
+						</object>
+					</object>
+					<object class="IBUILabel" id="267313042">
+						<reference key="NSNextResponder" ref="170531932"/>
+						<int key="NSvFlags">290</int>
+						<string key="NSFrame">{{20, 20}, {280, 63}}</string>
+						<reference key="NSSuperview" ref="170531932"/>
+						<reference key="IBUIBackgroundColor" ref="764281518"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<int key="IBUIContentMode">5</int>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<string key="IBUIText">Ready to stream these files to your Xbox 360 or Playstation 3 followed by some other explanation text</string>
+						<reference key="IBUITextColor" ref="132096669"/>
+						<reference key="IBUIHighlightedColor" ref="132096669"/>
+						<int key="IBUIBaselineAdjustment">1</int>
+						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+						<float key="IBUIMinimumFontSize">10</float>
+						<int key="IBUINumberOfLines">0</int>
+						<int key="IBUITextAlignment">1</int>
+					</object>
+				</object>
+				<string key="NSFrameSize">{320, 100}</string>
 				<reference key="NSSuperview"/>
 				<reference key="IBUIBackgroundColor" ref="764281518"/>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -172,11 +208,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">sectionHeaderView</string>
+						<string key="label">sectionHeaderViewiPad</string>
 						<reference key="source" ref="841351856"/>
 						<reference key="destination" ref="614599362"/>
 					</object>
-					<int key="connectionID">90</int>
+					<int key="connectionID">95</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">sectionHeaderViewiPhone</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="170531932"/>
+					</object>
+					<int key="connectionID">96</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -204,16 +248,10 @@
 						<reference key="object" ref="872683713"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="447757016"/>
 							<reference ref="1073673512"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Main View</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">80</int>
-						<reference key="object" ref="447757016"/>
-						<reference key="parent" ref="872683713"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">87</int>
@@ -224,7 +262,7 @@
 							<reference ref="346747456"/>
 						</object>
 						<reference key="parent" ref="0"/>
-						<string key="objectName">Section Header</string>
+						<string key="objectName">Section Header iPad</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">85</int>
@@ -243,6 +281,27 @@
 						<reference key="parent" ref="872683713"/>
 						<string key="objectName">Files View</string>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">92</int>
+						<reference key="object" ref="170531932"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="5164851"/>
+							<reference ref="267313042"/>
+						</object>
+						<reference key="parent" ref="0"/>
+						<string key="objectName">Section Header iPhone</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">94</int>
+						<reference key="object" ref="267313042"/>
+						<reference key="parent" ref="170531932"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">97</int>
+						<reference key="object" ref="5164851"/>
+						<reference key="parent" ref="170531932"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -255,12 +314,16 @@
 					<string>75.IBPluginDependency</string>
 					<string>78.IBPluginDependency</string>
 					<string>78.IBViewBoundsToFrameTransform</string>
-					<string>80.IBPluginDependency</string>
 					<string>85.IBPluginDependency</string>
 					<string>85.IBViewBoundsToFrameTransform</string>
 					<string>87.IBEditorWindowLastContentRect</string>
 					<string>87.IBPluginDependency</string>
 					<string>89.IBPluginDependency</string>
+					<string>92.IBEditorWindowLastContentRect</string>
+					<string>92.IBPluginDependency</string>
+					<string>94.IBPluginDependency</string>
+					<string>94.IBViewBoundsToFrameTransform</string>
+					<string>97.IBViewBoundsToFrameTransform</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -271,13 +334,19 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">P4AAAL+AAAAAAAAAxA/AAA</bytes>
 					</object>
 					<string>{{621, 881}, {768, 125}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>{{901, 650}, {320, 100}}</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<object class="NSAffineTransform">
+						<bytes key="NSTransformStruct">P4AAAL+AAABBoAAAwpAAAA</bytes>
+					</object>
+					<object class="NSAffineTransform"/>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -296,7 +365,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">90</int>
+			<int key="maxID">97</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -309,11 +378,13 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addFromiTunesView</string>
-							<string>sectionHeaderView</string>
+							<string>sectionHeaderViewiPad</string>
+							<string>sectionHeaderViewiPhone</string>
 							<string>tableView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UIView</string>
 							<string>UIView</string>
 							<string>UIView</string>
 							<string>UITableView</string>
@@ -324,7 +395,8 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addFromiTunesView</string>
-							<string>sectionHeaderView</string>
+							<string>sectionHeaderViewiPad</string>
+							<string>sectionHeaderViewiPhone</string>
 							<string>tableView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -334,7 +406,11 @@
 								<string key="candidateClassName">UIView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">sectionHeaderView</string>
+								<string key="name">sectionHeaderViewiPad</string>
+								<string key="candidateClassName">UIView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">sectionHeaderViewiPhone</string>
 								<string key="candidateClassName">UIView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
@@ -565,13 +641,13 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>background-iPad.png</string>
-				<string>sectionHeader.png</string>
+				<string>sectionHeader-iPad.png</string>
+				<string>sectionHeader-iPhone.png</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{768, 1024}</string>
 				<string>{768, 125}</string>
+				<string>{320, 100}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">123</string>
