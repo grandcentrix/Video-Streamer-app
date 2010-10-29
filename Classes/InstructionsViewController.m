@@ -16,10 +16,8 @@
 @synthesize docInteractionController = docInteractionController_;
 @synthesize addFromiTunesView = addFromiTunesView_;
 @synthesize tableView = tableView_;
-@synthesize sectionHeaderViewiPad = sectionHeaderViewiPad_;
-@synthesize sectionHeaderViewiPhone = sectionHeaderViewiPhone_;
-@synthesize sectionHeaderLabeliPad = sectionHeaderLabeliPad_;
-@synthesize sectionHeaderLabeliPhone = sectionHeaderLabeliPhone_;
+@synthesize sectionHeaderView = sectionHeaderView_;
+@synthesize sectionHeaderLabel = sectionHeaderLabel_;
 
 
 #pragma mark -
@@ -32,10 +30,8 @@
     [docInteractionController_ release];
     [addFromiTunesView_ release];
     [tableView_ release];
-    [sectionHeaderViewiPad_ release];
-    [sectionHeaderViewiPhone_ release];
-    [sectionHeaderLabeliPad_ release];
-    [sectionHeaderViewiPhone_ release];
+    [sectionHeaderView_ release];
+    [sectionHeaderLabel_ release];
 
     [super dealloc];
 }
@@ -261,46 +257,11 @@
     }
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    
-//}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    CGFloat height = 0;
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        height = 125;
-    }
-    else
-    {
-        height = 100;
-    }
-    
-    return height;    
-}
-
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *sectionHeaderView = nil;
+    self.sectionHeaderLabel.text = [self tableView:tableView titleForHeaderInSection:section];
     
-    // Gets the instructions copy
-    NSString *sectionTitle = [self tableView:tableView titleForHeaderInSection:section];
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        sectionHeaderView = self.sectionHeaderViewiPad;
-        self.sectionHeaderLabeliPad.text = sectionTitle;
-    }
-    else
-    {
-        sectionHeaderView = self.sectionHeaderViewiPhone;
-        self.sectionHeaderLabeliPhone.text = sectionTitle;
-    }
-    
-    return sectionHeaderView;
+    return self.sectionHeaderView;
 }
 
 @end
