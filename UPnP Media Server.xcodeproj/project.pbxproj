@@ -15,9 +15,7 @@
 		2860E32F111B888700E27156 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2860E32D111B888700E27156 /* MainWindow-iPad.xib */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		45117EF8127238B2002B821F /* libPlatinum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45117EDE1272381B002B821F /* libPlatinum.a */; };
-		4559C91F127A753F001B1D4D /* InstructionsViewController-iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 4559C91D127A753F001B1D4D /* InstructionsViewController-iPad.m */; };
 		4559C920127A753F001B1D4D /* InstructionsView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4559C91E127A753F001B1D4D /* InstructionsView-iPad.xib */; };
-		4559C939127A788A001B1D4D /* InstructionsViewController-iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 4559C937127A788A001B1D4D /* InstructionsViewController-iPhone.m */; };
 		4559C93A127A788A001B1D4D /* InstructionsView-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4559C938127A788A001B1D4D /* InstructionsView-iPhone.xib */; };
 		455CE3C512792D460025ED87 /* background-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 455CE3C012792D460025ED87 /* background-iPhone.png */; };
 		455CE3C612792D460025ED87 /* background-iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 455CE3C112792D460025ED87 /* background-iPhone@2x.png */; };
@@ -27,7 +25,6 @@
 		45A5E805127242480061B207 /* UpnpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A5E804127242480061B207 /* UpnpServer.m */; };
 		45FBDF861274A93200FBCA62 /* background-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 45FBDF851274A93200FBCA62 /* background-iPad.png */; };
 		45FBDF8B1274AA4900FBCA62 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FBDF891274AA4900FBCA62 /* InstructionsViewController.m */; };
-		45FBDF8C1274AA4900FBCA62 /* InstructionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FBDF8A1274AA4900FBCA62 /* InstructionsView.xib */; };
 		45FBE09B1274D9FA00FBCA62 /* DirectoryWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FBE09A1274D9FA00FBCA62 /* DirectoryWatcher.m */; };
 /* End PBXBuildFile section */
 
@@ -137,11 +134,7 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* UPnP_Media_Server_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPnP_Media_Server_Prefix.pch; sourceTree = "<group>"; };
 		45117EA21272381B002B821F /* Platinum.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Platinum.xcodeproj; path = "Platinum/Platinum/Build/Targets/universal-apple-macosx/Platinum.xcodeproj"; sourceTree = SOURCE_ROOT; };
-		4559C91C127A753F001B1D4D /* InstructionsViewController-iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "InstructionsViewController-iPad.h"; path = "Classes/InstructionsViewController-iPad.h"; sourceTree = "<group>"; };
-		4559C91D127A753F001B1D4D /* InstructionsViewController-iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "InstructionsViewController-iPad.m"; path = "Classes/InstructionsViewController-iPad.m"; sourceTree = "<group>"; };
 		4559C91E127A753F001B1D4D /* InstructionsView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "InstructionsView-iPad.xib"; path = "Classes/InstructionsView-iPad.xib"; sourceTree = "<group>"; };
-		4559C936127A788A001B1D4D /* InstructionsViewController-iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "InstructionsViewController-iPhone.h"; path = "Classes/InstructionsViewController-iPhone.h"; sourceTree = "<group>"; };
-		4559C937127A788A001B1D4D /* InstructionsViewController-iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "InstructionsViewController-iPhone.m"; path = "Classes/InstructionsViewController-iPhone.m"; sourceTree = "<group>"; };
 		4559C938127A788A001B1D4D /* InstructionsView-iPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "InstructionsView-iPhone.xib"; path = "Classes/InstructionsView-iPhone.xib"; sourceTree = "<group>"; };
 		455CE3C012792D460025ED87 /* background-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-iPhone.png"; path = "Images/background-iPhone.png"; sourceTree = "<group>"; };
 		455CE3C112792D460025ED87 /* background-iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-iPhone@2x.png"; path = "Images/background-iPhone@2x.png"; sourceTree = "<group>"; };
@@ -153,7 +146,6 @@
 		45FBDF851274A93200FBCA62 /* background-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-iPad.png"; path = "Images/background-iPad.png"; sourceTree = "<group>"; };
 		45FBDF881274AA4900FBCA62 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionsViewController.h; path = Classes/InstructionsViewController.h; sourceTree = "<group>"; };
 		45FBDF891274AA4900FBCA62 /* InstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstructionsViewController.m; path = Classes/InstructionsViewController.m; sourceTree = "<group>"; };
-		45FBDF8A1274AA4900FBCA62 /* InstructionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = InstructionsView.xib; path = Classes/InstructionsView.xib; sourceTree = "<group>"; };
 		45FBE0991274D9FA00FBCA62 /* DirectoryWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryWatcher.h; sourceTree = "<group>"; };
 		45FBE09A1274D9FA00FBCA62 /* DirectoryWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectoryWatcher.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* UPnP_Media_Server-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "UPnP_Media_Server-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -271,7 +263,6 @@
 		45FBDF801274A52400FBCA62 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				45FBDF8A1274AA4900FBCA62 /* InstructionsView.xib */,
 				4559C91E127A753F001B1D4D /* InstructionsView-iPad.xib */,
 				4559C938127A788A001B1D4D /* InstructionsView-iPhone.xib */,
 			);
@@ -296,10 +287,6 @@
 			children = (
 				45FBDF881274AA4900FBCA62 /* InstructionsViewController.h */,
 				45FBDF891274AA4900FBCA62 /* InstructionsViewController.m */,
-				4559C91C127A753F001B1D4D /* InstructionsViewController-iPad.h */,
-				4559C91D127A753F001B1D4D /* InstructionsViewController-iPad.m */,
-				4559C936127A788A001B1D4D /* InstructionsViewController-iPhone.h */,
-				4559C937127A788A001B1D4D /* InstructionsViewController-iPhone.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -450,7 +437,6 @@
 				2860E329111B887F00E27156 /* MainWindow-iPhone.xib in Resources */,
 				2860E32F111B888700E27156 /* MainWindow-iPad.xib in Resources */,
 				45FBDF861274A93200FBCA62 /* background-iPad.png in Resources */,
-				45FBDF8C1274AA4900FBCA62 /* InstructionsView.xib in Resources */,
 				455CE3C512792D460025ED87 /* background-iPhone.png in Resources */,
 				455CE3C612792D460025ED87 /* background-iPhone@2x.png in Resources */,
 				455CE3C712792D460025ED87 /* sectionHeader-iPad.png in Resources */,
@@ -473,8 +459,6 @@
 				45A5E805127242480061B207 /* UpnpServer.m in Sources */,
 				45FBDF8B1274AA4900FBCA62 /* InstructionsViewController.m in Sources */,
 				45FBE09B1274D9FA00FBCA62 /* DirectoryWatcher.m in Sources */,
-				4559C91F127A753F001B1D4D /* InstructionsViewController-iPad.m in Sources */,
-				4559C939127A788A001B1D4D /* InstructionsViewController-iPhone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
