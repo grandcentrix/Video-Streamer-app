@@ -25,15 +25,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Do not sleep
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
+    
+    // Load the view
+    [self.window addSubview:self.viewController.view];
+    [self.window makeKeyAndVisible];
+    
+    // Start the UPnP server
     UpnpServer *upnpServer = [[UpnpServer alloc] init];
     self.upnpServer = upnpServer;
     [upnpServer release];
     
     [self.upnpServer start];
-    
-    [self.window addSubview:self.viewController.view];
-    [self.window makeKeyAndVisible];
-    
+
     return YES;
 }
 
