@@ -13,6 +13,21 @@
     {
         // Set up Neptune logging
         NPT_LogManager::GetDefault().Configure("plist:.level=FINE;.handlers=ConsoleHandler;.ConsoleHandler.colors=off;.ConsoleHandler.filter=63");
+        
+        upnp = new PLT_UPnP();
+        
+        // Set up device
+        NSString *serverName = [UIDevice currentDevice].name;
+        connect = new PLT_MediaConnect([serverName UTF8String]);
+        connect->SetByeByeFirst(false);
+        
+        NSLog(@"FILEPATH:%@", [UpnpServer filePath]);
+        delegate = new PLT_FileMediaConnectDelegate("/", [[UpnpServer filePath] UTF8String]);
+        connect->SetDelegate((PLT_MediaServerDelegate *)delegate.AsPointer());
+        
+        // Set up UPnP server
+        PLT_DeviceHostReference device(connect);
+        upnp->AddDevice(device);
     }
     
     return self;    
@@ -20,7 +35,7 @@
 
 - (void)dealloc
 {
-    upnp.Stop();
+    delete upnp;
 
     [super dealloc];
 }
@@ -40,24 +55,12 @@
 
 - (void)start
 {
-    // Set up device
-    NSString *serverName = [UIDevice currentDevice].name;
-    connect = new PLT_MediaConnect([serverName UTF8String]);
-    connect->SetByeByeFirst(false);
-
-    NSLog(@"FILEPATH:%@", [UpnpServer filePath]);
-    delegate = new PLT_FileMediaConnectDelegate("/", [[UpnpServer filePath] UTF8String]);
-    connect->SetDelegate((PLT_MediaServerDelegate*)delegate.AsPointer());
-
-    // Set up UPnP server
-    PLT_DeviceHostReference device(connect);
-    upnp.AddDevice(device);
-    upnp.Start();
+    upnp->Start();
 }
 
 - (void)stop
 {
-    upnp.Stop();
+    upnp->Stop();
 }
 
 @end
