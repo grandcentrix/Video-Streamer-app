@@ -104,7 +104,7 @@ PLT_MediaServer::SetupServices()
         NPT_CHECK_FATAL(service->SetSCPDXML((const char*) MS_ContentDirectorywSearchSCPD));
         NPT_CHECK_FATAL(AddService(service));
         
-        service->SetStateVariable("ContainerUpdateIDs", "0");
+        service->SetStateVariable("ContainerUpdateIDs", "");
         service->SetStateVariableRate("ContainerUpdateIDs", NPT_TimeInterval(2.));
         service->SetStateVariable("SystemUpdateID", "0");
         service->SetStateVariableRate("SystemUpdateID", NPT_TimeInterval(2.));
@@ -405,7 +405,7 @@ PLT_MediaServer::OnBrowse(PLT_ActionReference&          action,
         return NPT_FAILURE;
     }
     
-    /* parse sort criteria */
+    /* parse sort criteria for validation */
     if (NPT_FAILED(ParseSort(sort, sort_list))) {
         NPT_LOG_WARNING_1("Unsupported or invalid sort criteria error (%s)", 
             sort.GetChars());
@@ -429,7 +429,7 @@ PLT_MediaServer::OnBrowse(PLT_ActionReference&          action,
             filter, 
             starting_index, 
             requested_count, 
-            sort_list, 
+            sort, 
             context);
     } else {
         res = OnBrowseDirectChildren(
@@ -438,7 +438,7 @@ PLT_MediaServer::OnBrowse(PLT_ActionReference&          action,
             filter, 
             starting_index, 
             requested_count, 
-            sort_list, 
+            sort, 
             context);
     }
 
@@ -510,7 +510,7 @@ PLT_MediaServer::OnSearch(PLT_ActionReference&          action,
 			filter,
             starting_index, 
             requested_count, 
-            sort_list, 
+            sort, 
             context);
     } else {
         res = OnSearchContainer(
@@ -520,7 +520,7 @@ PLT_MediaServer::OnSearch(PLT_ActionReference&          action,
 			filter,
             starting_index, 
             requested_count, 
-            sort_list,
+            sort,
             context);
     }
 
@@ -540,7 +540,7 @@ PLT_MediaServer::OnBrowseMetadata(PLT_ActionReference&          action,
                                   const char*                   filter,
                                   NPT_UInt32                    starting_index,
                                   NPT_UInt32                    requested_count,
-                                  const NPT_List<NPT_String>&   sort_criteria,
+                                  const char*                   sort_criteria,
                                   const PLT_HttpRequestContext& context)
 { 
     if (m_Delegate) {
@@ -564,7 +564,7 @@ PLT_MediaServer::OnBrowseDirectChildren(PLT_ActionReference&          action,
                                         const char*                   filter,
                                         NPT_UInt32                    starting_index,
                                         NPT_UInt32                    requested_count,
-                                        const NPT_List<NPT_String>&   sort_criteria,
+                                        const char*                   sort_criteria,
                                         const PLT_HttpRequestContext& context) 
 { 
     if (m_Delegate) {
@@ -589,7 +589,7 @@ PLT_MediaServer::OnSearchContainer(PLT_ActionReference&          action,
 								   const char*                   filter,
                                    NPT_UInt32                    starting_index,
                                    NPT_UInt32                    requested_count,
-                                   const NPT_List<NPT_String>&   sort_criteria,
+                                   const char*                   sort_criteria,
                                    const PLT_HttpRequestContext& context)
 {
     if (m_Delegate) {

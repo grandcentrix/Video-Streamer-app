@@ -257,8 +257,8 @@ PLT_MediaController::FindBestResource(PLT_DeviceDataReference& device,
 +---------------------------------------------------------------------*/
 NPT_Result 
 PLT_MediaController::InvokeActionWithInstance(PLT_ActionReference& action,
-                                           NPT_UInt32           instance_id,
-                                           void*                userdata)
+                                              NPT_UInt32           instance_id,
+                                              void*                userdata)
 {
     // Set the object id
     NPT_CHECK_SEVERE(action->SetArgumentValue(
@@ -1289,71 +1289,11 @@ PLT_MediaController::OnEventNotify(PLT_Service*                  service,
         return NPT_FAILURE;
 
     if (!m_Delegate) return NPT_SUCCESS;
+
+    /* make sure device associated to service is still around */
+    PLT_DeviceDataReference data;
+    NPT_CHECK_WARNING(FindRenderer(service->GetDevice()->GetUUID(), data));
     
-    // parse LastChange var into smaller vars
-    PLT_StateVariable* lastChangeVar = NULL;
-    if (NPT_SUCCEEDED(NPT_ContainerFind(*vars, 
-                                        PLT_StateVariableNameFinder("LastChange"), 
-                                        lastChangeVar))) {
-        vars->Remove(lastChangeVar);
-        PLT_Service* var_service = lastChangeVar->GetService();
-        NPT_String text = lastChangeVar->GetValue();
-        
-        NPT_XmlNode* xml = NULL;
-        NPT_XmlParser parser;
-        if (NPT_FAILED(parser.Parse(text, xml)) || !xml || !xml->AsElementNode()) {
-            delete xml;
-            return NPT_FAILURE;
-        }
-
-        NPT_XmlElementNode* node = xml->AsElementNode();
-        if (!node->GetTag().Compare("Event", true)) {
-            // look for the instance with attribute id = 0
-            NPT_XmlElementNode* instance = NULL;
-            for (NPT_Cardinal i=0; i<node->GetChildren().GetItemCount(); i++) {
-                NPT_XmlElementNode* child;
-                if (NPT_FAILED(PLT_XmlHelper::GetChild(node, child, i)))
-                    continue;
-
-                if (!child->GetTag().Compare("InstanceID", true)) {
-                    // extract the "val" attribute value
-                    NPT_String value;
-                    if (NPT_SUCCEEDED(PLT_XmlHelper::GetAttribute(child, "val", value)) &&
-                        !value.Compare("0")) {
-                        instance = child;
-                        break;
-                    }
-                }
-            }
-
-            // did we find an instance with id = 0 ?
-            if (instance != NULL) {
-                // all the children of the Instance node are state variables
-                for (NPT_Cardinal j=0; j<instance->GetChildren().GetItemCount(); j++) {
-                    NPT_XmlElementNode* var_node;
-                    if (NPT_FAILED(PLT_XmlHelper::GetChild(instance, var_node, j)))
-                        continue;
-
-                    // look for the state variable in this service
-                    const NPT_String* value = var_node->GetAttribute("val");
-                    PLT_StateVariable* var = var_service->FindStateVariable(var_node->GetTag());
-                    if (value != NULL && var != NULL) {
-                        // get the value and set the state variable
-                        // if it succeeded, add it to the list of vars we'll event
-                        if (NPT_SUCCEEDED(var->SetValue(*value))) {
-                            vars->Add(var);
-                            NPT_LOG_FINE_2("PLT_MediaController received var change for (%s): %s", (const char*)var->GetName(), (const char*)var->GetValue());
-                        }
-                    }
-                }
-            }
-        }
-        delete xml;
-    }
-
-    if (vars->GetItemCount()) {
-        m_Delegate->OnMRStateVariablesChanged(service, vars);
-    }
-    
+    m_Delegate->OnMRStateVariablesChanged(service, vars);
     return NPT_SUCCESS;
 }

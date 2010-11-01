@@ -71,7 +71,7 @@ PLT_DeviceHost::PLT_DeviceHost(const char*  description_path /* = "/" */,
     m_Broadcast(false),
     m_Port(port),
     m_PortRebind(port_rebind),
-    m_ByeByeFirst(true)
+    m_ByeByeFirst(false)
 {
     if (show_ip) {
         NPT_List<NPT_IpAddress> ips;
@@ -216,7 +216,7 @@ PLT_DeviceHost::Start(PLT_SsdpListenTask* task)
     NPT_TimeInterval delay(((NPT_Int64)NPT_System::GetRandomInteger()%100)*1000000);
 
     // calculate when we should send another announcement
-    NPT_Size leaseTime = (NPT_Size)(float)GetLeaseTime();
+    NPT_Size leaseTime = (NPT_Size)GetLeaseTime().ToSeconds();
     NPT_TimeInterval repeat;
     repeat.SetSeconds(leaseTime?(int)((leaseTime >> 1) - ((unsigned short)NPT_System::GetRandomInteger() % (leaseTime >> 2))):30);
     
@@ -307,7 +307,9 @@ PLT_DeviceHost::Announce(PLT_DeviceData*  device,
             true, 
             &addr);
     }
-    NPT_System::Sleep(NPT_TimeInterval(PLT_DLNA_SSDP_DELAY));
+    
+    // on byebye, don't sleep otherwise it hangs when we stop upnp
+    if (!byebye) NPT_System::Sleep(NPT_TimeInterval(PLT_DLNA_SSDP_DELAY));
 
     // uuid:device-UUID
     PLT_SsdpSender::SendSsdp(req,
@@ -316,7 +318,9 @@ PLT_DeviceHost::Announce(PLT_DeviceData*  device,
         socket, 
         true, 
         &addr);
-    NPT_System::Sleep(NPT_TimeInterval(PLT_DLNA_SSDP_DELAY));
+
+    // on byebye, don't sleep otherwise it hangs when we stop upnp
+    if (!byebye) NPT_System::Sleep(NPT_TimeInterval(PLT_DLNA_SSDP_DELAY));
 
     // uuid:device-UUID::urn:schemas-upnp-org:device:deviceType:ver
     PLT_SsdpSender::SendSsdp(req,
@@ -325,7 +329,9 @@ PLT_DeviceHost::Announce(PLT_DeviceData*  device,
         socket,
         true,
         &addr);
-    NPT_System::Sleep(NPT_TimeInterval(PLT_DLNA_SSDP_DELAY));
+    
+    // on byebye, don't sleep otherwise it hangs when we stop upnp
+    if (!byebye) NPT_System::Sleep(NPT_TimeInterval(PLT_DLNA_SSDP_DELAY));
 
     // services
     for (int i=0; i < (int)device->m_Services.GetItemCount(); i++) {
@@ -336,7 +342,9 @@ PLT_DeviceHost::Announce(PLT_DeviceData*  device,
             socket,
             true, 
             &addr); 
-        NPT_System::Sleep(NPT_TimeInterval(PLT_DLNA_SSDP_DELAY));       
+        
+        // on byebye, don't sleep otherwise it hangs when we stop upnp
+        if (!byebye) NPT_System::Sleep(NPT_TimeInterval(PLT_DLNA_SSDP_DELAY));       
     }
 
     // embedded devices
@@ -460,7 +468,7 @@ PLT_DeviceHost::ProcessHttpPostRequest(NPT_HttpRequest&              request,
     char soap_action_name[100];
     int  ret;
     //FIXME: no sscanf
-    ret = sscanf(soap_action_header, "%[^#]#%s",
+    ret = sscanf(soap_action_header, "%199[^#]#%99s",
                  prefix, 
                  soap_action_name);
     if (ret != 2)
@@ -542,7 +550,6 @@ PLT_DeviceHost::ProcessHttpPostRequest(NPT_HttpRequest&              request,
         action->SetError(402, "Invalid or Missing Args");
         goto error;
     }
-    
     
     NPT_LOG_INFO_2("Processing action \"%s\" from %s", 
                    (const char*)action->GetActionDesc().GetName(), 
@@ -721,7 +728,7 @@ PLT_DeviceHost::OnSsdpPacket(const NPT_HttpRequest&        request,
             return NPT_FAILURE;
 
         NPT_UInt32 mx;
-        if (NPT_FAILED(PLT_UPnPMessageHelper::GetMX(request, mx))) mx=10;
+        NPT_CHECK_SEVERE(PLT_UPnPMessageHelper::GetMX(request, mx));
 
         // create a task to respond to the request
         NPT_TimeInterval timer((mx==0)?0.:(double)(NPT_System::GetRandomInteger()%(mx>10?10:mx)));

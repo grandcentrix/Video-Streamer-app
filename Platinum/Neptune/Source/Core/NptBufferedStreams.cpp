@@ -236,6 +236,9 @@ done:
             return NPT_SUCCESS;
         }
     }
+    if (result == NPT_ERROR_CANCELLED) {
+        return result;
+    }
     return result;
 }
 

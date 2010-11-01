@@ -3,7 +3,7 @@
 
 XCode Build Script
 
-$Id: XCodeMake.py 620 2010-07-22 07:53:37Z soothe $
+$Id: XCodeMake.py 655 2010-09-29 22:40:22Z soothe $
 
 """
 

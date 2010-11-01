@@ -1,3 +1,22 @@
+Platinum 0.6.1
+--------------
+fixed: potential vulnerability when receiving SSDP messages or SOAP requests
+added: now compiles for Android NDK
+added: PLT_UPnP::IsRunning method
+changed: moved LastChange variable parsing into controlpoint
+changed: pass sort criteria entire string to delegate instead of parsed split list
+added: Cocoa layer for Mac
+added: Managed C++ layer for .Net
+added: new Managed MediaServer Test
+changed: improved MimeType and ProtocolInfo support
+changed: being more strict on MX to pass UPnP certification
+fixed: dc:title is required
+added: serialization and parsing of upnp:searchClass and upnp:objectClass name attribute
+changed: searchable attribute is false by default
+changed: Can now pass uuid to Managed MediaServer
+changed: Can change lease time from Managed MediaServer
+changed: Don't adverstise bye-bye SSDP messages by default on startup anymore to pass DLNA compliance
+
 Platinum 0.6.0
 --------------
 added: Documentation Platinum-HTML.zip in Platinum/Docs/Doxygen subfolder

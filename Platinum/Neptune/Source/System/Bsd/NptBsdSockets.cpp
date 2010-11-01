@@ -1354,8 +1354,8 @@ NPT_BsdUdpSocket::Connect(const NPT_SocketAddress& address,
     SocketAddressToInetAddress(address, &inet_address);
 
     // connect so that we can have some addr bound to the socket
-    NPT_LOG_FINE_2("connecting to %lx, port %d", 
-                   address.GetIpAddress().AsLong(), 
+    NPT_LOG_FINER_2("connecting to %s, port %d", 
+                   address.GetIpAddress().ToString().GetChars(), 
                    address.GetPort());
     int io_result = connect(m_SocketFdReference->m_SocketFd, 
                             (struct sockaddr *)&inet_address, 
@@ -1810,8 +1810,8 @@ NPT_BsdTcpClientSocket::Connect(const NPT_SocketAddress& address,
     SocketAddressToInetAddress(address, &inet_address);
 
     // initiate connection
-    NPT_LOG_FINE_2("connecting to %lx port %d", 
-                   address.GetIpAddress().AsLong(),
+    NPT_LOG_FINER_2("connecting to %s port %d", 
+                   address.GetIpAddress().ToString().GetChars(),
                    address.GetPort());
     int io_result;
     io_result = connect(m_SocketFdReference->m_SocketFd, 

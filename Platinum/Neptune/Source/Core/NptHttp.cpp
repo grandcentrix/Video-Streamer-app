@@ -846,12 +846,14 @@ NPT_HttpTcpConnector::Connect(const char*                hostname,
     
 #if defined(NPT_CONFIG_ENABLE_TLS)
     if (secure) {
-        NPT_TlsContextReference context(new NPT_TlsContext());
-        NPT_TlsClientSession session(context, input_stream, output_stream);
-        NPT_CHECK(session.Handshake());
+        NPT_TlsContextReference context(new NPT_TlsContext(NPT_TLS_CONTEXT_OPTION_VERIFY_LATER));
+        NPT_CHECK(context->AddTrustAnchors(NptTlsDefaultTrustAnchors));
         
-        NPT_CHECK(session.GetInputStream(input_stream));
-        NPT_CHECK(session.GetOutputStream(output_stream));
+        m_Session = new NPT_TlsClientSession(context, input_stream, output_stream);
+        NPT_CHECK(m_Session->Handshake());
+        
+        NPT_CHECK(m_Session->GetInputStream(input_stream));
+        NPT_CHECK(m_Session->GetOutputStream(output_stream));
     }
 #endif
     

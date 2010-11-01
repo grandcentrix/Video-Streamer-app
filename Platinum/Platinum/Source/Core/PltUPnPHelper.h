@@ -67,6 +67,34 @@ private:
 };
 
 /*----------------------------------------------------------------------
+|   NPT_IpAddressFinder
++---------------------------------------------------------------------*/
+/**
+ The NPT_IpAddressFinder class is used to determine if a IP Address is found 
+ as part of a list of IP Addresses.
+ */
+class NPT_IpAddressFinder
+{
+public:
+    // methods
+    NPT_IpAddressFinder(NPT_IpAddress ip) : 
+        m_Value(ip) {}
+    virtual ~NPT_IpAddressFinder() {}
+
+    bool operator()(const NPT_IpAddress* const & value) const {
+        return *value == m_Value;
+    }
+    bool operator()(const NPT_IpAddress& value) const {
+        return value == m_Value;
+    }
+
+private:
+    // members
+    NPT_IpAddress m_Value;
+};
+
+
+/*----------------------------------------------------------------------
 |   PLT_UPnPMessageHelper class
 +---------------------------------------------------------------------*/
 /**
@@ -202,7 +230,7 @@ public:
         const NPT_String* mx = 
             message.GetHeaders().GetHeaderValue("MX");
         NPT_CHECK_POINTER(mx);
-        return NPT_ParseInteger32(*mx, value);
+        return NPT_ParseInteger32(*mx, value, false); // no relax to be UPnP compliant
     }
     static NPT_Result SetMX(NPT_HttpMessage& message, 
                             const NPT_UInt32 mx) {
@@ -285,7 +313,7 @@ public:
             ++iface;
         }
 
-        if (ips.GetItemCount() == 0 || with_localhost) {
+        if (with_localhost && !ips.Find(NPT_IpAddressFinder(NPT_IpAddress(127, 0, 0, 1)))) {
             NPT_IpAddress localhost;
             localhost.Parse("127.0.0.1");
             ips.Add(localhost);
@@ -356,6 +384,7 @@ private:
             
             NPT_String ip = 
                 iface->GetAddresses().GetFirstItem()->GetPrimaryAddress().ToString();
+
             if (ip.Compare("0.0.0.0") && 
                 ((!only_localhost && ip.Compare("127.0.0.1")) || (only_localhost && !ip.Compare("127.0.0.1")))) {
                 if_list.Add(iface);

@@ -80,6 +80,10 @@
 		E40C69E711E6F0D90024CAD4 /* PltDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = E40C69E311E6F0D90024CAD4 /* PltDownloader.h */; };
 		E40C69E811E6F0D90024CAD4 /* PltStreamPump.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E40C69E411E6F0D90024CAD4 /* PltStreamPump.cpp */; };
 		E40C69E911E6F0D90024CAD4 /* PltStreamPump.h in Headers */ = {isa = PBXBuildFile; fileRef = E40C69E511E6F0D90024CAD4 /* PltStreamPump.h */; };
+		E419C191125E545D001628A7 /* PltMimeType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E419C18D125E545D001628A7 /* PltMimeType.cpp */; };
+		E419C192125E545D001628A7 /* PltMimeType.h in Headers */ = {isa = PBXBuildFile; fileRef = E419C18E125E545D001628A7 /* PltMimeType.h */; };
+		E419C193125E545D001628A7 /* PltProtocolInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E419C18F125E545D001628A7 /* PltProtocolInfo.cpp */; };
+		E419C194125E545D001628A7 /* PltProtocolInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = E419C190125E545D001628A7 /* PltProtocolInfo.h */; };
 		E426B34F1130E12E00C58542 /* X_MS_MediaReceiverRegistrarSCPD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4A7DB7F108596C800E6ADE2 /* X_MS_MediaReceiverRegistrarSCPD.cpp */; };
 		E426B3501130E12E00C58542 /* PltXbox360.h in Headers */ = {isa = PBXBuildFile; fileRef = E426B3281130DF9500C58542 /* PltXbox360.h */; };
 		E426B3511130E12F00C58542 /* PltXbox360.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E426B3271130DF9500C58542 /* PltXbox360.cpp */; };
@@ -138,6 +142,18 @@
 		E43155CF0D6FFE4C00899579 /* PltMediaItem.h in Headers */ = {isa = PBXBuildFile; fileRef = E43155B20D6FFE4C00899579 /* PltMediaItem.h */; };
 		E43155D30D6FFE4C00899579 /* PltMediaServer.h in Headers */ = {isa = PBXBuildFile; fileRef = E43155B60D6FFE4C00899579 /* PltMediaServer.h */; };
 		E43155D60D6FFE4C00899579 /* PltSyncMediaBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = E43155B90D6FFE4C00899579 /* PltSyncMediaBrowser.h */; };
+		E437424C123FFE9100000109 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E4374242123FFE9100000109 /* InfoPlist.strings */; };
+		E437424D123FFE9100000109 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4374244123FFE9100000109 /* MainMenu.xib */; };
+		E437424E123FFE9100000109 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4374246123FFE9100000109 /* main.mm */; };
+		E4374250123FFE9100000109 /* MediaServerCocoaTest_AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4374249123FFE9100000109 /* MediaServerCocoaTest_AppDelegate.m */; };
+		E4374251123FFE9100000109 /* MediaServerCocoaTest_DataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = E437424A123FFE9100000109 /* MediaServerCocoaTest_DataModel.xcdatamodel */; };
+		E4374269123FFF5B00000109 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4374268123FFF5B00000109 /* Cocoa.framework */; };
+		E437443312400E0B00000109 /* libPlatinum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC046055464E500DB518D /* libPlatinum.a */; };
+		E43744CA124014D500000109 /* MediaServerCocoaTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = E43744C9124014D500000109 /* MediaServerCocoaTestController.m */; };
+		E4374C1912417AA800000109 /* PltMediaServerObject.h in Headers */ = {isa = PBXBuildFile; fileRef = E4374C1512417AA800000109 /* PltMediaServerObject.h */; };
+		E4374C1A12417AA800000109 /* PltMediaServerObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4374C1612417AA800000109 /* PltMediaServerObject.mm */; };
+		E4374C1B12417AA800000109 /* PltUPnPObject.h in Headers */ = {isa = PBXBuildFile; fileRef = E4374C1712417AA800000109 /* PltUPnPObject.h */; };
+		E4374C1C12417AA800000109 /* PltUPnPObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4374C1812417AA800000109 /* PltUPnPObject.mm */; };
 		E43EEF00101E1AEF007A9CE7 /* Platinum.h in Headers */ = {isa = PBXBuildFile; fileRef = E43EEEFD101E1AEF007A9CE7 /* Platinum.h */; };
 		E43EEF01101E1AEF007A9CE7 /* PltSvnVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = E43EEEFE101E1AEF007A9CE7 /* PltSvnVersion.h */; };
 		E43EEF02101E1AEF007A9CE7 /* PltVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = E43EEEFF101E1AEF007A9CE7 /* PltVersion.h */; };
@@ -336,6 +352,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = E42D3B640FDC8A120045379C;
 			remoteInfo = Tests;
+		};
+		E437426C123FFF5F00000109 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC045055464E500DB518D;
+			remoteInfo = Platinum;
 		};
 		E43F6BBD10F1B74E00C97612 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -616,6 +639,10 @@
 		E40C69E311E6F0D90024CAD4 /* PltDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PltDownloader.h; sourceTree = "<group>"; };
 		E40C69E411E6F0D90024CAD4 /* PltStreamPump.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PltStreamPump.cpp; sourceTree = "<group>"; };
 		E40C69E511E6F0D90024CAD4 /* PltStreamPump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PltStreamPump.h; sourceTree = "<group>"; };
+		E419C18D125E545D001628A7 /* PltMimeType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PltMimeType.cpp; sourceTree = "<group>"; };
+		E419C18E125E545D001628A7 /* PltMimeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PltMimeType.h; sourceTree = "<group>"; };
+		E419C18F125E545D001628A7 /* PltProtocolInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PltProtocolInfo.cpp; sourceTree = "<group>"; };
+		E419C190125E545D001628A7 /* PltProtocolInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PltProtocolInfo.h; sourceTree = "<group>"; };
 		E426B3271130DF9500C58542 /* PltXbox360.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PltXbox360.cpp; sourceTree = "<group>"; };
 		E426B3281130DF9500C58542 /* PltXbox360.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PltXbox360.h; sourceTree = "<group>"; };
 		E42D3A930FDC85E70045379C /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../Source/Apps/FrameStreamer/main.cpp; sourceTree = SOURCE_ROOT; };
@@ -705,6 +732,22 @@
 		E43155B60D6FFE4C00899579 /* PltMediaServer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PltMediaServer.h; sourceTree = "<group>"; };
 		E43155B80D6FFE4C00899579 /* PltSyncMediaBrowser.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = PltSyncMediaBrowser.cpp; sourceTree = "<group>"; };
 		E43155B90D6FFE4C00899579 /* PltSyncMediaBrowser.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PltSyncMediaBrowser.h; sourceTree = "<group>"; };
+		E43741FC123FFB9800000109 /* MediaServerCocoaTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaServerCocoaTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4374243123FFE9100000109 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E4374245123FFE9100000109 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		E4374246123FFE9100000109 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		E4374247123FFE9100000109 /* MediaServerCocoaTest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MediaServerCocoaTest-Info.plist"; sourceTree = "<group>"; };
+		E4374248123FFE9100000109 /* MediaServerCocoaTest_AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaServerCocoaTest_AppDelegate.h; sourceTree = "<group>"; };
+		E4374249123FFE9100000109 /* MediaServerCocoaTest_AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaServerCocoaTest_AppDelegate.m; sourceTree = "<group>"; };
+		E437424A123FFE9100000109 /* MediaServerCocoaTest_DataModel.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = MediaServerCocoaTest_DataModel.xcdatamodel; sourceTree = "<group>"; };
+		E437424B123FFE9100000109 /* MediaServerCocoaTest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaServerCocoaTest_Prefix.pch; sourceTree = "<group>"; };
+		E4374268123FFF5B00000109 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		E43744C8124014D500000109 /* MediaServerCocoaTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaServerCocoaTestController.h; sourceTree = "<group>"; };
+		E43744C9124014D500000109 /* MediaServerCocoaTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaServerCocoaTestController.m; sourceTree = "<group>"; };
+		E4374C1512417AA800000109 /* PltMediaServerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PltMediaServerObject.h; sourceTree = "<group>"; };
+		E4374C1612417AA800000109 /* PltMediaServerObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PltMediaServerObject.mm; sourceTree = "<group>"; };
+		E4374C1712417AA800000109 /* PltUPnPObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PltUPnPObject.h; sourceTree = "<group>"; };
+		E4374C1812417AA800000109 /* PltUPnPObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PltUPnPObject.mm; sourceTree = "<group>"; };
 		E43EEEFD101E1AEF007A9CE7 /* Platinum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platinum.h; sourceTree = "<group>"; };
 		E43EEEFE101E1AEF007A9CE7 /* PltSvnVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PltSvnVersion.h; sourceTree = "<group>"; };
 		E43EEEFF101E1AEF007A9CE7 /* PltVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PltVersion.h; sourceTree = "<group>"; };
@@ -812,6 +855,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E43741FA123FFB9800000109 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4374269123FFF5B00000109 /* Cocoa.framework in Frameworks */,
+				E437443312400E0B00000109 /* libPlatinum.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E43F6BC010F1B74E00C97612 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -830,6 +882,7 @@
 				08FB7795FE84155DC02AAC07 /* Source */,
 				C6A0FF2B0290797F04C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
+				E4374268123FFF5B00000109 /* Cocoa.framework */,
 			);
 			name = Platinum;
 			sourceTree = "<group>";
@@ -837,12 +890,12 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				E42D3A910FDC85E70045379C /* Apps */,
+				E4096BAD0AF34CE2000AB1CD /* Core */,
+				E4096C180AF34D3A000AB1CD /* Devices */,
 				E40C699D11E6ED710024CAD4 /* Extras */,
 				E43EEEFC101E1AEF007A9CE7 /* Platinum */,
 				E42D3AA90FDC86730045379C /* Tests */,
-				E42D3A910FDC85E70045379C /* Apps */,
-				E4096C180AF34D3A000AB1CD /* Devices */,
-				E4096BAD0AF34CE2000AB1CD /* Core */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -862,6 +915,7 @@
 				E42D3B500FDC89E10045379C /* SimpleTest */,
 				E42D3B5C0FDC89FC0045379C /* SsdpTest */,
 				E43F6BC510F1B74E00C97612 /* TimeTest */,
+				E43741FC123FFB9800000109 /* MediaServerCocoaTest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -934,6 +988,7 @@
 		E40C699D11E6ED710024CAD4 /* Extras */ = {
 			isa = PBXGroup;
 			children = (
+				E4374C1412417AA800000109 /* ObjectiveC */,
 				E40C69E211E6F0D90024CAD4 /* PltDownloader.cpp */,
 				E40C69E311E6F0D90024CAD4 /* PltDownloader.h */,
 				E40C69E411E6F0D90024CAD4 /* PltStreamPump.cpp */,
@@ -1009,6 +1064,7 @@
 		E42D3AA90FDC86730045379C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				E4374241123FFE9100000109 /* MediaServerCocoaTest */,
 				E43F6BC710F1B78400C97612 /* Time */,
 				E42D3AAA0FDC86A60045379C /* FileMediaServer */,
 				E42D3AAC0FDC86A60045379C /* Http */,
@@ -1109,6 +1165,10 @@
 		E43155A40D6FFE4C00899579 /* MediaServer */ = {
 			isa = PBXGroup;
 			children = (
+				E419C18D125E545D001628A7 /* PltMimeType.cpp */,
+				E419C18E125E545D001628A7 /* PltMimeType.h */,
+				E419C18F125E545D001628A7 /* PltProtocolInfo.cpp */,
+				E419C190125E545D001628A7 /* PltProtocolInfo.h */,
 				E4A7DB82108596E400E6ADE2 /* ConnectionManagerSCPD.cpp */,
 				E4A7DB83108596E400E6ADE2 /* ContentDirectorywSearchSCPD.cpp */,
 				E43155A80D6FFE4C00899579 /* PltDidl.cpp */,
@@ -1129,6 +1189,59 @@
 			name = MediaServer;
 			path = ../../../Source/Devices/MediaServer;
 			sourceTree = SOURCE_ROOT;
+		};
+		E4374241123FFE9100000109 /* MediaServerCocoaTest */ = {
+			isa = PBXGroup;
+			children = (
+				E4374265123FFECE00000109 /* Models */,
+				E4374264123FFEC200000109 /* Other Sources */,
+				E4374252123FFEAE00000109 /* Resources */,
+				E4374248123FFE9100000109 /* MediaServerCocoaTest_AppDelegate.h */,
+				E4374249123FFE9100000109 /* MediaServerCocoaTest_AppDelegate.m */,
+				E43744C8124014D500000109 /* MediaServerCocoaTestController.h */,
+				E43744C9124014D500000109 /* MediaServerCocoaTestController.m */,
+			);
+			name = MediaServerCocoaTest;
+			path = ../../../Source/Tests/MediaServerCocoaTest;
+			sourceTree = SOURCE_ROOT;
+		};
+		E4374252123FFEAE00000109 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E4374242123FFE9100000109 /* InfoPlist.strings */,
+				E4374244123FFE9100000109 /* MainMenu.xib */,
+				E4374247123FFE9100000109 /* MediaServerCocoaTest-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		E4374264123FFEC200000109 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				E4374246123FFE9100000109 /* main.mm */,
+				E437424B123FFE9100000109 /* MediaServerCocoaTest_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		E4374265123FFECE00000109 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E437424A123FFE9100000109 /* MediaServerCocoaTest_DataModel.xcdatamodel */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		E4374C1412417AA800000109 /* ObjectiveC */ = {
+			isa = PBXGroup;
+			children = (
+				E4374C1512417AA800000109 /* PltMediaServerObject.h */,
+				E4374C1612417AA800000109 /* PltMediaServerObject.mm */,
+				E4374C1712417AA800000109 /* PltUPnPObject.h */,
+				E4374C1812417AA800000109 /* PltUPnPObject.mm */,
+			);
+			path = ObjectiveC;
+			sourceTree = "<group>";
 		};
 		E43EEEFC101E1AEF007A9CE7 /* Platinum */ = {
 			isa = PBXGroup;
@@ -1240,6 +1353,10 @@
 				E40C69B511E6ED710024CAD4 /* PltRingBufferStream.h in Headers */,
 				E40C69E711E6F0D90024CAD4 /* PltDownloader.h in Headers */,
 				E40C69E911E6F0D90024CAD4 /* PltStreamPump.h in Headers */,
+				E4374C1912417AA800000109 /* PltMediaServerObject.h in Headers */,
+				E4374C1B12417AA800000109 /* PltUPnPObject.h in Headers */,
+				E419C192125E545D001628A7 /* PltMimeType.h in Headers */,
+				E419C194125E545D001628A7 /* PltProtocolInfo.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1435,6 +1552,24 @@
 			productReference = E42D3B5C0FDC89FC0045379C /* SsdpTest */;
 			productType = "com.apple.product-type.tool";
 		};
+		E43741FB123FFB9800000109 /* MediaServerCocoaTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4374201123FFB9800000109 /* Build configuration list for PBXNativeTarget "MediaServerCocoaTest" */;
+			buildPhases = (
+				E43741F8123FFB9800000109 /* Resources */,
+				E43741F9123FFB9800000109 /* Sources */,
+				E43741FA123FFB9800000109 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E437426D123FFF5F00000109 /* PBXTargetDependency */,
+			);
+			name = MediaServerCocoaTest;
+			productName = MediaServerCocoaTest;
+			productReference = E43741FC123FFB9800000109 /* MediaServerCocoaTest.app */;
+			productType = "com.apple.product-type.application";
+		};
 		E43F6BBB10F1B74E00C97612 /* TimeTest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E43F6BC210F1B74E00C97612 /* Build configuration list for PBXNativeTarget "TimeTest" */;
@@ -1493,6 +1628,7 @@
 				E42D3B730FDC8A210045379C /* All */,
 				E43F6BBB10F1B74E00C97612 /* TimeTest */,
 				E459CC2111F82C3F00621896 /* Help */,
+				E43741FB123FFB9800000109 /* MediaServerCocoaTest */,
 			);
 		};
 /* End PBXProject section */
@@ -1731,6 +1867,18 @@
 		};
 /* End PBXReferenceProxy section */
 
+/* Begin PBXResourcesBuildPhase section */
+		E43741F8123FFB9800000109 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E437424C123FFE9100000109 /* InfoPlist.strings in Resources */,
+				E437424D123FFE9100000109 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXShellScriptBuildPhase section */
 		E459CC2011F82C3F00621896 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1743,7 +1891,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# shell script goes here\n#  Build the doxygen documentation for the project and load the docset into Xcode.\n\n#  Use the following to adjust the value of the $DOXYGEN_PATH User-Defined Setting:\n#    Binary install location: /Applications/Doxygen.app/Contents/Resources/doxygen\n#    Source build install location: /usr/local/bin/doxygen\n\n#  If the config file doesn't exist, run 'doxygen -g $SOURCE_ROOT/doxygen.config' to \n#   a get default file.\n\ncd $SOURCE_ROOT/../../../Docs/Doxygen\n\nif ! [ -f Doxyfile ] \nthen \n  echo doxygen config file does not exist\nfi\n\n#  Run doxygen on the updated config file.\n#  Note: doxygen creates a Makefile that does most of the heavy lifting.\n\n$DOXYGEN_PATH Doxyfile\n\n#  make will invoke docsetutil. Take a look at the Makefile to see how this is done.\n\nmake -C html install\n\n#  Construct a temporary applescript file to tell Xcode to load a docset.\n\nrm -f $TEMP_DIR/loadDocSet.scpt\n\necho \"tell application \\\"Xcode\\\"\" >> $TEMP_DIR/loadDocSet.scpt\necho \"load documentation set with path \\\"/Users/$USER/Library/Developer/Shared/Documentation/DocSets/\\\"\" \n     >> $TEMP_DIR/loadDocSet.scpt\necho \"end tell\" >> $TEMP_DIR/loadDocSet.scpt\n\n#  Run the load-docset applescript command.\n\nosascript $TEMP_DIR/loadDocSet.scpt\n\nexit 0";
+			shellScript = "# shell script goes here\n#  Build the doxygen documentation for the project and load the docset into Xcode.\n\n#  Use the following to adjust the value of the $DOXYGEN_PATH User-Defined Setting:\n#    Binary install location: /Applications/Doxygen.app/Contents/Resources/doxygen\n#    Source build install location: /usr/local/bin/doxygen\n\n#  If the config file doesn't exist, run 'doxygen -g $SOURCE_ROOT/doxygen.config' to \n#   a get default file.\n\ncd $SOURCE_ROOT/../../../Docs/Doxygen\n\nif ! [ -f Doxyfile ] \nthen \n  echo doxygen config file does not exist\nfi\n\n#  Run doxygen on the updated config file.\n#  Note: doxygen creates a Makefile that does most of the heavy lifting.\n\ndoxygen\n\n#  make will invoke docsetutil. Take a look at the Makefile to see how this is done.\n\nmake -C Platinum-HTML install\n\n#  Construct a temporary applescript file to tell Xcode to load a docset.\n\nrm -f $TEMP_DIR/loadDocSet.scpt\n\necho \"tell application \\\"Xcode\\\"\" >> $TEMP_DIR/loadDocSet.scpt\necho \"load documentation set with path \\\"/Users/$USER/Library/Developer/Shared/Documentation/DocSets/\\\"\" \n     >> $TEMP_DIR/loadDocSet.scpt\necho \"end tell\" >> $TEMP_DIR/loadDocSet.scpt\n\n#  Run the load-docset applescript command.\n\nosascript $TEMP_DIR/loadDocSet.scpt\n\nexit 0";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1797,6 +1945,10 @@
 				E40C69B411E6ED710024CAD4 /* PltRingBufferStream.cpp in Sources */,
 				E40C69E611E6F0D90024CAD4 /* PltDownloader.cpp in Sources */,
 				E40C69E811E6F0D90024CAD4 /* PltStreamPump.cpp in Sources */,
+				E4374C1A12417AA800000109 /* PltMediaServerObject.mm in Sources */,
+				E4374C1C12417AA800000109 /* PltUPnPObject.mm in Sources */,
+				E419C191125E545D001628A7 /* PltMimeType.cpp in Sources */,
+				E419C193125E545D001628A7 /* PltProtocolInfo.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1881,6 +2033,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				E42D3B630FDC8A090045379C /* SsdpTest1.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E43741F9123FFB9800000109 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E437424E123FFE9100000109 /* main.mm in Sources */,
+				E4374250123FFE9100000109 /* MediaServerCocoaTest_AppDelegate.m in Sources */,
+				E4374251123FFE9100000109 /* MediaServerCocoaTest_DataModel.xcdatamodel in Sources */,
+				E43744CA124014D500000109 /* MediaServerCocoaTestController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2005,6 +2168,11 @@
 			target = E42D3B640FDC8A120045379C /* Tests */;
 			targetProxy = E42D3B780FDC8A290045379C /* PBXContainerItemProxy */;
 		};
+		E437426D123FFF5F00000109 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2AAC045055464E500DB518D /* Platinum */;
+			targetProxy = E437426C123FFF5F00000109 /* PBXContainerItemProxy */;
+		};
 		E43F6BBC10F1B74E00C97612 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D2AAC045055464E500DB518D /* Platinum */;
@@ -2026,6 +2194,25 @@
 			targetProxy = E48157F511350FA100A786DA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E4374242123FFE9100000109 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E4374243123FFE9100000109 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E4374244123FFE9100000109 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E4374245123FFE9100000109 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1DEB91ED08733DB70010E9CD /* Release */ = {
@@ -2470,6 +2657,77 @@
 			};
 			name = Release;
 		};
+		E43741FF123FFB9800000109 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ../../../Source/Tests/MediaServerCocoaTest/MediaServerCocoaTest_Prefix.pch;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_TREAT_NONCONFORMANT_CODE_ERRORS_AS_WARNINGS = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_PEDANTIC = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_SIGN_COMPARE = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				INFOPLIST_FILE = "../../../Source/Tests/MediaServerCocoaTest/MediaServerCocoaTest-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = YES;
+				PRODUCT_NAME = MediaServerCocoaTest;
+				STRIP_INSTALLED_PRODUCT = NO;
+				VALID_ARCHS = "i386 ppc x86_64";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wno-long-long",
+				);
+			};
+			name = Debug;
+		};
+		E4374200123FFB9800000109 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				INFOPLIST_FILE = "../../../Source/Tests/MediaServerCocoaTest/MediaServerCocoaTest-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = MediaServerCocoaTest;
+				STRIP_INSTALLED_PRODUCT = YES;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		E43F6BC310F1B74E00C97612 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2716,6 +2974,15 @@
 			buildConfigurations = (
 				E42D3B740FDC8A210045379C /* Debug */,
 				E42D3B750FDC8A210045379C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4374201123FFB9800000109 /* Build configuration list for PBXNativeTarget "MediaServerCocoaTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E43741FF123FFB9800000109 /* Debug */,
+				E4374200123FFB9800000109 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

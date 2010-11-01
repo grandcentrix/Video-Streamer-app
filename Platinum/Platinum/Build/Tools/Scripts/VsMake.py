@@ -3,7 +3,7 @@
 
 Visual Studio 2005 Build Script
 
-$Id: VsMake.py 615 2010-07-19 16:25:03Z soothe $
+$Id: VsMake.py 655 2010-09-29 22:40:22Z soothe $
 
 """
 

@@ -43,6 +43,7 @@
 +---------------------------------------------------------------------*/
 #include "Neptune.h"
 #include "PltHttp.h"
+#include "PltProtocolInfo.h"
 
 /*----------------------------------------------------------------------
 |   typedefs
@@ -88,16 +89,16 @@ typedef struct {
     PLT_PersonRoles artists;
     PLT_PersonRoles actors;
     PLT_PersonRoles authors;
-    NPT_String      producer;
-    NPT_String      director;
-    NPT_String      publisher;
-    NPT_String      contributor; // should match m_Creator (dc:creator)
+    NPT_String      producer; //TODO: can be multiple
+    NPT_String      director; //TODO: can be multiple
+    NPT_String      publisher; //TODO: can be multiple
+    NPT_String      contributor; // should match m_Creator (dc:creator) //TODO: can be multiple
 } PLT_PeopleInfo;
 
 typedef struct {
-    NPT_List<NPT_String> genre;
-    NPT_String album;
-    NPT_String playlist; // dc:title of the playlist item the content belongs too
+    NPT_List<NPT_String> genres;
+    NPT_String album; //TODO: can be multiple
+    NPT_String playlist; // dc:title of the playlist item the content belongs too //TODO: can be multiple
 } PLT_AffiliationInfo;
 
 typedef struct {
@@ -106,7 +107,7 @@ typedef struct {
     NPT_String icon_uri;
     NPT_String region;
     NPT_String rating;
-    NPT_String rights;
+    NPT_String rights; //TODO: can be multiple
     NPT_String date;
     NPT_String language;
 } PLT_Description;
@@ -114,88 +115,39 @@ typedef struct {
 typedef struct {
     NPT_String album_art_uri;
     NPT_String album_art_uri_dlna_profile;
+    NPT_String uri;
+    NPT_String dlna_profile;
+} PLT_AlbumArtInfo;
+
+typedef struct {
+    PLT_AlbumArtInfo album_art; // multiple?
+    NPT_String album_art_uri; //TODO: can be multiple
+    NPT_String album_art_uri_dlna_profile;
     NPT_String artist_discography_uri;
     NPT_String lyrics_uri;
-    NPT_List<NPT_String> relation; // dc:relation
+    NPT_List<NPT_String> relations; // dc:relation
 } PLT_ExtraInfo;
 
 typedef struct {
     NPT_UInt32 dvdregioncode;
     NPT_UInt32 original_track_number;
     NPT_String toc;
-    NPT_String user_annotation;
+    NPT_String user_annotation; //TODO: can be multiple
 } PLT_MiscInfo;
 
 typedef struct {
-    int         total;
-    int         used;
-    int         free;
-    int         max_partition;
-    NPT_String  medium;
+    NPT_UInt64 total;
+    NPT_UInt64 used;
+    NPT_UInt64 free;
+    NPT_UInt64 max_partition;
+    NPT_UInt64 medium;
 } PLT_StorageInfo;
 
 typedef struct {
     NPT_String program_title;
     NPT_String series_title;
-    int        episode_number;
+    NPT_UInt32 episode_number;
 } PLT_RecordedInfo;
-
-/*----------------------------------------------------------------------
-|   PLT_ProtocolInfo
-+---------------------------------------------------------------------*/
-/**
- The PLT_ProtocolInfo class holds information about the protocol info of a 
- given UPnP Media Item resource.
- */
-class PLT_ProtocolInfo
-{
-public:
-    class FieldEntry {
-    public:
-        FieldEntry(const char* key, const char* value) :
-          m_Key(key), m_Value(value) {}
-        NPT_String m_Key;
-        NPT_String m_Value;
-    };
-
-    PLT_ProtocolInfo();
-    PLT_ProtocolInfo(const char* protocol_info);
-    PLT_ProtocolInfo(const char* protocol,
-                     const char* mask,
-                     const char* content_type,
-                     const char* extra);
-    const NPT_String& GetProtocol()     const { return m_Protocol;  }
-    const NPT_String& GetMask()         const { return m_Mask; }
-    const NPT_String& GetContentType()  const { return m_ContentType;  }
-    const NPT_String& GetExtra()        const { return m_Extra; }
-    const NPT_String& GetDLNA_PN()      const { return m_DLNA_PN; }
-
-    bool IsValid() { return m_Valid; }
-    NPT_String ToString() const;
-
-    bool Match(const PLT_ProtocolInfo& other) const;
-
-private:
-    NPT_Result ValidateField(const char*  val, 
-                        const char*  valid_chars, 
-                        NPT_Cardinal num_chars = 0); // 0 means variable number of chars
-    NPT_Result ParseExtra(NPT_List<FieldEntry>& entries);
-    NPT_Result ValidateExtra();
-
-private:
-    NPT_String           m_Protocol;
-    NPT_String           m_Mask;
-    NPT_String           m_ContentType;
-    NPT_String           m_Extra;
-    NPT_String           m_DLNA_PN;
-    NPT_String           m_DLNA_OP;
-    NPT_String           m_DLNA_PS;
-    NPT_String           m_DLNA_CI;
-    NPT_String           m_DLNA_FLAGS;
-    NPT_String           m_DLNA_MAXSP;
-    NPT_List<FieldEntry> m_DLNA_OTHER;
-    bool                 m_Valid;
-};
 
 /*----------------------------------------------------------------------
 |   PLT_MediaItemResource
@@ -229,26 +181,21 @@ public:
  */
 class PLT_MediaObject
 {
-public:
+protected:
+    NPT_IMPLEMENT_DYNAMIC_CAST(PLT_MediaObject)
+
     PLT_MediaObject() {}
+
+public:
     virtual ~PLT_MediaObject() {}
 
     bool IsContainer() { return m_ObjectClass.type.StartsWith("object.container"); }
 
-    static const char* GetMimeType(const NPT_String& filename, 
-                                   const PLT_HttpRequestContext* context = NULL);
-    static const char* GetMimeTypeFromExtension(const NPT_String& extension, 
-                                                const PLT_HttpRequestContext* context = NULL);
-    static NPT_String  GetProtocolInfo(const char* filename, 
-                                       bool with_dlna_extension = true, 
-                                       const PLT_HttpRequestContext* context = NULL);
-	static NPT_String  GetMimeTypeFromProtocolInfo(const char* protocol_info);
     static const char* GetUPnPClass(const char* filename, 
                                     const PLT_HttpRequestContext* context = NULL);
-    static const char* GetDlnaExtension(const char* mime_type, 
-                                        const PLT_HttpRequestContext* context = NULL);
 
     virtual NPT_Result Reset();
+    virtual NPT_Result ToDidl(NPT_String filter, NPT_String& didl);
     virtual NPT_Result ToDidl(NPT_UInt32 mask, NPT_String& didl);
     virtual NPT_Result FromDidl(NPT_XmlElementNode* entry);
 
@@ -294,10 +241,13 @@ public:
 class PLT_MediaItem : public PLT_MediaObject
 {
 public:
+    NPT_IMPLEMENT_DYNAMIC_CAST_D(PLT_MediaItem, PLT_MediaObject)
+
     PLT_MediaItem();
     virtual ~PLT_MediaItem();
 
     // PLT_MediaObject methods
+    NPT_Result ToDidl(NPT_String filter, NPT_String& didl);
     NPT_Result ToDidl(NPT_UInt32 mask, NPT_String& didl);
     NPT_Result FromDidl(NPT_XmlElementNode* entry);
 };
@@ -313,11 +263,14 @@ public:
 class PLT_MediaContainer : public PLT_MediaObject
 {
 public:
+    NPT_IMPLEMENT_DYNAMIC_CAST_D(PLT_MediaContainer, PLT_MediaObject)
+
     PLT_MediaContainer();
     virtual ~PLT_MediaContainer();
 
     // PLT_MediaObject methods
     NPT_Result Reset();
+    NPT_Result ToDidl(NPT_String filter, NPT_String& didl);
     NPT_Result ToDidl(NPT_UInt32 mask, NPT_String& didl);
     NPT_Result FromDidl(NPT_XmlElementNode* entry);
 

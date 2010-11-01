@@ -120,6 +120,13 @@
 			remoteGlobalIDString = D2AAC045055464E500DB518D;
 			remoteInfo = Platinum;
 		};
+		45EFDC13127E3C7A003A4608 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45117EA21272381B002B821F /* Platinum.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E43741FC123FFB9800000109 /* MediaServerCocoaTest.app */;
+			remoteInfo = MediaServerCocoaTest;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -256,6 +263,7 @@
 				45117EF01272381B002B821F /* SimpleTest */,
 				45117EF21272381B002B821F /* SsdpTest */,
 				45117EF41272381B002B821F /* TimeTest */,
+				45EFDC14127E3C7A003A4608 /* MediaServerCocoaTest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -425,6 +433,13 @@
 			fileType = "compiled.mach-o.executable";
 			path = TimeTest;
 			remoteRef = 45117EF31272381B002B821F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		45EFDC14127E3C7A003A4608 /* MediaServerCocoaTest.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = MediaServerCocoaTest.app;
+			remoteRef = 45EFDC13127E3C7A003A4608 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

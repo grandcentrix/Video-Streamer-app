@@ -175,6 +175,7 @@ private:
     // methods
     NPT_Result RenewSubscribers();
     NPT_Result RenewSubscriber(PLT_EventSubscriber& subscriber);
+    NPT_Result DecomposeLastChangeVar(NPT_List<PLT_StateVariable*>& vars);
     NPT_Result DoHouseKeeping();
     NPT_Result FetchDeviceSCPDs(PLT_CtrlPointGetSCPDTask* task,
                                 PLT_DeviceDataReference&  device, 

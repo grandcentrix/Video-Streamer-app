@@ -129,8 +129,8 @@ PLT_UPnP::PLT_UPnP(NPT_UInt32 port, bool multicast /* = true */) :
     m_SsdpListenTask(NULL),
 	m_IgnoreLocalUUIDs(true)
 {
-    NPT_HttpClient::m_UserAgentHeader = "Platinum/" PLT_PLATINUM_SDK_VERSION_STRING ", DLNADOC/1.50";
-    NPT_HttpServer::m_ServerHeader    = "UPnP/1.0, DLNADOC/1.50, Platinum/" PLT_PLATINUM_SDK_VERSION_STRING;
+    NPT_HttpClient::m_UserAgentHeader = "Windows NT/5.0 Platinum/" PLT_PLATINUM_SDK_VERSION_STRING " DLNADOC/1.50";
+    NPT_HttpServer::m_ServerHeader    = "Windows NT/5.0 UPnP/1.0, DLNADOC/1.50 Platinum/" PLT_PLATINUM_SDK_VERSION_STRING;
 }
     
 /*----------------------------------------------------------------------

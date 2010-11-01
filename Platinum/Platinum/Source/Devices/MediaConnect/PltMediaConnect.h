@@ -125,6 +125,14 @@ public:
     
     // PLT_FileMediaServerDelegate methods
     virtual NPT_Result GetFilePath(const char* object_id, NPT_String& filepath);
+    virtual NPT_Result OnSearchContainer(PLT_ActionReference&          action, 
+                                         const char*                   object_id, 
+                                         const char*                   search_criteria,
+                                         const char*                   filter,
+                                         NPT_UInt32                    starting_index,
+                                         NPT_UInt32                    requested_count,
+                                         const char*                   sort_criteria, 
+                                         const PLT_HttpRequestContext& context);
 };
 
 #endif /* _PLT_MEDIA_CONNECT_H_ */

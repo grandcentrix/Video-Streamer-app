@@ -69,14 +69,14 @@ public:
                                         const char*                   /*filter*/,
                                         NPT_UInt32                    /*starting_index*/,
                                         NPT_UInt32                    /*requested_count*/,
-                                        const NPT_List<NPT_String>&   /*sort_criteria*/,
+                                        const char*                   /*sort_criteria*/,
                                         const PLT_HttpRequestContext& /*context*/) = 0;
     virtual NPT_Result OnBrowseDirectChildren(PLT_ActionReference&          /*action*/, 
                                               const char*                   /*object_id*/, 
                                               const char*                   /*filter*/,
                                               NPT_UInt32                    /*starting_index*/,
                                               NPT_UInt32                    /*requested_count*/,
-                                              const NPT_List<NPT_String>&   /*sort_criteria*/, 
+                                              const char*                   /*sort_criteria*/, 
                                               const PLT_HttpRequestContext& /*context*/) = 0;
     virtual NPT_Result OnSearchContainer(PLT_ActionReference&          /*action*/, 
                                          const char*                   /*container_id*/, 
@@ -84,7 +84,7 @@ public:
  										 const char*                   /*filter*/,
                                          NPT_UInt32                    /*starting_index*/,
                                          NPT_UInt32                    /*requested_count*/,
-                                         const NPT_List<NPT_String>&   /*sort_criteria*/, 
+                                         const char*                   /*sort_criteria*/, 
                                          const PLT_HttpRequestContext& /*context*/) = 0;
     virtual NPT_Result ProcessFileRequest(NPT_HttpRequest&              /*request*/,
                                           const NPT_HttpRequestContext& /*context*/,
@@ -108,7 +108,8 @@ public:
     };
     
     // class methods
-    static NPT_Result  ParseBrowseFlag(const char* str, BrowseFlags& flag);
+    static NPT_Result ParseBrowseFlag(const char* str, BrowseFlags& flag);
+    static NPT_Result ParseSort(const NPT_String& sort, NPT_List<NPT_String>& list);
 
     // constructor
     PLT_MediaServer(const char*  friendly_name,
@@ -119,6 +120,7 @@ public:
     
     // methods
     virtual void SetDelegate(PLT_MediaServerDelegate* delegate) { m_Delegate = delegate; }
+    PLT_MediaServerDelegate* GetDelegate() { return m_Delegate; }
     
 protected:
     virtual ~PLT_MediaServer();
@@ -160,14 +162,14 @@ protected:
                                         const char*                   filter,
                                         NPT_UInt32                    starting_index,
                                         NPT_UInt32                    requested_count,
-                                        const NPT_List<NPT_String>&   sort_criteria,
+                                        const char*                   sort_criteria,
                                         const PLT_HttpRequestContext& context);
     virtual NPT_Result OnBrowseDirectChildren(PLT_ActionReference&          action, 
                                               const char*                   object_id, 
                                               const char*                   filter,
                                               NPT_UInt32                    starting_index,
                                               NPT_UInt32                    requested_count,
-                                              const NPT_List<NPT_String>&   sort_criteria, 
+                                              const char*                   sort_criteria, 
                                               const PLT_HttpRequestContext& context);
     virtual NPT_Result OnSearchContainer(PLT_ActionReference&          action, 
                                          const char*                   container_id, 
@@ -175,11 +177,8 @@ protected:
  										 const char*                   filter,
                                          NPT_UInt32                    starting_index,
                                          NPT_UInt32                    requested_count,
-                                         const NPT_List<NPT_String>&   sort_criteria, 
+                                         const char*                   sort_criteria, 
                                          const PLT_HttpRequestContext& context);
-                                
-    // methods
-    virtual NPT_Result ParseSort(const NPT_String& sort, NPT_List<NPT_String>& list);
     
 private:
     PLT_MediaServerDelegate* m_Delegate;

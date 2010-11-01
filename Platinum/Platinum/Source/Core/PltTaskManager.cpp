@@ -103,7 +103,7 @@ PLT_TaskManager::StopAllTasks()
                 return NPT_SUCCESS;
         }
 
-        NPT_System::Sleep(NPT_TimeInterval(0.1));
+        NPT_System::Sleep(NPT_TimeInterval(0.05));
     }
 
     return NPT_SUCCESS;

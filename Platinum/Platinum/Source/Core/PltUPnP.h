@@ -110,6 +110,12 @@ public:
      associated with it.
      */
     NPT_Result Stop();
+    
+    /**
+     Return the UPnP Engine state.
+     @return True if the UPnP engine is running.
+     */
+    bool IsRunning() { return m_Started; }
 
     /**
      When a device and a control point are added to the same UPnP context, it is

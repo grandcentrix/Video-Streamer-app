@@ -76,6 +76,13 @@ PLT_Didl::ConvertFilterToMask(NPT_String filter)
         if (NPT_String::CompareN(s+i, "*", 1) == 0) {
             // return now, there's no point in parsing the rest
             return PLT_FILTER_MASK_ALL;
+        }
+        
+        // title is required, so we return a non empty mask
+        mask |= PLT_FILTER_MASK_TITLE;
+
+        if (NPT_String::CompareN(s+i, PLT_FILTER_FIELD_TITLE, len) == 0) {
+            mask |= PLT_FILTER_MASK_TITLE;
         } else if (NPT_String::CompareN(s+i, PLT_FILTER_FIELD_CREATOR, len) == 0) {
             mask |= PLT_FILTER_MASK_CREATOR;
         } else if (NPT_String::CompareN(s+i, PLT_FILTER_FIELD_ARTIST, len) == 0) {
@@ -98,6 +105,8 @@ PLT_Didl::ConvertFilterToMask(NPT_String filter)
             mask |= PLT_FILTER_MASK_ORIGINALTRACK;
         } else if (NPT_String::CompareN(s+i, PLT_FILTER_FIELD_SEARCHABLE, len) == 0) {
             mask |= PLT_FILTER_MASK_SEARCHABLE;
+        } else if (NPT_String::CompareN(s+i, PLT_FILTER_FIELD_SEARCHCLASS, len) == 0) {
+            mask |= PLT_FILTER_MASK_SEARCHCLASS;
         } else if (NPT_String::CompareN(s+i, PLT_FILTER_FIELD_CONTAINER_SEARCHABLE, len) == 0) {
             mask |= PLT_FILTER_MASK_SEARCHABLE;       
         } else if (NPT_String::CompareN(s+i, PLT_FILTER_FIELD_CHILDCOUNT, len) == 0) {

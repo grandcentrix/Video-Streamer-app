@@ -64,6 +64,8 @@
 #define PLT_FILTER_MASK_PROGRAMTITLE                0x00001000
 #define PLT_FILTER_MASK_SERIESTITLE                 0x00002000
 #define PLT_FILTER_MASK_EPISODE                     0x00004000
+#define PLT_FILTER_MASK_TITLE                       0x00008000
+#define PLT_FILTER_MASK_SEARCHCLASS					0x00010000
 
 #define PLT_FILTER_MASK_RES                         0x00010000
 #define PLT_FILTER_MASK_RES_DURATION                0x00020000
@@ -77,6 +79,7 @@
 
 #define PLT_FILTER_MASK_TOC							0x02000000
 
+#define PLT_FILTER_FIELD_TITLE                      "dc:title"
 #define PLT_FILTER_FIELD_CREATOR                    "dc:creator"
 #define PLT_FILTER_FIELD_DATE                       "dc:date"
 #define PLT_FILTER_FIELD_ARTIST                     "upnp:artist"
@@ -90,6 +93,7 @@
 #define PLT_FILTER_FIELD_PROGRAMTITLE               "upnp:programTitle"
 #define PLT_FILTER_FIELD_SERIESTITLE                "upnp:seriesTitle"
 #define PLT_FILTER_FIELD_EPISODE                    "upnp:episodeNumber"
+#define PLT_FILTER_FIELD_SEARCHCLASS				"upnp:searchClass"
 #define PLT_FILTER_FIELD_SEARCHABLE                 "@searchable"
 #define PLT_FILTER_FIELD_CHILDCOUNT                 "@childcount"
 #define PLT_FILTER_FIELD_CONTAINER_CHILDCOUNT       "container@childCount"

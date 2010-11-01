@@ -816,6 +816,9 @@ NPT_Logger::NPT_Logger(const char* name, NPT_LogManager& manager) :
 +---------------------------------------------------------------------*/
 NPT_Logger::~NPT_Logger()
 {
+	/* remove external handlers before cleaning up */
+	m_Handlers.Remove(m_ExternalHandlers, true);
+
     /* delete all handlers */
     m_Handlers.Apply(NPT_ObjectDeleter<NPT_LogHandler>());
 }
@@ -826,6 +829,9 @@ NPT_Logger::~NPT_Logger()
 NPT_Result
 NPT_Logger::DeleteHandlers()
 {
+	/* remove external handlers before cleaning up */
+	m_Handlers.Remove(m_ExternalHandlers, true);
+
     /* delete all handlers and empty the list */
     if (m_Handlers.GetItemCount()) {
         m_Handlers.Apply(NPT_ObjectDeleter<NPT_LogHandler>());
@@ -918,10 +924,13 @@ NPT_Logger::Log(int          level,
 |   NPT_Logger::AddHandler
 +---------------------------------------------------------------------*/
 NPT_Result
-NPT_Logger::AddHandler(NPT_LogHandler* handler)
+NPT_Logger::AddHandler(NPT_LogHandler* handler, bool transfer_ownership /* = true */)
 {
     /* check parameters */
     if (handler == NULL) return NPT_ERROR_INVALID_PARAMETERS;
+
+	/* keep track of what handlers we won't cleanup */
+	if (!transfer_ownership) m_ExternalHandlers.Add(handler);
 
     return m_Handlers.Add(handler);
 }

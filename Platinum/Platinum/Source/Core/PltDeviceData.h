@@ -137,12 +137,12 @@ protected:
     virtual ~PLT_DeviceData();
     virtual void       Cleanup();
     virtual NPT_Result OnAddExtraInfo(NPT_XmlElementNode* /*device_node*/) { return NPT_SUCCESS; }
+    NPT_Result         SetLeaseTime(NPT_TimeInterval lease_time);
 
 private:
     /* called by PLT_CtrlPoint when new device is discovered */
     NPT_Result    SetURLBase(NPT_HttpUrl& url_base);
     NPT_TimeStamp GetLeaseTimeLastUpdate();
-    NPT_Result    SetLeaseTime(NPT_TimeInterval lease_time);
     NPT_Result    SetDescription(const char*                   szDescription, 
                                  const NPT_HttpRequestContext& context);
     NPT_Result    SetDescriptionDevice(NPT_XmlElementNode* device_node);

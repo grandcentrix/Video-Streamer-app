@@ -42,6 +42,7 @@
 #include "PltHttpServer.h"
 #include "PltDidl.h"
 #include "PltVersion.h"
+#include "PltMimeType.h"
 
 NPT_SET_LOCAL_LOGGER("platinum.media.server.file.delegate")
 
@@ -107,14 +108,12 @@ PLT_FileMediaServerDelegate::ServeFile(const NPT_HttpRequest&        request,
                                        NPT_HttpResponse&             response,
                                        const NPT_String&             file_path)
 {
-    NPT_COMPILER_UNUSED(context);
-    
     NPT_CHECK_WARNING(PLT_HttpServer::ServeFile(request, response, file_path));
     
     /* Update content type header according to file and context */
     NPT_HttpEntity* entity = response.GetEntity();
     PLT_HttpRequestContext tmp_context(request, context);
-    if (entity) entity->SetContentType(PLT_MediaItem::GetMimeType(file_path, &tmp_context));
+    if (entity) entity->SetContentType(PLT_MimeType::GetMimeType(file_path, &tmp_context));
     return NPT_SUCCESS;
 }
 
@@ -127,7 +126,7 @@ PLT_FileMediaServerDelegate::OnBrowseMetadata(PLT_ActionReference&          acti
                                               const char*                   filter,
                                               NPT_UInt32                    starting_index,
                                               NPT_UInt32                    requested_count,
-                                              const NPT_List<NPT_String>&   sort_criteria,
+                                              const char*                   sort_criteria,
                                               const PLT_HttpRequestContext& context)
 {
     NPT_COMPILER_UNUSED(sort_criteria);
@@ -175,7 +174,7 @@ PLT_FileMediaServerDelegate::OnBrowseDirectChildren(PLT_ActionReference&        
                                                     const char*                   filter,
                                                     NPT_UInt32                    starting_index,
                                                     NPT_UInt32                    requested_count,
-                                                    const NPT_List<NPT_String>&   sort_criteria,
+                                                    const char*                   sort_criteria,
                                                     const PLT_HttpRequestContext& context)
 {
     NPT_COMPILER_UNUSED(sort_criteria);
@@ -293,7 +292,7 @@ PLT_FileMediaServerDelegate::OnSearchContainer(PLT_ActionReference&          act
                                                const char*                   /* filter */,
                                                NPT_UInt32                    /* starting_index */,
                                                NPT_UInt32                    /* requested_count */,
-                                               const NPT_List<NPT_String>&   /* sort_criteria */,
+                                               const char*                   /* sort_criteria */,
                                                const PLT_HttpRequestContext& /* context */)
 {
     /* parse search criteria */
@@ -444,13 +443,13 @@ PLT_FileMediaServerDelegate::BuildFromFilePath(const NPT_String&             fil
         
         /* make sure we return something with a valid mimetype */
         if (m_FilterUnknownOut && 
-            NPT_StringsEqual(PLT_MediaItem::GetMimeType(filepath, &context), 
+            NPT_StringsEqual(PLT_MimeType::GetMimeType(filepath, &context), 
                              "application/octet-stream")) {
             goto failure;
         }
         
         /* Set the protocol Info from the extension */
-        resource.m_ProtocolInfo = PLT_ProtocolInfo(PLT_MediaItem::GetProtocolInfo(filepath, true, &context));
+        resource.m_ProtocolInfo = PLT_ProtocolInfo::GetProtocolInfo(filepath, true, &context);
         if (!resource.m_ProtocolInfo.IsValid())  goto failure;
         
         /* Set the resource file size */

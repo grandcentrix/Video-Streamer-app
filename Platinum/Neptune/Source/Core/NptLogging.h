@@ -92,7 +92,7 @@ public:
              const char*  msg, 
                           ...);
 
-    NPT_Result AddHandler(NPT_LogHandler* handler);
+    NPT_Result AddHandler(NPT_LogHandler* handler, bool transfer_ownership = true);
     NPT_Result DeleteHandlers();
     NPT_Result SetParent(NPT_Logger* parent);
     const NPT_String& GetName()  const { return m_Name;  }
@@ -108,7 +108,8 @@ private:
     bool                      m_LevelIsInherited;
     bool                      m_ForwardToParent;
     NPT_Logger*               m_Parent;
-    NPT_List<NPT_LogHandler*> m_Handlers;
+	NPT_List<NPT_LogHandler*> m_Handlers;
+	NPT_List<NPT_LogHandler*> m_ExternalHandlers;
 
     // friends
     friend class NPT_LogManager;

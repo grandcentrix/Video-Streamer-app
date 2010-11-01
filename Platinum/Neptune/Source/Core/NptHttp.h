@@ -41,6 +41,7 @@
 #include "NptBufferedStreams.h"
 #include "NptSockets.h"
 #include "NptMap.h"
+#include "NptTls.h"
 
 /*----------------------------------------------------------------------
 |   constants
@@ -451,8 +452,9 @@ public:
     }
     
 private:
-    NPT_Reference<NPT_TcpClientSocket> m_Connection;
-    bool                               m_KeepAlive;
+    NPT_Reference<NPT_TcpClientSocket>  m_Connection;
+    NPT_Reference<NPT_TlsClientSession> m_Session;
+    bool                                m_KeepAlive;
 };
 
 /*----------------------------------------------------------------------

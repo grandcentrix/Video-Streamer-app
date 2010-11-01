@@ -601,6 +601,7 @@ PLT_Service::ProcessNewSubscription(PLT_TaskManager*         task_manager,
         // reset LastChange var to what was really just changed
         UpdateLastChange(m_StateVarsChanged);
 
+        // make sure the event worked before spawning our recurrent task
         NPT_CHECK_LABEL_FATAL(res, cleanup);
 
         // schedule a recurring event notification task if not running already
@@ -678,15 +679,14 @@ PLT_Service::ProcessCancelSubscription(const NPT_SocketAddress& /* addr */,
 {
     NPT_AutoLock lock(m_Lock);
 
-    NPT_LOG_FINE_2("Cancelling subscription for %s (sub=%s)", 
-        m_EventSubURL.GetChars(),
-        sid.GetChars());
-
     // first look if we don't have a subscriber with same callbackURL
     PLT_EventSubscriber* sub = NULL;
     if (NPT_SUCCEEDED(NPT_ContainerFind(m_Subscribers, 
                                         PLT_EventSubscriberFinderBySID(sid), 
                                         sub))) {
+        NPT_LOG_FINE_2("Cancelling subscription for %s (sub=%s)", 
+            m_EventSubURL.GetChars(),
+            sid.GetChars());
 
         // remove sub
         m_Subscribers.Remove(sub);
@@ -694,7 +694,7 @@ PLT_Service::ProcessCancelSubscription(const NPT_SocketAddress& /* addr */,
         return NPT_SUCCESS;
     }
 
-    NPT_LOG_WARNING_1("Cancelling subscription for unknown %s!", sid.GetChars());
+    NPT_LOG_WARNING_1("Cancelling subscription for unknown subscriber %s!", sid.GetChars());
 
     // didn't find a valid Subscriber in our list
     response.SetStatus(412, "Precondition Failed");

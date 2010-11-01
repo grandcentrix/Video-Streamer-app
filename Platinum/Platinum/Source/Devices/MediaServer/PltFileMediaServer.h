@@ -71,14 +71,14 @@ protected:
                                         const char*                   filter,
                                         NPT_UInt32                    starting_index,
                                         NPT_UInt32                    requested_count,
-                                        const NPT_List<NPT_String>&   sort_criteria,
+                                        const char*                   sort_criteria,
                                         const PLT_HttpRequestContext& context);
     virtual NPT_Result OnBrowseDirectChildren(PLT_ActionReference&          action, 
                                               const char*                   object_id, 
                                               const char*                   filter,
                                               NPT_UInt32                    starting_index,
                                               NPT_UInt32                    requested_count,
-                                              const NPT_List<NPT_String>&   sort_criteria,
+                                              const char*                   sort_criteria,
                                               const PLT_HttpRequestContext& context);
     virtual NPT_Result OnSearchContainer(PLT_ActionReference&          action, 
                                          const char*                   object_id, 
@@ -86,7 +86,7 @@ protected:
                                          const char*                   filter,
                                          NPT_UInt32                    starting_index,
                                          NPT_UInt32                    requested_count,
-                                         const NPT_List<NPT_String>&   sort_criteria, 
+                                         const char*                   sort_criteria, 
                                          const PLT_HttpRequestContext& context);
     virtual NPT_Result ProcessFileRequest(NPT_HttpRequest&              request, 
                                           const NPT_HttpRequestContext& context,

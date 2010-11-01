@@ -114,10 +114,12 @@ PLT_MediaConnect::ProcessGetDescription(NPT_HttpRequest&              request,
         m_DlnaDoc          = "";
         m_DlnaCap          = "";
         m_AggregationFlags = "";
-        if (m_FriendlyName.Find(":") == -1)
+        if (m_FriendlyName.Find(":") == -1) {
             m_FriendlyName += ": 1";
-        if (!m_FriendlyName.EndsWith(": Windows Media Connect")) 
+        }
+        if (!m_FriendlyName.EndsWith(": Windows Media Connect")) {
             m_FriendlyName += ": Windows Media Connect";
+        }
     } else if (user_agent && user_agent->GetValue().Find("Sonos", 0, true)>=0) {
         m_ModelName        = "Windows Media Player Sharing";
         m_ModelNumber      = "3.0";
@@ -131,6 +133,7 @@ PLT_MediaConnect::ProcessGetDescription(NPT_HttpRequest&              request,
         m_AggregationFlags = "10";
     }
 
+    // return description with modified params
     NPT_Result res = PLT_MediaServer::ProcessGetDescription(request, context, response);
     
     // reset to old values now
@@ -330,10 +333,61 @@ PLT_FileMediaConnectDelegate::GetFilePath(const char* object_id, NPT_String& fil
         return PLT_FileMediaServerDelegate::GetFilePath("", filepath); // Videos
     } else if (NPT_StringsEqual(object_id, "16")) {
         return PLT_FileMediaServerDelegate::GetFilePath("", filepath); // Photos
-    } else if (NPT_StringsEqual(object_id, "13")) {
+    } else if (NPT_StringsEqual(object_id, "13") || NPT_StringsEqual(object_id, "4")) {
         return PLT_FileMediaServerDelegate::GetFilePath("", filepath); // Music
     }
 
     return PLT_FileMediaServerDelegate::GetFilePath(object_id, filepath);;
 }
 
+/*----------------------------------------------------------------------
+|   PLT_FileMediaConnectDelegate::OnSearchContainer
++---------------------------------------------------------------------*/
+NPT_Result
+PLT_FileMediaConnectDelegate::OnSearchContainer(PLT_ActionReference&          action, 
+                                                const char*                   object_id, 
+                                                const char*                   search_criteria,
+                                                const char*                   filter,
+                                                NPT_UInt32                    starting_index,
+                                                NPT_UInt32                    requested_count,
+                                                const char*                   sort_criteria,
+                                                const PLT_HttpRequestContext& context)
+{
+    /* parse search criteria */
+    
+    /* TODO: HACK TO PASS DLNA */
+    if (search_criteria && NPT_StringsEqual(search_criteria, "Unknownfieldname")) {
+        /* error */
+        NPT_LOG_WARNING_1("Unsupported or invalid search criteria %s", search_criteria);
+        action->SetError(708, "Unsupported or invalid search criteria");
+        return NPT_FAILURE;
+    }
+    
+    /* locate the file from the object ID */
+    NPT_String dir;
+    if (NPT_FAILED(GetFilePath(object_id, dir))) {
+        /* error */
+        NPT_LOG_WARNING("ObjectID not found.");
+        action->SetError(710, "No Such Container.");
+        return NPT_FAILURE;
+    }
+    
+    /* retrieve the item type */
+    NPT_FileInfo info;
+    NPT_Result res = NPT_File::GetInfo(dir, &info);
+    if (NPT_FAILED(res) || (info.m_Type != NPT_FileInfo::FILE_TYPE_DIRECTORY)) {
+        /* error */
+        NPT_LOG_WARNING("No such container");
+        action->SetError(710, "No such container");
+        return NPT_FAILURE;
+    }
+    
+    /* hack for now to return something back to XBox 360 */
+    return OnBrowseDirectChildren(action, 
+                                  object_id, 
+                                  filter, 
+                                  starting_index, 
+                                  requested_count, 
+                                  sort_criteria, 
+                                  context);
+}

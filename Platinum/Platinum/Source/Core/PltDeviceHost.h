@@ -114,6 +114,12 @@ public:
      */
     virtual NPT_UInt16 GetPort() { return m_Port; };
     
+    /**
+     Sets the lease time.
+     @param lease_time Lease Time
+     */
+    NPT_Result SetLeaseTime(NPT_TimeInterval lease_time) { return PLT_DeviceData::SetLeaseTime(lease_time); }
+
 protected:
     /**
      NPT_HttpRequestHandler method for setting up the response of an incoming
