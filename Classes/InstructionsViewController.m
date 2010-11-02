@@ -135,20 +135,6 @@
 {
     [super viewDidLoad];
     
-    // Sets appropriate background based on device type
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-iPad.png"]];
-        self.view.backgroundColor = background;
-        [background release];
-    }
-    else
-    {
-        UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background-iPhone.png"]];
-        self.view.backgroundColor = background;
-        [background release];        
-    }
-    
     // Start monitoring the document directory
     NSMutableArray *documentUrls = [[NSMutableArray alloc] init];
     self.documentUrls = documentUrls;

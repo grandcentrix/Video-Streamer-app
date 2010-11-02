@@ -124,7 +124,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 45117EA21272381B002B821F /* Platinum.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = E43741FC123FFB9800000109 /* MediaServerCocoaTest.app */;
+			remoteGlobalIDString = E43741FC123FFB9800000109;
 			remoteInfo = MediaServerCocoaTest;
 		};
 /* End PBXContainerItemProxy section */
