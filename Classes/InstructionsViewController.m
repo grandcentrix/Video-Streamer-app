@@ -164,15 +164,16 @@
         cell.textLabel.textColor = [UIColor whiteColor];
     }
     
+    // The file name
     NSURL *fileUrl = [self.documentUrls objectAtIndex:indexPath.row];
-	[self setupDocumentControllerWithURL:fileUrl];
-	
-    // Layout the cell
     cell.textLabel.text = [[fileUrl path] lastPathComponent];
-    NSInteger iconCount = [self.docInteractionController.icons count];
-    if (iconCount > 0)
+    
+    // Displays the highest resolution icon available for the file type.
+    [self setupDocumentControllerWithURL:fileUrl];
+    NSArray *icons = self.docInteractionController.icons;
+    if ([icons count] > 0)
     {
-        cell.imageView.image = [self.docInteractionController.icons objectAtIndex:iconCount - 1];
+        cell.imageView.image = [icons objectAtIndex:[icons count] - 1];
     }
     
     cell.detailTextLabel.text = self.docInteractionController.UTI;
