@@ -99,8 +99,8 @@
     NSArray *files = [UpnpServer documentsDirectoryContents];
     if (files == nil || [files count] == 0)
     {
-        //self.addFromiTunesView.hidden = NO;
-        //self.tableView.hidden = YES;
+        self.addFromiTunesView.hidden = NO;
+        self.tableView.hidden = YES;
     }
     else
     {        
@@ -122,8 +122,8 @@
         
         [self.tableView reloadData];
         
-        //self.addFromiTunesView.hidden = YES;
-        //self.tableView.hidden = NO;
+        self.addFromiTunesView.hidden = YES;
+        self.tableView.hidden = NO;
     }
 }
 
