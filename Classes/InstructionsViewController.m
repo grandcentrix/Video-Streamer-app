@@ -49,45 +49,6 @@
     }
 }
 
-- (NSString *)formattedFileSize:(unsigned long long)size
-{
-	NSString *formattedStr = nil;
-    if (size == 0)
-    {
-		formattedStr = @"Empty";
-    }
-	else
-    {
-		if (size > 0 && size < 1024) 
-        {
-			formattedStr = [NSString stringWithFormat:@"%qu bytes", size];
-        }
-        else 
-        {
-            if (size >= 1024 && size < pow(1024, 2)) 
-            {
-                formattedStr = [NSString stringWithFormat:@"%.1f KB", (size / 1024.)];
-            }
-            else 
-            {
-                if (size >= pow(1024, 2) && size < pow(1024, 3))
-                {
-                    formattedStr = [NSString stringWithFormat:@"%.2f MB", (size / pow(1024, 2))];
-                }
-                else 
-                {
-                    if (size >= pow(1024, 3)) 
-                    {
-                        formattedStr = [NSString stringWithFormat:@"%.3f GB", (size / pow(1024, 3))];
-                    }
-                }
-            }
-        }
-    }
-	
-	return formattedStr;
-}
-
 
 #pragma mark -
 #pragma mark DirectoryWatcherDelegate
@@ -214,13 +175,7 @@
         cell.imageView.image = [self.docInteractionController.icons objectAtIndex:iconCount - 1];
     }
     
-    NSError *error;
-    NSString *fileUrlString = [self.docInteractionController.URL path];
-    NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:fileUrlString error:&error];
-    NSInteger fileSize = [[fileAttributes objectForKey:NSFileSize] intValue];
-    
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@",
-                                 [self formattedFileSize:fileSize], self.docInteractionController.UTI];
+    cell.detailTextLabel.text = self.docInteractionController.UTI;
     
     return cell;
 }

@@ -27,8 +27,6 @@
 		45C03AD81284F87400433460 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C03AD61284F87400433460 /* Default.png */; };
 		45C03AE51284FBF700433460 /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C03AE31284FBF700433460 /* Default-Landscape.png */; };
 		45C03AE61284FBF700433460 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C03AE41284FBF700433460 /* Default@2x.png */; };
-		45C03B021285133000433460 /* iTunes-file-sharing-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C03B011285133000433460 /* iTunes-file-sharing-ipad.png */; };
-		45C03B0D128519BF00433460 /* iTunes-apps-tab-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C03B0C128519BF00433460 /* iTunes-apps-tab-ipad.png */; };
 		45FBDF861274A93200FBCA62 /* background-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 45FBDF851274A93200FBCA62 /* background-iPad.png */; };
 		45FBDF8B1274AA4900FBCA62 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FBDF891274AA4900FBCA62 /* InstructionsViewController.m */; };
 		45FBE09B1274D9FA00FBCA62 /* DirectoryWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FBE09A1274D9FA00FBCA62 /* DirectoryWatcher.m */; };
@@ -160,8 +158,6 @@
 		45C03AD61284F87400433460 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		45C03AE31284FBF700433460 /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
 		45C03AE41284FBF700433460 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		45C03B011285133000433460 /* iTunes-file-sharing-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iTunes-file-sharing-ipad.png"; path = "Images/iTunes-file-sharing-ipad.png"; sourceTree = "<group>"; };
-		45C03B0C128519BF00433460 /* iTunes-apps-tab-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iTunes-apps-tab-ipad.png"; path = "Images/iTunes-apps-tab-ipad.png"; sourceTree = "<group>"; };
 		45FBDF851274A93200FBCA62 /* background-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-iPad.png"; path = "Images/background-iPad.png"; sourceTree = "<group>"; };
 		45FBDF881274AA4900FBCA62 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionsViewController.h; path = Classes/InstructionsViewController.h; sourceTree = "<group>"; };
 		45FBDF891274AA4900FBCA62 /* InstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstructionsViewController.m; path = Classes/InstructionsViewController.m; sourceTree = "<group>"; };
@@ -296,8 +292,6 @@
 		45FBDF841274A92300FBCA62 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				45C03B0C128519BF00433460 /* iTunes-apps-tab-ipad.png */,
-				45C03B011285133000433460 /* iTunes-file-sharing-ipad.png */,
 				45FBDF851274A93200FBCA62 /* background-iPad.png */,
 				455CE3C012792D460025ED87 /* background-iPhone.png */,
 				455CE3C112792D460025ED87 /* background-iPhone@2x.png */,
@@ -481,8 +475,6 @@
 				45C03AD81284F87400433460 /* Default.png in Resources */,
 				45C03AE51284FBF700433460 /* Default-Landscape.png in Resources */,
 				45C03AE61284FBF700433460 /* Default@2x.png in Resources */,
-				45C03B021285133000433460 /* iTunes-file-sharing-ipad.png in Resources */,
-				45C03B0D128519BF00433460 /* iTunes-apps-tab-ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
