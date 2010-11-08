@@ -55,12 +55,32 @@
 
 - (void)start
 {
-    upnp->Start();
+    if (![self isRunning])
+    {
+        upnp->Start();       
+    }
 }
 
 - (void)stop
 {
-    upnp->Stop();
+    if ([self isRunning])
+    {
+        upnp->Stop();        
+    }
+}
+
+- (BOOL)isRunning
+{
+    // IsRunning() returns a C++ bool. I'm not confident in the casting from a 
+    // C++ bool to an Objective-C BOOL (a signed char) so avoid it here
+    if (upnp->IsRunning())
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
 }
 
 @end
