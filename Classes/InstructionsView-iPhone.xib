@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="15"/>
+			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -97,7 +97,7 @@
 eCwgLndtdiwgLm1wNCwgLm00diwgLm1wNHYsIGFuZCAubW92CgpUcm91Ymxlc2hvb3Rpbmc6CkJlIHN1
 cmUgeW91J3JlIG9uIHRoZSBzYW1lIG5ldHdvcmsgYXMgdGhlIGNvbnNvbGUgYW5kIHRoZSBmaWxlIHR5
 cGUgaXMgc3VwcG9ydGVkIGJ5IHRoZSBjb25zb2xlLiBUaGlzIGFwcCBuZWVkcyB0byByZW1haW4gb24g
-d2hlbiBzdHJlYW1pbmcuA</string>
+d2hpbGUgc3RyZWFtaW5nLg</string>
 										<object class="NSFont" key="IBUIFont" id="22374235">
 											<string key="NSName">Helvetica</string>
 											<double key="NSSize">22</double>
@@ -410,6 +410,7 @@ cnZlcgo2KSBBZGQgYW55IG1lZGlhIHlvdSB3YW50IHRvIHN0cmVhbQo3KSBBbmQgZW5qb3k</string>
 							<reference ref="562013905"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
+						<string key="objectName">Container View</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">7</int>
@@ -424,6 +425,7 @@ cnZlcgo2KSBBZGQgYW55IG1lZGlhIHlvdSB3YW50IHRvIHN0cmVhbQo3KSBBbmQgZW5qb3k</string>
 							<reference ref="247111124"/>
 						</object>
 						<reference key="parent" ref="60043327"/>
+						<string key="objectName">Add to iTunes View</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">18</int>
@@ -438,6 +440,7 @@ cnZlcgo2KSBBZGQgYW55IG1lZGlhIHlvdSB3YW50IHRvIHN0cmVhbQo3KSBBbmQgZW5qb3k</string>
 							<reference ref="670666859"/>
 						</object>
 						<reference key="parent" ref="60043327"/>
+						<string key="objectName">Info View</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">25</int>
