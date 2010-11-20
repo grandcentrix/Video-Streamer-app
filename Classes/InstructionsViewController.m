@@ -14,6 +14,8 @@
 @synthesize directoryWatcher = directoryWatcher_;
 @synthesize documentUrls = documentUrls_;
 @synthesize docInteractionController = docInteractionController_;
+@synthesize containerView = containerView_;
+@synthesize infoView = infoView_;
 @synthesize addFromiTunesView = addFromiTunesView_;
 @synthesize tableView = tableView_;
 @synthesize sectionHeaderView = sectionHeaderView_;
@@ -28,6 +30,8 @@
     [directoryWatcher_ release];
     [documentUrls_ release];
     [docInteractionController_ release];
+    [containerView_ release];
+    [infoView_ release];
     [addFromiTunesView_ release];
     [tableView_ release];
     [sectionHeaderView_ release];
@@ -49,6 +53,30 @@
     }
 }
 
+-(IBAction)switchInfo:(id)sender
+{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1.25];
+    [UIView setAnimationBeginsFromCurrentState:NO];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.containerView cache:YES];
+    	
+	// If the info view is hidden, hide other views and show
+    if (self.infoView.hidden)
+    {
+        self.infoView.hidden = NO;
+        self.addFromiTunesView.hidden = YES;
+        self.tableView.hidden = YES;
+    }
+    // If switching from hidden view, determine which view to show based on if 
+    // files in directory
+    else
+    {
+        [self directoryDidChange:self.directoryWatcher];
+    }
+    
+    [UIView commitAnimations];
+}
+
 
 #pragma mark -
 #pragma mark DirectoryWatcherDelegate
@@ -60,6 +88,7 @@
     NSArray *files = [UpnpServer documentsDirectoryContents];
     if (files == nil || [files count] == 0)
     {
+        self.infoView.hidden = YES;
         self.addFromiTunesView.hidden = NO;
         self.tableView.hidden = YES;
     }
@@ -83,6 +112,7 @@
         
         [self.tableView reloadData];
         
+        self.infoView.hidden = YES;
         self.addFromiTunesView.hidden = YES;
         self.tableView.hidden = NO;
     }
