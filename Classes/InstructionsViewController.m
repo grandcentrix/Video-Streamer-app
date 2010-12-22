@@ -173,11 +173,11 @@
     // Number of rows determines if singular or plural form used in copy
     if ([self tableView:tableView numberOfRowsInSection:section] == 1)
     {
-        title = @"Ready to stream this file to your Xbox 360 or Playstation 3. Exiting this app will stop streaming.";
+        title = @"Ready to stream this file to your Playstation 3 or Xbox 360. Exiting this app will stop streaming.";
     }
     else
     {
-        title = @"Ready to stream these files to your Xbox 360 or Playstation 3. Exiting this app will stop streaming.";
+        title = @"Ready to stream these files to your Playstation 3 or Xbox 360. Exiting this app will stop streaming.";
     }
 
     return title;

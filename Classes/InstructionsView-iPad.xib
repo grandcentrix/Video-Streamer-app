@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
-		<int key="IBDocument.SystemTarget">1024</int>
+		<int key="IBDocument.SystemTarget">1056</int>
 		<string key="IBDocument.SystemVersion">10H574</string>
-		<string key="IBDocument.InterfaceBuilderVersion">804</string>
+		<string key="IBDocument.InterfaceBuilderVersion">823</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
 		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">123</string>
+			<string key="NS.object.0">132</string>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="7"/>
+			<integer value="28"/>
+			<integer value="4"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -95,9 +96,9 @@
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 										<string type="base64-UTF8" key="IBUIText">UGxheXN0YXRpb24gMyBhbmQgWGJveCAzNjAgdmlkZW8gZmlsZXMgc3VwcG9ydGVkOgouYXZpLCAuZGl2
 eCwgLndtdiwgLm1wNCwgLm00diwgLm1wNHYsIGFuZCAubW92CgpUcm91Ymxlc2hvb3Rpbmc6CkJlIHN1
-cmUgeW91J3JlIG9uIHRoZSBzYW1lIG5ldHdvcmsgYXMgdGhlIGNvbnNvbGUgYW5kIHRoZSBmaWxlIHR5
-cGUgaXMgc3VwcG9ydGVkIGJ5IHRoZSBjb25zb2xlLiBUaGlzIGFwcCBuZWVkcyB0byByZW1haW4gb24g
-d2hpbGUgc3RyZWFtaW5nLg</string>
+cmUgeW91ciBkZXZpY2UgaXMgb24gdGhlIHNhbWUgbmV0d29yayBhcyB0aGUgY29uc29sZSBhbmQgdGhl
+IGNvbnNvbGUgc3VwcG9ydHMgdGhlIGZpbGUgdHlwZS4gVGhpcyBhcHAgbmVlZHMgdG8gcmVtYWluIGFj
+dGl2ZSB3aGlsZSBzdHJlYW1pbmcuA</string>
 										<object class="NSFont" key="IBUIFont" id="566601576">
 											<string key="NSName">Helvetica</string>
 											<double key="NSSize">36</double>
@@ -127,7 +128,7 @@ d2hpbGUgc3RyZWFtaW5nLg</string>
 							</object>
 							<object class="IBUIView" id="637982361">
 								<reference key="NSNextResponder" ref="418088559"/>
-								<int key="NSvFlags">274</int>
+								<int key="NSvFlags">-2147483374</int>
 								<object class="NSMutableArray" key="NSSubviews">
 									<bool key="EncodedWithXMLCoder">YES</bool>
 									<object class="IBUILabel" id="968158125">
@@ -141,11 +142,11 @@ d2hpbGUgc3RyZWFtaW5nLg</string>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="IBUIContentStretch">{{0, 0}, {0, 0}}</string>
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-										<string type="base64-UTF8" key="IBUIText">ICAgICAgICAgICAgICAgICAgICAgICAgQWxtb3N0IHRoZXJlLi4uCjEpIEp1c3QgcGx1ZyB5b3VyIGlQ
-YWQgaW4KMikgU2VsZWN0IHlvdXIgaVBhZCB1bmRlciBEZXZpY2VzIGluIGlUdW5lcwozKSBDbGljayBB
-cHBzIGF0IHRoZSB0b3Agb2YgaVR1bmVzCjQpIFNjcm9sbCBkb3duIHRvIEZpbGUgU2hhcmluZwo1KSBT
-ZWxlY3QgVVBuUCBNZWRpYSBTZXJ2ZXIKNikgQWRkIGFueSBtZWRpYSB5b3Ugd2FudCB0byBzdHJlYW0K
-NykgQW5kIGVuam95A</string>
+										<string type="base64-UTF8" key="IBUIText">ICAgICAgICAgICAgICAgICAgICAgICAgQWxtb3N0IHRoZXJlLi4uCjEpIFBsdWcgeW91ciBpUGFkIGlu
+dG8geW91ciBjb21wdXRlcgoyKSBPcGVuIGlUdW5lcwozKSBTZWxlY3QgeW91ciBpUGFkIHVuZGVyIERl
+dmljZXMKNCkgQ2xpY2sgQXBwcyBpbiB0aGUgdG9wIGJhcgo1KSBTY3JvbGwgZG93biB0byBGaWxlIFNo
+YXJpbmcKNikgU2VsZWN0IFVQblAgTWVkaWEgU2VydmVyCjcpIEFkZCBhbnkgbWVkaWEgeW91IHdhbnQg
+dG8gc3RyZWFtCjgpIEVuam95A</string>
 										<reference key="IBUIFont" ref="566601576"/>
 										<object class="NSColor" key="IBUITextColor">
 											<int key="NSColorSpace">1</int>
@@ -211,7 +212,7 @@ NykgQW5kIGVuam95A</string>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 			</object>
 			<object class="IBUIView" id="788697506">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">290</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -238,7 +239,7 @@ NykgQW5kIGVuam95A</string>
 						<int key="IBUIContentMode">5</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-						<string key="IBUIText">Ready to stream these files to your Xbox 360 or Playstation 3 followed by some other explanation text</string>
+						<string key="IBUIText">Ready to stream these files to your Playstation 3 or Xbox 360 followed by some other explanation text</string>
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Helvetica</string>
 							<double key="NSSize">24</double>
@@ -254,6 +255,7 @@ NykgQW5kIGVuam95A</string>
 					</object>
 				</object>
 				<string key="NSFrameSize">{768, 125}</string>
+				<reference key="NSSuperview"/>
 				<reference key="IBUIBackgroundColor" ref="621965572"/>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 			</object>
@@ -409,8 +411,8 @@ NykgQW5kIGVuam95A</string>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="317477792"/>
-							<reference ref="185891084"/>
 							<reference ref="637982361"/>
+							<reference ref="185891084"/>
 						</object>
 						<reference key="parent" ref="375996976"/>
 						<string key="objectName">Container View</string>
@@ -420,16 +422,6 @@ NykgQW5kIGVuam95A</string>
 						<reference key="object" ref="317477792"/>
 						<reference key="parent" ref="418088559"/>
 						<string key="objectName">Files View</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">31</int>
-						<reference key="object" ref="185891084"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="43004227"/>
-						</object>
-						<reference key="parent" ref="418088559"/>
-						<string key="objectName">Info View</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">33</int>
@@ -450,6 +442,16 @@ NykgQW5kIGVuam95A</string>
 						<int key="objectID">25</int>
 						<reference key="object" ref="968158125"/>
 						<reference key="parent" ref="637982361"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">31</int>
+						<reference key="object" ref="185891084"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="43004227"/>
+						</object>
+						<reference key="parent" ref="418088559"/>
+						<string key="objectName">Info View</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">29</int>
@@ -474,6 +476,7 @@ NykgQW5kIGVuam95A</string>
 					<string>29.IBPluginDependency</string>
 					<string>29.IBViewBoundsToFrameTransform</string>
 					<string>31.IBPluginDependency</string>
+					<string>31.IBViewBoundsToFrameTransform</string>
 					<string>33.IBPluginDependency</string>
 					<string>33.IBViewBoundsToFrameTransform</string>
 					<string>4.IBEditorWindowLastContentRect</string>
@@ -507,6 +510,7 @@ NykgQW5kIGVuam95A</string>
 						<bytes key="NSTransformStruct">AUIAAABDkAAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<object class="NSAffineTransform"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">AUQ0wABEcUAAA</bytes>
@@ -794,6 +798,13 @@ NykgQW5kIGVuam95A</string>
 					<string key="className">UIView</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">UIKit.framework/Headers/UIPrintFormatter.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">UIView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
 						<string key="minorKey">UIKit.framework/Headers/UITextField.h</string>
 					</object>
 				</object>
@@ -847,7 +858,7 @@ NykgQW5kIGVuam95A</string>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<integer value="1024" key="NS.object.0"/>
+			<integer value="1056" key="NS.object.0"/>
 		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.InterfaceBuilder3</string>
@@ -869,6 +880,6 @@ NykgQW5kIGVuam95A</string>
 				<string>{768, 125}</string>
 			</object>
 		</object>
-		<string key="IBCocoaTouchPluginVersion">123</string>
+		<string key="IBCocoaTouchPluginVersion">132</string>
 	</data>
 </archive>
