@@ -16,5 +16,6 @@
 + (NSArray *)documentsDirectoryContents;
 - (void)start;
 - (void)stop;
+- (BOOL)isRunning;
 
 @end
