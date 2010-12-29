@@ -16,7 +16,7 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		45117EF8127238B2002B821F /* libPlatinum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45117EDE1272381B002B821F /* libPlatinum.a */; };
 		4559C920127A753F001B1D4D /* InstructionsView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4559C91E127A753F001B1D4D /* InstructionsView-iPad.xib */; };
-		4559C93A127A788A001B1D4D /* InstructionsView-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4559C938127A788A001B1D4D /* InstructionsView-iPhone.xib */; };
+		4559C93A127A788A001B1D4D /* InstructionsView-iPhone-backup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4559C938127A788A001B1D4D /* InstructionsView-iPhone-backup.xib */; };
 		455CE3C512792D460025ED87 /* background-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 455CE3C012792D460025ED87 /* background-iPhone.png */; };
 		455CE3C612792D460025ED87 /* background-iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 455CE3C112792D460025ED87 /* background-iPhone@2x.png */; };
 		455CE3C712792D460025ED87 /* sectionHeader-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 455CE3C212792D460025ED87 /* sectionHeader-iPad.png */; };
@@ -33,6 +33,15 @@
 		45C03AD81284F87400433460 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C03AD61284F87400433460 /* Default.png */; };
 		45C03AE51284FBF700433460 /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C03AE31284FBF700433460 /* Default-Landscape.png */; };
 		45C03AE61284FBF700433460 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C03AE41284FBF700433460 /* Default@2x.png */; };
+		45F2FA8212CAE102003B3E1B /* FilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F2FA8012CAE102003B3E1B /* FilesViewController.m */; };
+		45F2FA8312CAE102003B3E1B /* FilesView-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F2FA8112CAE102003B3E1B /* FilesView-iPhone.xib */; };
+		45F2FA8712CAE271003B3E1B /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F2FA8512CAE271003B3E1B /* RootViewController.m */; };
+		45F2FA8812CAE271003B3E1B /* RootView-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F2FA8612CAE271003B3E1B /* RootView-iPhone.xib */; };
+		45F2FA8C12CAE31D003B3E1B /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F2FA8A12CAE31D003B3E1B /* AboutViewController.m */; };
+		45F2FA8D12CAE31D003B3E1B /* AboutView-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F2FA8B12CAE31D003B3E1B /* AboutView-iPhone.xib */; };
+		45F2FA9112CAEBFC003B3E1B /* FilesSectionHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F2FA8F12CAEBFC003B3E1B /* FilesSectionHeaderViewController.m */; };
+		45F2FA9212CAEBFC003B3E1B /* FilesSectionHeaderView-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F2FA9012CAEBFC003B3E1B /* FilesSectionHeaderView-iPhone.xib */; };
+		45F2FAAA12CAEEAD003B3E1B /* InstructionsView-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F2FAA912CAEEAD003B3E1B /* InstructionsView-iPhone.xib */; };
 		45FBDF861274A93200FBCA62 /* background-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 45FBDF851274A93200FBCA62 /* background-iPad.png */; };
 		45FBDF8B1274AA4900FBCA62 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FBDF891274AA4900FBCA62 /* InstructionsViewController.m */; };
 		45FBE09B1274D9FA00FBCA62 /* DirectoryWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FBE09A1274D9FA00FBCA62 /* DirectoryWatcher.m */; };
@@ -152,7 +161,7 @@
 		32CA4F630368D1EE00C91783 /* UPnP_Media_Server_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPnP_Media_Server_Prefix.pch; sourceTree = "<group>"; };
 		45117EA21272381B002B821F /* Platinum.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Platinum.xcodeproj; path = "Platinum/Platinum/Build/Targets/universal-apple-macosx/Platinum.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		4559C91E127A753F001B1D4D /* InstructionsView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "InstructionsView-iPad.xib"; path = "Classes/InstructionsView-iPad.xib"; sourceTree = "<group>"; };
-		4559C938127A788A001B1D4D /* InstructionsView-iPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "InstructionsView-iPhone.xib"; path = "Classes/InstructionsView-iPhone.xib"; sourceTree = "<group>"; };
+		4559C938127A788A001B1D4D /* InstructionsView-iPhone-backup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "InstructionsView-iPhone-backup.xib"; path = "Classes/InstructionsView-iPhone-backup.xib"; sourceTree = "<group>"; };
 		455CE3C012792D460025ED87 /* background-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-iPhone.png"; path = "Images/background-iPhone.png"; sourceTree = "<group>"; };
 		455CE3C112792D460025ED87 /* background-iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-iPhone@2x.png"; path = "Images/background-iPhone@2x.png"; sourceTree = "<group>"; };
 		455CE3C212792D460025ED87 /* sectionHeader-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sectionHeader-iPad.png"; path = "Images/sectionHeader-iPad.png"; sourceTree = "<group>"; };
@@ -170,6 +179,19 @@
 		45C03AD61284F87400433460 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		45C03AE31284FBF700433460 /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
 		45C03AE41284FBF700433460 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		45F2FA7F12CAE102003B3E1B /* FilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilesViewController.h; path = Classes/FilesViewController.h; sourceTree = "<group>"; };
+		45F2FA8012CAE102003B3E1B /* FilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilesViewController.m; path = Classes/FilesViewController.m; sourceTree = "<group>"; };
+		45F2FA8112CAE102003B3E1B /* FilesView-iPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "FilesView-iPhone.xib"; path = "Classes/FilesView-iPhone.xib"; sourceTree = "<group>"; };
+		45F2FA8412CAE271003B3E1B /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = Classes/RootViewController.h; sourceTree = "<group>"; };
+		45F2FA8512CAE271003B3E1B /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = Classes/RootViewController.m; sourceTree = "<group>"; };
+		45F2FA8612CAE271003B3E1B /* RootView-iPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "RootView-iPhone.xib"; path = "Classes/RootView-iPhone.xib"; sourceTree = "<group>"; };
+		45F2FA8912CAE31D003B3E1B /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Classes/AboutViewController.h; sourceTree = "<group>"; };
+		45F2FA8A12CAE31D003B3E1B /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Classes/AboutViewController.m; sourceTree = "<group>"; };
+		45F2FA8B12CAE31D003B3E1B /* AboutView-iPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "AboutView-iPhone.xib"; path = "Classes/AboutView-iPhone.xib"; sourceTree = "<group>"; };
+		45F2FA8E12CAEBFC003B3E1B /* FilesSectionHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilesSectionHeaderViewController.h; path = Classes/FilesSectionHeaderViewController.h; sourceTree = "<group>"; };
+		45F2FA8F12CAEBFC003B3E1B /* FilesSectionHeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilesSectionHeaderViewController.m; path = Classes/FilesSectionHeaderViewController.m; sourceTree = "<group>"; };
+		45F2FA9012CAEBFC003B3E1B /* FilesSectionHeaderView-iPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "FilesSectionHeaderView-iPhone.xib"; path = "Classes/FilesSectionHeaderView-iPhone.xib"; sourceTree = "<group>"; };
+		45F2FAA912CAEEAD003B3E1B /* InstructionsView-iPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "InstructionsView-iPhone.xib"; path = "Classes/InstructionsView-iPhone.xib"; sourceTree = "<group>"; };
 		45FBDF851274A93200FBCA62 /* background-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-iPad.png"; path = "Images/background-iPad.png"; sourceTree = "<group>"; };
 		45FBDF881274AA4900FBCA62 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionsViewController.h; path = Classes/InstructionsViewController.h; sourceTree = "<group>"; };
 		45FBDF891274AA4900FBCA62 /* InstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstructionsViewController.m; path = Classes/InstructionsViewController.m; sourceTree = "<group>"; };
@@ -301,8 +323,13 @@
 		45FBDF801274A52400FBCA62 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				45F2FA8B12CAE31D003B3E1B /* AboutView-iPhone.xib */,
+				45F2FA8612CAE271003B3E1B /* RootView-iPhone.xib */,
+				45F2FA8112CAE102003B3E1B /* FilesView-iPhone.xib */,
+				45F2FA9012CAEBFC003B3E1B /* FilesSectionHeaderView-iPhone.xib */,
+				45F2FAA912CAEEAD003B3E1B /* InstructionsView-iPhone.xib */,
 				4559C91E127A753F001B1D4D /* InstructionsView-iPad.xib */,
-				4559C938127A788A001B1D4D /* InstructionsView-iPhone.xib */,
+				4559C938127A788A001B1D4D /* InstructionsView-iPhone-backup.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -325,6 +352,14 @@
 			children = (
 				45FBDF881274AA4900FBCA62 /* InstructionsViewController.h */,
 				45FBDF891274AA4900FBCA62 /* InstructionsViewController.m */,
+				45F2FA7F12CAE102003B3E1B /* FilesViewController.h */,
+				45F2FA8012CAE102003B3E1B /* FilesViewController.m */,
+				45F2FA8412CAE271003B3E1B /* RootViewController.h */,
+				45F2FA8512CAE271003B3E1B /* RootViewController.m */,
+				45F2FA8912CAE31D003B3E1B /* AboutViewController.h */,
+				45F2FA8A12CAE31D003B3E1B /* AboutViewController.m */,
+				45F2FA8E12CAEBFC003B3E1B /* FilesSectionHeaderViewController.h */,
+				45F2FA8F12CAEBFC003B3E1B /* FilesSectionHeaderViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -488,7 +523,7 @@
 				455CE3C812792D460025ED87 /* sectionHeader-iPhone.png in Resources */,
 				455CE3C912792D460025ED87 /* sectionHeader-iPhone@2x.png in Resources */,
 				4559C920127A753F001B1D4D /* InstructionsView-iPad.xib in Resources */,
-				4559C93A127A788A001B1D4D /* InstructionsView-iPhone.xib in Resources */,
+				4559C93A127A788A001B1D4D /* InstructionsView-iPhone-backup.xib in Resources */,
 				45C03AD71284F87400433460 /* Default-Portrait.png in Resources */,
 				45C03AD81284F87400433460 /* Default.png in Resources */,
 				45C03AE51284FBF700433460 /* Default-Landscape.png in Resources */,
@@ -499,6 +534,11 @@
 				45B95CC912C06F3D00670BD4 /* Icon.png in Resources */,
 				45B95CCA12C06F3D00670BD4 /* Icon@2x.png in Resources */,
 				45B95D2912C071BB00670BD4 /* Icon-Small@2x.png in Resources */,
+				45F2FA8312CAE102003B3E1B /* FilesView-iPhone.xib in Resources */,
+				45F2FA8812CAE271003B3E1B /* RootView-iPhone.xib in Resources */,
+				45F2FA8D12CAE31D003B3E1B /* AboutView-iPhone.xib in Resources */,
+				45F2FA9212CAEBFC003B3E1B /* FilesSectionHeaderView-iPhone.xib in Resources */,
+				45F2FAAA12CAEEAD003B3E1B /* InstructionsView-iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +554,10 @@
 				45A5E805127242480061B207 /* UpnpServer.m in Sources */,
 				45FBDF8B1274AA4900FBCA62 /* InstructionsViewController.m in Sources */,
 				45FBE09B1274D9FA00FBCA62 /* DirectoryWatcher.m in Sources */,
+				45F2FA8212CAE102003B3E1B /* FilesViewController.m in Sources */,
+				45F2FA8712CAE271003B3E1B /* RootViewController.m in Sources */,
+				45F2FA8C12CAE31D003B3E1B /* AboutViewController.m in Sources */,
+				45F2FA9112CAEBFC003B3E1B /* FilesSectionHeaderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,11 +1,11 @@
-#import "InstructionsViewController.h"
+#import "AboutViewController.h"
 
 
-@implementation InstructionsViewController
+@implementation AboutViewController
 
 
 #pragma mark -
-#pragma mark InstructionsViewController
+#pragma mark AboutViewController
 
 - (void)dealloc
 {
