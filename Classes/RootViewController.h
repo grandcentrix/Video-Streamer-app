@@ -14,6 +14,7 @@
         FilesViewController *filesViewController_;
         DirectoryWatcher *directoryWatcher_;
         NSMutableArray *documentUrls_;
+        BOOL showingAboutView_;
 }
 
 @property (nonatomic, retain) IBOutlet UIView *subview;
@@ -21,6 +22,6 @@
 @property (nonatomic, retain) InstructionsViewController *instructionsViewController;
 @property (nonatomic, retain) FilesViewController *filesViewController;
 
--(IBAction)switchInfo:(id)sender;
+-(IBAction)switchAbout:(id)sender;
 
 @end

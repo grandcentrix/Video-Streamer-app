@@ -39,8 +39,6 @@
 		45F2FA8812CAE271003B3E1B /* RootView-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F2FA8612CAE271003B3E1B /* RootView-iPhone.xib */; };
 		45F2FA8C12CAE31D003B3E1B /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F2FA8A12CAE31D003B3E1B /* AboutViewController.m */; };
 		45F2FA8D12CAE31D003B3E1B /* AboutView-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F2FA8B12CAE31D003B3E1B /* AboutView-iPhone.xib */; };
-		45F2FA9112CAEBFC003B3E1B /* FilesSectionHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F2FA8F12CAEBFC003B3E1B /* FilesSectionHeaderViewController.m */; };
-		45F2FA9212CAEBFC003B3E1B /* FilesSectionHeaderView-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F2FA9012CAEBFC003B3E1B /* FilesSectionHeaderView-iPhone.xib */; };
 		45F2FAAA12CAEEAD003B3E1B /* InstructionsView-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F2FAA912CAEEAD003B3E1B /* InstructionsView-iPhone.xib */; };
 		45FBDF861274A93200FBCA62 /* background-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 45FBDF851274A93200FBCA62 /* background-iPad.png */; };
 		45FBDF8B1274AA4900FBCA62 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FBDF891274AA4900FBCA62 /* InstructionsViewController.m */; };
@@ -188,9 +186,6 @@
 		45F2FA8912CAE31D003B3E1B /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Classes/AboutViewController.h; sourceTree = "<group>"; };
 		45F2FA8A12CAE31D003B3E1B /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Classes/AboutViewController.m; sourceTree = "<group>"; };
 		45F2FA8B12CAE31D003B3E1B /* AboutView-iPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "AboutView-iPhone.xib"; path = "Classes/AboutView-iPhone.xib"; sourceTree = "<group>"; };
-		45F2FA8E12CAEBFC003B3E1B /* FilesSectionHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilesSectionHeaderViewController.h; path = Classes/FilesSectionHeaderViewController.h; sourceTree = "<group>"; };
-		45F2FA8F12CAEBFC003B3E1B /* FilesSectionHeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilesSectionHeaderViewController.m; path = Classes/FilesSectionHeaderViewController.m; sourceTree = "<group>"; };
-		45F2FA9012CAEBFC003B3E1B /* FilesSectionHeaderView-iPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "FilesSectionHeaderView-iPhone.xib"; path = "Classes/FilesSectionHeaderView-iPhone.xib"; sourceTree = "<group>"; };
 		45F2FAA912CAEEAD003B3E1B /* InstructionsView-iPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "InstructionsView-iPhone.xib"; path = "Classes/InstructionsView-iPhone.xib"; sourceTree = "<group>"; };
 		45FBDF851274A93200FBCA62 /* background-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-iPad.png"; path = "Images/background-iPad.png"; sourceTree = "<group>"; };
 		45FBDF881274AA4900FBCA62 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionsViewController.h; path = Classes/InstructionsViewController.h; sourceTree = "<group>"; };
@@ -324,12 +319,11 @@
 			isa = PBXGroup;
 			children = (
 				45F2FA8B12CAE31D003B3E1B /* AboutView-iPhone.xib */,
-				45F2FA8612CAE271003B3E1B /* RootView-iPhone.xib */,
 				45F2FA8112CAE102003B3E1B /* FilesView-iPhone.xib */,
-				45F2FA9012CAEBFC003B3E1B /* FilesSectionHeaderView-iPhone.xib */,
 				45F2FAA912CAEEAD003B3E1B /* InstructionsView-iPhone.xib */,
 				4559C91E127A753F001B1D4D /* InstructionsView-iPad.xib */,
 				4559C938127A788A001B1D4D /* InstructionsView-iPhone-backup.xib */,
+				45F2FA8612CAE271003B3E1B /* RootView-iPhone.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -350,16 +344,14 @@
 		45FBDF871274A9FE00FBCA62 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				45FBDF881274AA4900FBCA62 /* InstructionsViewController.h */,
-				45FBDF891274AA4900FBCA62 /* InstructionsViewController.m */,
-				45F2FA7F12CAE102003B3E1B /* FilesViewController.h */,
-				45F2FA8012CAE102003B3E1B /* FilesViewController.m */,
-				45F2FA8412CAE271003B3E1B /* RootViewController.h */,
-				45F2FA8512CAE271003B3E1B /* RootViewController.m */,
 				45F2FA8912CAE31D003B3E1B /* AboutViewController.h */,
 				45F2FA8A12CAE31D003B3E1B /* AboutViewController.m */,
-				45F2FA8E12CAEBFC003B3E1B /* FilesSectionHeaderViewController.h */,
-				45F2FA8F12CAEBFC003B3E1B /* FilesSectionHeaderViewController.m */,
+				45F2FA7F12CAE102003B3E1B /* FilesViewController.h */,
+				45F2FA8012CAE102003B3E1B /* FilesViewController.m */,
+				45FBDF881274AA4900FBCA62 /* InstructionsViewController.h */,
+				45FBDF891274AA4900FBCA62 /* InstructionsViewController.m */,
+				45F2FA8412CAE271003B3E1B /* RootViewController.h */,
+				45F2FA8512CAE271003B3E1B /* RootViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -537,7 +529,6 @@
 				45F2FA8312CAE102003B3E1B /* FilesView-iPhone.xib in Resources */,
 				45F2FA8812CAE271003B3E1B /* RootView-iPhone.xib in Resources */,
 				45F2FA8D12CAE31D003B3E1B /* AboutView-iPhone.xib in Resources */,
-				45F2FA9212CAEBFC003B3E1B /* FilesSectionHeaderView-iPhone.xib in Resources */,
 				45F2FAAA12CAEEAD003B3E1B /* InstructionsView-iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,7 +548,6 @@
 				45F2FA8212CAE102003B3E1B /* FilesViewController.m in Sources */,
 				45F2FA8712CAE271003B3E1B /* RootViewController.m in Sources */,
 				45F2FA8C12CAE31D003B3E1B /* AboutViewController.m in Sources */,
-				45F2FA9112CAEBFC003B3E1B /* FilesSectionHeaderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

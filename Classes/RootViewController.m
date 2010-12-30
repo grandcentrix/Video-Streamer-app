@@ -5,6 +5,7 @@
 @interface RootViewController ()
 @property (nonatomic, retain) DirectoryWatcher *directoryWatcher;
 @property (nonatomic, retain) NSMutableArray *documentUrls;
+@property (nonatomic, assign) BOOL showingAboutView;
 @end
 
 
@@ -16,6 +17,7 @@
 @synthesize filesViewController = filesViewController_;
 @synthesize directoryWatcher = directoryWatcher_;
 @synthesize documentUrls = documentUrls_;
+@synthesize showingAboutView = showingAboutView_;
 
 
 #pragma mark -
@@ -33,28 +35,43 @@
     [super dealloc];
 }
 
--(IBAction)switchInfo:(id)sender
+-(IBAction)switchAbout:(id)sender
 {
-//    [UIView beginAnimations:nil context:nil];
-//    [UIView setAnimationDuration:1.25];
-//    [UIView setAnimationBeginsFromCurrentState:NO];
-//    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.containerView cache:YES];
-//    
-//	// If the info view is hidden, hide other views and show
-//    if (self.infoView.hidden)
-//    {
-//        self.infoView.hidden = NO;
-//        self.addFromiTunesView.hidden = YES;
-//        self.tableView.hidden = YES;
-//    }
-//    // If switching from hidden view, determine which view to show based on if 
-//    // files in directory
-//    else
-//    {
-//        [self directoryDidChange:self.directoryWatcher];
-//    }
-//    
-//    [UIView commitAnimations];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1.25];
+    [UIView setAnimationBeginsFromCurrentState:NO];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.subview cache:YES];
+    
+    // Remove whatever view is currently showing
+    for (UIView *view in self.subview.subviews)
+    {
+        [view removeFromSuperview];
+    }    
+    
+    // If coming from the About view, determine which view to show based on if 
+    // files in directory
+    if (self.showingAboutView)
+    {
+        self.showingAboutView = NO;
+        
+        [self directoryDidChange:self.directoryWatcher];
+    }
+    // If the About view was not being shown, switch to that
+    else
+    {
+        self.showingAboutView = YES;
+        
+        if (self.aboutViewController == nil)
+        {
+            AboutViewController *aboutViewController = [[AboutViewController alloc] initWithNibName:@"AboutView-iPhone" bundle:nil];
+            self.aboutViewController = aboutViewController;
+            [aboutViewController release];
+        }
+        
+        [self.subview addSubview:self.aboutViewController.view];
+    }
+    
+    [UIView commitAnimations];
 }
 
 
@@ -81,10 +98,6 @@
         }
 
         [self.subview addSubview:self.instructionsViewController.view];
-        
-//        self.infoView.hidden = YES;
-//        self.addFromiTunesView.hidden = NO;
-//        self.tableView.hidden = YES;
     }
     else
     {        
@@ -112,14 +125,7 @@
         }
 
         self.filesViewController.documentUrls = self.documentUrls;
-        //[self.filesViewController.tableView reloadData];
         [self.subview addSubview:self.filesViewController.view];
-        
-//        [self.tableView reloadData];
-//        
-//        self.infoView.hidden = YES;
-//        self.addFromiTunesView.hidden = YES;
-//        self.tableView.hidden = NO;
     }
 }
 
@@ -130,6 +136,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.showingAboutView = NO;
     
     // Start monitoring the document directory
     NSMutableArray *documentUrls = [[NSMutableArray alloc] init];
@@ -143,7 +151,6 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Supports all orientations
     return YES;
 }
 
