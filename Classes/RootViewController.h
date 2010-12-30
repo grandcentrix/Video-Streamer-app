@@ -8,6 +8,7 @@
 @interface RootViewController : UIViewController <DirectoryWatcherDelegate>
 {
     @private
+        UIView *subview_;
         AboutViewController *aboutViewController_;
         InstructionsViewController *instructionsViewController_;
         FilesViewController *filesViewController_;
@@ -15,6 +16,7 @@
         NSMutableArray *documentUrls_;
 }
 
+@property (nonatomic, retain) IBOutlet UIView *subview;
 @property (nonatomic, retain) AboutViewController *aboutViewController;
 @property (nonatomic, retain) InstructionsViewController *instructionsViewController;
 @property (nonatomic, retain) FilesViewController *filesViewController;

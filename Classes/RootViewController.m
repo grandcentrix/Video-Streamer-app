@@ -10,6 +10,7 @@
 
 @implementation RootViewController
 
+@synthesize subview = subview_;
 @synthesize aboutViewController = aboutViewController_;
 @synthesize instructionsViewController = instructionsViewController_;
 @synthesize filesViewController = filesViewController_;
@@ -22,6 +23,7 @@
 
 - (void)dealloc
 {
+    [subview_ release];
     [aboutViewController_ release];
     [instructionsViewController_ release];
     [filesViewController_ release];
@@ -61,8 +63,13 @@
 
 - (void)directoryDidChange:(DirectoryWatcher *)folderWatcher
 {
-	[self.documentUrls removeAllObjects];	
-    
+    // Remove subview as view may change based on directory content
+    for (UIView *view in self.subview.subviews)
+    {
+        [view removeFromSuperview];
+    }
+
+	[self.documentUrls removeAllObjects];    
     NSArray *files = [UpnpServer documentsDirectoryContents];
     if (files == nil || [files count] == 0)
     {
@@ -72,8 +79,8 @@
             self.instructionsViewController = instructionsViewController;
             [instructionsViewController release];
         }
-        
-        [self.view addSubview:self.instructionsViewController.view];
+
+        [self.subview addSubview:self.instructionsViewController.view];
         
 //        self.infoView.hidden = YES;
 //        self.addFromiTunesView.hidden = NO;
@@ -96,6 +103,17 @@
                 [self.documentUrls addObject:fileUrl];
             }
         }
+        
+        if (self.filesViewController == nil)
+        {
+            FilesViewController *filesViewController = [[FilesViewController alloc] initWithNibName:@"FilesView-iPhone" bundle:nil];
+            self.filesViewController = filesViewController;
+            [filesViewController release];
+        }
+
+        self.filesViewController.documentUrls = self.documentUrls;
+        //[self.filesViewController.tableView reloadData];
+        [self.subview addSubview:self.filesViewController.view];
         
 //        [self.tableView reloadData];
 //        
