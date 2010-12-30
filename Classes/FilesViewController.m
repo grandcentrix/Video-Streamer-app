@@ -10,6 +10,8 @@
 @implementation FilesViewController
 
 @synthesize tableView = tableView_;
+@synthesize sectionHeaderView = sectionHeaderView_;
+@synthesize sectionHeaderLabel = sectionHeaderLabel_;
 @synthesize docInteractionController = docInteractionController_;
 @synthesize documentUrls = documentUrls_;
 
@@ -20,6 +22,8 @@
 - (void)dealloc
 {
     [tableView_ release];
+    [sectionHeaderView_ release];
+    [sectionHeaderLabel_ release];
     [docInteractionController_ release];
     [documentUrls_ release];
     
@@ -123,23 +127,23 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Presents a preview of the document if supported
-    NSURL *fileUrl = [self.documentUrls objectAtIndex:indexPath.row];
-    [self setupDocumentControllerWithURL:fileUrl];
-    BOOL canPreview = [self.docInteractionController presentPreviewAnimated:YES];
-    
-    // If cannot preview the document, then deselect the row
-    if (!canPreview)
-    {
+//    // Presents a preview of the document if supported
+//    NSURL *fileUrl = [self.documentUrls objectAtIndex:indexPath.row];
+//    [self setupDocumentControllerWithURL:fileUrl];
+//    BOOL canPreview = [self.docInteractionController presentPreviewAnimated:YES];
+//    
+//    // If cannot preview the document, then deselect the row
+//    if (!canPreview)
+//    {
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    }
+//    }
 }
 
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    self.sectionHeaderLabel.text = [self tableView:tableView titleForHeaderInSection:section];
-//    
-//    return self.sectionHeaderView;
-//}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    self.sectionHeaderLabel.text = [self tableView:tableView titleForHeaderInSection:section];
+    
+    return self.sectionHeaderView;
+}
 
 @end
