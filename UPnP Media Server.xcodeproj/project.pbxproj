@@ -16,7 +16,11 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		45117EF8127238B2002B821F /* libPlatinum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45117EDE1272381B002B821F /* libPlatinum.a */; };
 		454E960C12CD951000C4B6A2 /* DeviceUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 454E960B12CD951000C4B6A2 /* DeviceUtilities.m */; };
-		4559C920127A753F001B1D4D /* InstructionsView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4559C91E127A753F001B1D4D /* InstructionsView-iPad.xib */; };
+		454E962C12CE30E000C4B6A2 /* AboutView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454E962B12CE30E000C4B6A2 /* AboutView-iPad.xib */; };
+		454E963212CE316600C4B6A2 /* FilesView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454E963112CE316600C4B6A2 /* FilesView-iPad.xib */; };
+		454E963512CE325500C4B6A2 /* InstructionsView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454E963412CE325500C4B6A2 /* InstructionsView-iPad.xib */; };
+		454E964312CE333400C4B6A2 /* RootView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454E964212CE333400C4B6A2 /* RootView-iPad.xib */; };
+		4559C920127A753F001B1D4D /* InstructionsView-iPad-backup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4559C91E127A753F001B1D4D /* InstructionsView-iPad-backup.xib */; };
 		4559C93A127A788A001B1D4D /* InstructionsView-iPhone-backup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4559C938127A788A001B1D4D /* InstructionsView-iPhone-backup.xib */; };
 		455CE3C512792D460025ED87 /* background-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 455CE3C012792D460025ED87 /* background-iPhone.png */; };
 		455CE3C612792D460025ED87 /* background-iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 455CE3C112792D460025ED87 /* background-iPhone@2x.png */; };
@@ -161,7 +165,11 @@
 		45117EA21272381B002B821F /* Platinum.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Platinum.xcodeproj; path = "Platinum/Platinum/Build/Targets/universal-apple-macosx/Platinum.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		454E960A12CD951000C4B6A2 /* DeviceUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceUtilities.h; sourceTree = "<group>"; };
 		454E960B12CD951000C4B6A2 /* DeviceUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceUtilities.m; sourceTree = "<group>"; };
-		4559C91E127A753F001B1D4D /* InstructionsView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "InstructionsView-iPad.xib"; path = "Classes/InstructionsView-iPad.xib"; sourceTree = "<group>"; };
+		454E962B12CE30E000C4B6A2 /* AboutView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "AboutView-iPad.xib"; path = "Classes/AboutView-iPad.xib"; sourceTree = "<group>"; };
+		454E963112CE316600C4B6A2 /* FilesView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "FilesView-iPad.xib"; path = "Classes/FilesView-iPad.xib"; sourceTree = "<group>"; };
+		454E963412CE325500C4B6A2 /* InstructionsView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "InstructionsView-iPad.xib"; path = "Classes/InstructionsView-iPad.xib"; sourceTree = "<group>"; };
+		454E964212CE333400C4B6A2 /* RootView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "RootView-iPad.xib"; path = "Classes/RootView-iPad.xib"; sourceTree = "<group>"; };
+		4559C91E127A753F001B1D4D /* InstructionsView-iPad-backup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "InstructionsView-iPad-backup.xib"; path = "Classes/InstructionsView-iPad-backup.xib"; sourceTree = "<group>"; };
 		4559C938127A788A001B1D4D /* InstructionsView-iPhone-backup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "InstructionsView-iPhone-backup.xib"; path = "Classes/InstructionsView-iPhone-backup.xib"; sourceTree = "<group>"; };
 		455CE3C012792D460025ED87 /* background-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-iPhone.png"; path = "Images/background-iPhone.png"; sourceTree = "<group>"; };
 		455CE3C112792D460025ED87 /* background-iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-iPhone@2x.png"; path = "Images/background-iPhone@2x.png"; sourceTree = "<group>"; };
@@ -323,11 +331,15 @@
 		45FBDF801274A52400FBCA62 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				454E962B12CE30E000C4B6A2 /* AboutView-iPad.xib */,
 				45F2FA8B12CAE31D003B3E1B /* AboutView-iPhone.xib */,
+				454E963112CE316600C4B6A2 /* FilesView-iPad.xib */,
 				45F2FA8112CAE102003B3E1B /* FilesView-iPhone.xib */,
+				454E963412CE325500C4B6A2 /* InstructionsView-iPad.xib */,
 				45F2FAA912CAEEAD003B3E1B /* InstructionsView-iPhone.xib */,
-				4559C91E127A753F001B1D4D /* InstructionsView-iPad.xib */,
+				4559C91E127A753F001B1D4D /* InstructionsView-iPad-backup.xib */,
 				4559C938127A788A001B1D4D /* InstructionsView-iPhone-backup.xib */,
+				454E964212CE333400C4B6A2 /* RootView-iPad.xib */,
 				45F2FA8612CAE271003B3E1B /* RootView-iPhone.xib */,
 			);
 			name = Views;
@@ -519,7 +531,7 @@
 				455CE3C712792D460025ED87 /* sectionHeader-iPad.png in Resources */,
 				455CE3C812792D460025ED87 /* sectionHeader-iPhone.png in Resources */,
 				455CE3C912792D460025ED87 /* sectionHeader-iPhone@2x.png in Resources */,
-				4559C920127A753F001B1D4D /* InstructionsView-iPad.xib in Resources */,
+				4559C920127A753F001B1D4D /* InstructionsView-iPad-backup.xib in Resources */,
 				4559C93A127A788A001B1D4D /* InstructionsView-iPhone-backup.xib in Resources */,
 				45C03AD71284F87400433460 /* Default-Portrait.png in Resources */,
 				45C03AD81284F87400433460 /* Default.png in Resources */,
@@ -535,6 +547,10 @@
 				45F2FA8812CAE271003B3E1B /* RootView-iPhone.xib in Resources */,
 				45F2FA8D12CAE31D003B3E1B /* AboutView-iPhone.xib in Resources */,
 				45F2FAAA12CAEEAD003B3E1B /* InstructionsView-iPhone.xib in Resources */,
+				454E962C12CE30E000C4B6A2 /* AboutView-iPad.xib in Resources */,
+				454E963212CE316600C4B6A2 /* FilesView-iPad.xib in Resources */,
+				454E963512CE325500C4B6A2 /* InstructionsView-iPad.xib in Resources */,
+				454E964312CE333400C4B6A2 /* RootView-iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

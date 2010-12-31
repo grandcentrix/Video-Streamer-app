@@ -114,7 +114,7 @@
             [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDirectory];
             
             // Add the document URL to our list (ignore the "Inbox" folder)
-            if (!(isDirectory && [file isEqualToString: @"Inbox"]))
+            if (!(isDirectory && [file isEqualToString:@"Inbox"]))
             {
                 [self.documentUrls addObject:fileUrl];
             }
@@ -129,6 +129,7 @@
         }
 
         self.filesViewController.documentUrls = self.documentUrls;
+        [self.filesViewController.tableView reloadData];
         [self.subview addSubview:self.filesViewController.view];
     }
 }
