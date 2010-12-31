@@ -20,8 +20,6 @@
 		454E963212CE316600C4B6A2 /* FilesView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454E963112CE316600C4B6A2 /* FilesView-iPad.xib */; };
 		454E963512CE325500C4B6A2 /* InstructionsView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454E963412CE325500C4B6A2 /* InstructionsView-iPad.xib */; };
 		454E964312CE333400C4B6A2 /* RootView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454E964212CE333400C4B6A2 /* RootView-iPad.xib */; };
-		4559C920127A753F001B1D4D /* InstructionsView-iPad-backup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4559C91E127A753F001B1D4D /* InstructionsView-iPad-backup.xib */; };
-		4559C93A127A788A001B1D4D /* InstructionsView-iPhone-backup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4559C938127A788A001B1D4D /* InstructionsView-iPhone-backup.xib */; };
 		455CE3C512792D460025ED87 /* background-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 455CE3C012792D460025ED87 /* background-iPhone.png */; };
 		455CE3C612792D460025ED87 /* background-iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 455CE3C112792D460025ED87 /* background-iPhone@2x.png */; };
 		455CE3C712792D460025ED87 /* sectionHeader-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 455CE3C212792D460025ED87 /* sectionHeader-iPad.png */; };
@@ -169,8 +167,6 @@
 		454E963112CE316600C4B6A2 /* FilesView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "FilesView-iPad.xib"; path = "Classes/FilesView-iPad.xib"; sourceTree = "<group>"; };
 		454E963412CE325500C4B6A2 /* InstructionsView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "InstructionsView-iPad.xib"; path = "Classes/InstructionsView-iPad.xib"; sourceTree = "<group>"; };
 		454E964212CE333400C4B6A2 /* RootView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "RootView-iPad.xib"; path = "Classes/RootView-iPad.xib"; sourceTree = "<group>"; };
-		4559C91E127A753F001B1D4D /* InstructionsView-iPad-backup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "InstructionsView-iPad-backup.xib"; path = "Classes/InstructionsView-iPad-backup.xib"; sourceTree = "<group>"; };
-		4559C938127A788A001B1D4D /* InstructionsView-iPhone-backup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "InstructionsView-iPhone-backup.xib"; path = "Classes/InstructionsView-iPhone-backup.xib"; sourceTree = "<group>"; };
 		455CE3C012792D460025ED87 /* background-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-iPhone.png"; path = "Images/background-iPhone.png"; sourceTree = "<group>"; };
 		455CE3C112792D460025ED87 /* background-iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-iPhone@2x.png"; path = "Images/background-iPhone@2x.png"; sourceTree = "<group>"; };
 		455CE3C212792D460025ED87 /* sectionHeader-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sectionHeader-iPad.png"; path = "Images/sectionHeader-iPad.png"; sourceTree = "<group>"; };
@@ -337,8 +333,6 @@
 				45F2FA8112CAE102003B3E1B /* FilesView-iPhone.xib */,
 				454E963412CE325500C4B6A2 /* InstructionsView-iPad.xib */,
 				45F2FAA912CAEEAD003B3E1B /* InstructionsView-iPhone.xib */,
-				4559C91E127A753F001B1D4D /* InstructionsView-iPad-backup.xib */,
-				4559C938127A788A001B1D4D /* InstructionsView-iPhone-backup.xib */,
 				454E964212CE333400C4B6A2 /* RootView-iPad.xib */,
 				45F2FA8612CAE271003B3E1B /* RootView-iPhone.xib */,
 			);
@@ -531,8 +525,6 @@
 				455CE3C712792D460025ED87 /* sectionHeader-iPad.png in Resources */,
 				455CE3C812792D460025ED87 /* sectionHeader-iPhone.png in Resources */,
 				455CE3C912792D460025ED87 /* sectionHeader-iPhone@2x.png in Resources */,
-				4559C920127A753F001B1D4D /* InstructionsView-iPad-backup.xib in Resources */,
-				4559C93A127A788A001B1D4D /* InstructionsView-iPhone-backup.xib in Resources */,
 				45C03AD71284F87400433460 /* Default-Portrait.png in Resources */,
 				45C03AD81284F87400433460 /* Default.png in Resources */,
 				45C03AE51284FBF700433460 /* Default-Landscape.png in Resources */,
