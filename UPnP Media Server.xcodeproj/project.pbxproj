@@ -15,6 +15,7 @@
 		2860E32F111B888700E27156 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2860E32D111B888700E27156 /* MainWindow-iPad.xib */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		45117EF8127238B2002B821F /* libPlatinum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45117EDE1272381B002B821F /* libPlatinum.a */; };
+		454E960C12CD951000C4B6A2 /* DeviceUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 454E960B12CD951000C4B6A2 /* DeviceUtilities.m */; };
 		4559C920127A753F001B1D4D /* InstructionsView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4559C91E127A753F001B1D4D /* InstructionsView-iPad.xib */; };
 		4559C93A127A788A001B1D4D /* InstructionsView-iPhone-backup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4559C938127A788A001B1D4D /* InstructionsView-iPhone-backup.xib */; };
 		455CE3C512792D460025ED87 /* background-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 455CE3C012792D460025ED87 /* background-iPhone.png */; };
@@ -158,6 +159,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* UPnP_Media_Server_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPnP_Media_Server_Prefix.pch; sourceTree = "<group>"; };
 		45117EA21272381B002B821F /* Platinum.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Platinum.xcodeproj; path = "Platinum/Platinum/Build/Targets/universal-apple-macosx/Platinum.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		454E960A12CD951000C4B6A2 /* DeviceUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceUtilities.h; sourceTree = "<group>"; };
+		454E960B12CD951000C4B6A2 /* DeviceUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceUtilities.m; sourceTree = "<group>"; };
 		4559C91E127A753F001B1D4D /* InstructionsView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "InstructionsView-iPad.xib"; path = "Classes/InstructionsView-iPad.xib"; sourceTree = "<group>"; };
 		4559C938127A788A001B1D4D /* InstructionsView-iPhone-backup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "InstructionsView-iPhone-backup.xib"; path = "Classes/InstructionsView-iPhone-backup.xib"; sourceTree = "<group>"; };
 		455CE3C012792D460025ED87 /* background-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-iPhone.png"; path = "Images/background-iPhone.png"; sourceTree = "<group>"; };
@@ -225,6 +228,8 @@
 				45A5E804127242480061B207 /* UpnpServer.m */,
 				45FBE0991274D9FA00FBCA62 /* DirectoryWatcher.h */,
 				45FBE09A1274D9FA00FBCA62 /* DirectoryWatcher.m */,
+				454E960A12CD951000C4B6A2 /* DeviceUtilities.h */,
+				454E960B12CD951000C4B6A2 /* DeviceUtilities.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -548,6 +553,7 @@
 				45F2FA8212CAE102003B3E1B /* FilesViewController.m in Sources */,
 				45F2FA8712CAE271003B3E1B /* RootViewController.m in Sources */,
 				45F2FA8C12CAE31D003B3E1B /* AboutViewController.m in Sources */,
+				454E960C12CD951000C4B6A2 /* DeviceUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

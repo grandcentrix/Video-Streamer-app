@@ -1,5 +1,6 @@
 #import "RootViewController.h"
 #import "UpnpServer.h"
+#import "DeviceUtilities.h"
 
 
 @interface RootViewController ()
@@ -63,7 +64,8 @@
         
         if (self.aboutViewController == nil)
         {
-            AboutViewController *aboutViewController = [[AboutViewController alloc] initWithNibName:@"AboutView-iPhone" bundle:nil];
+            NSString *nibName = [DeviceUtilities qualifiedNibNameForRootName:@"AboutView"];
+            AboutViewController *aboutViewController = [[AboutViewController alloc] initWithNibName:nibName bundle:nil];
             self.aboutViewController = aboutViewController;
             [aboutViewController release];
         }
@@ -92,7 +94,8 @@
     {
         if (self.instructionsViewController == nil)
         {
-            InstructionsViewController *instructionsViewController = [[InstructionsViewController alloc] initWithNibName:@"InstructionsView-iPhone" bundle:nil];
+            NSString *nibName = [DeviceUtilities qualifiedNibNameForRootName:@"InstructionsView"];
+            InstructionsViewController *instructionsViewController = [[InstructionsViewController alloc] initWithNibName:nibName bundle:nil];
             self.instructionsViewController = instructionsViewController;
             [instructionsViewController release];
         }
@@ -119,7 +122,8 @@
         
         if (self.filesViewController == nil)
         {
-            FilesViewController *filesViewController = [[FilesViewController alloc] initWithNibName:@"FilesView-iPhone" bundle:nil];
+            NSString *nibName = [DeviceUtilities qualifiedNibNameForRootName:@"FilesView"];
+            FilesViewController *filesViewController = [[FilesViewController alloc] initWithNibName:nibName bundle:nil];
             self.filesViewController = filesViewController;
             [filesViewController release];
         }
