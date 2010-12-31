@@ -48,11 +48,12 @@ NPT_SET_LOCAL_LOGGER("platinum.core.service")
 PLT_Service::PLT_Service(PLT_DeviceData* device,
                          const char*     type, 
                          const char*     id,
-                         const char*     name /* = NULL */,
+                         const char*     name,
                          const char*     last_change_namespace /* = NULL */) :  
     m_Device(device),
     m_ServiceType(type),
     m_ServiceID(id),
+	m_ServiceName(name),
     m_EventTask(NULL),
     m_EventingPaused(false),
     m_LastChangeNamespace(last_change_namespace)
@@ -154,10 +155,10 @@ PLT_Service::GetDescription(NPT_XmlElementNode* parent, NPT_XmlElementNode** ser
 NPT_Result
 PLT_Service::InitURLs(const char* service_name)
 {
-    m_SCPDURL  = service_name;
-    m_SCPDURL += "/" + m_Device->GetUUID() + NPT_String("/scpd.xml");
-    m_ControlURL  = service_name;
-    m_ControlURL += "/" + m_Device->GetUUID() + NPT_String("/control.xml");
+    m_SCPDURL      = service_name;
+    m_SCPDURL     += "/" + m_Device->GetUUID() + NPT_String("/scpd.xml");
+    m_ControlURL   = service_name;
+    m_ControlURL  += "/" + m_Device->GetUUID() + NPT_String("/control.xml");
     m_EventSubURL  = service_name;
     m_EventSubURL += "/" + m_Device->GetUUID() + NPT_String("/event.xml");
     
@@ -359,7 +360,7 @@ PLT_Service::SetSCPDXML(const char* scpd)
 
 failure:
     NPT_LOG_FATAL_1("Failed to parse scpd: %s", scpd);
-    delete tree;
+    if (tree) delete tree;
     return NPT_FAILURE;
 }
 
@@ -715,11 +716,10 @@ PLT_Service::AddChanged(PLT_StateVariable* var)
     if (!m_EventTask) return NPT_SUCCESS;
     
     if (var->IsSendingEvents()) {
-        if (!m_StateVarsToPublish.Contains(var)) 
-            m_StateVarsToPublish.Add(var);
+        if (!m_StateVarsToPublish.Contains(var)) m_StateVarsToPublish.Add(var);
     } else if (var->IsSendingEvents(true)) {
-        if (!m_StateVarsChanged.Contains(var)) 
-            m_StateVarsChanged.Add(var);
+        if (!m_StateVarsChanged.Contains(var)) m_StateVarsChanged.Add(var);
+
         UpdateLastChange(m_StateVarsChanged);
     }
 
@@ -888,6 +888,15 @@ PLT_ServiceTypeFinder::operator()(PLT_Service* const & service) const
     }
 
     return m_Type.Compare(service->GetServiceType(), true) ? false : true;
+}
+
+/*----------------------------------------------------------------------
+|   PLT_ServiceNameFinder::operator()
++---------------------------------------------------------------------*/
+bool 
+PLT_ServiceNameFinder::operator()(PLT_Service* const & service) const 
+{
+    return m_Name.Compare(service->GetServiceName(), true) ? false : true;
 }
 
 /*----------------------------------------------------------------------

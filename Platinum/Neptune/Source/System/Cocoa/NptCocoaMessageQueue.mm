@@ -12,10 +12,10 @@
 +---------------------------------------------------------------------*/
 #include "NptConfig.h"
 
-#if TARGET_OS_IPHONE
-#include <UIKit/UIKit.h> 
-#else
+#if !defined(TARGET_OS_IPHONE) || !TARGET_OS_IPHONE
 #include <Cocoa/Cocoa.h>
+#else
+#include <UIKit/UIKit.h> 
 #endif
 #include "NptCocoaMessageQueue.h"
 

@@ -23,6 +23,7 @@
 #include "NptSystem.h"
 #include "NptResults.h"
 #include "NptDebug.h"
+#include "NptUtils.h"
 
 /*----------------------------------------------------------------------
 |   NPT_PosixSystem
@@ -70,6 +71,17 @@ NPT_System::GetProcessId(NPT_UInt32& id)
     id = getpid();
     return NPT_SUCCESS;
 }
+
+#if !defined(__APPLE__)
+/*----------------------------------------------------------------------
+|   NPT_System::GetMachineName
++---------------------------------------------------------------------*/
+NPT_Result
+NPT_System::GetMachineName(NPT_String& name)
+{
+    return NPT_GetEnvironment("USER", name);
+}
+#endif
 
 /*----------------------------------------------------------------------
 |   NPT_System::GetCurrentTimeStamp

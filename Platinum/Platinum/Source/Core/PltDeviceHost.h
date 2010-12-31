@@ -194,25 +194,7 @@ protected:
         return SendSsdpSearchResponse(this, response, socket, st, addr);
     }
     
-protected:
-    /**
-     Required method for setting up UPnP services of device host 
-     (and any embedded). Called when device starts.
-     */
-    virtual NPT_Result SetupServices() = 0;
-    
-    /**
-     Default implementation for registering device icon resources. Override to 
-     use different ones. Called when device starts.
-     */
-    virtual NPT_Result SetupIcons();
-    
-    /** 
-     Default implementation for setting up device host. This calls SetupServices
-     and SetupIcons when device starts.
-     */
-    virtual NPT_Result SetupDevice();
-    
+public:
     /**
      Add UPnP icon information to serve from file system.
      @param icon the icon information including url path
@@ -239,6 +221,25 @@ protected:
                                const void*           data, 
                                NPT_Size              size, 
                                bool                  copy = true);
+
+protected:
+    /**
+     Required method for setting up UPnP services of device host 
+     (and any embedded). Called when device starts.
+     */
+    virtual NPT_Result SetupServices() = 0;
+    
+    /**
+     Default implementation for registering device icon resources. Override to 
+     use different ones. Called when device starts.
+     */
+    virtual NPT_Result SetupIcons();
+    
+    /** 
+     Default implementation for setting up device host. This calls SetupServices
+     and SetupIcons when device starts.
+     */
+    virtual NPT_Result SetupDevice();
     
     /**
      Called by PLT_TaskManager when the device is started.
@@ -253,12 +254,6 @@ protected:
      SSDP M-SEARCH messages.
      */
     virtual NPT_Result Stop(PLT_SsdpListenTask* task);
-    
-    /**
-     This method is called when the device starts to register the SCPD url
-     handler with SCPD document for each service.
-     */
-    virtual NPT_Result SetupServiceSCPDHandler(PLT_Service* service);
     
     /**
      This mehod is called when an action performed by a control point has been 
@@ -280,6 +275,18 @@ protected:
     virtual NPT_Result ProcessGetDescription(NPT_HttpRequest&              request,
                                              const NPT_HttpRequestContext& context,
                                              NPT_HttpResponse&             response);
+    
+    /**
+     This method is called when a control point is requesting a service SCPD.
+     @param service the service
+     @param request the HTTP request
+     @param context the context information including local and remote socket information.
+     @param response the response to setup.
+     */
+    virtual NPT_Result ProcessGetSCPD(PLT_Service*                  service,
+                                      NPT_HttpRequest&              request,
+                                      const NPT_HttpRequestContext& context,
+                                      NPT_HttpResponse&             response);
     
     /**
      This method is called when a "GET" request for a resource other than the device

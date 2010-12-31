@@ -181,10 +181,19 @@ namespace Platinum
 {
 
 /*----------------------------------------------------------------------
+|   DeviceSignature
++---------------------------------------------------------------------*/
+public enum class DeviceSignature
+{
+	Unknown,
+	XBox,
+	PS3,
+	WMP
+};
+
+/*----------------------------------------------------------------------
 |   HttpRequestContext
 +---------------------------------------------------------------------*/
-// FIXME: Might be overkill to copy item here, instead we can hold pointer since it
-//    is being used only during synchronous delegate calls
 public ref class HttpRequestContext : ManagedWrapper<PLT_HttpRequestContext>
 {
 
@@ -224,6 +233,31 @@ public:
             return marshal_as<HttpRequest^>(m_pHandle->GetRequest());
         }
     }
+
+	virtual property DeviceSignature Signature
+	{
+		DeviceSignature get()
+		{
+			return ParseDeviceSignature(m_pHandle->GetDeviceSignature());
+		}
+	}
+private:
+
+	static DeviceSignature ParseDeviceSignature(PLT_DeviceSignature signature)
+	{
+		switch (signature)
+		{
+		case PLT_XBOX:
+			return DeviceSignature::XBox;
+		case PLT_PS3:
+			return DeviceSignature::PS3;
+		case PLT_WMP:
+			return DeviceSignature::WMP;
+		default:
+			return DeviceSignature::Unknown;
+		}
+	}
+
 
 internal:
 

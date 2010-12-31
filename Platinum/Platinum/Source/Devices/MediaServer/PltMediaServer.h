@@ -121,6 +121,8 @@ public:
     // methods
     virtual void SetDelegate(PLT_MediaServerDelegate* delegate) { m_Delegate = delegate; }
     PLT_MediaServerDelegate* GetDelegate() { return m_Delegate; }
+    virtual void UpdateSystemUpdateID(NPT_UInt32 update);
+    virtual void UpdateContainerUpdateID(const char* id, NPT_UInt32 update);
     
 protected:
     virtual ~PLT_MediaServer();
@@ -182,6 +184,7 @@ protected:
     
 private:
     PLT_MediaServerDelegate* m_Delegate;
+    //NPT_Map<NPT_String, NPT_UInt32> 
 };
 
 #endif /* _PLT_MEDIA_SERVER_H_ */

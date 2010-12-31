@@ -8,11 +8,11 @@ if not ANDROID_NDK_ROOT:
     raise Exception('ANDROID_NDK_ROOT environment variable not set')
 
 ANRDOID_NDK_OUT=ANDROID_NDK_ROOT+'/out'
-ANDROID_TOOLCHAIN='arm-eabi-4.2.1'
+ANDROID_TOOLCHAIN='arm-eabi-4.4.0'
 if env.has_key('target_variant'):
 	ANDROID_PLATFORM=env['target_variant']
 else:
-	ANDROID_PLATFORM='android-3'
+	ANDROID_PLATFORM='android-4'
 print ANDROID_PLATFORM
 
 ### parse the host config file
@@ -49,7 +49,8 @@ android_extras = ['-march=armv5te',
                   '-ffunction-sections',
                   '-funwind-tables',
                   '-fstack-protector',
-                  '-fno-short-enums']
+                  '-fno-short-enums',
+		  '-Wno-psabi']
 
 android_extras_cpp = ['-fno-exceptions',
                       '-fno-rtti']
@@ -76,17 +77,20 @@ else:
     android_optimize = []
 
 android_link = ['-Bdynamic',
+		'-Wl,--whole-archive',
+		'-Wl,--no-whole-archive',
                 '-Wl,--no-undefined',
                 '-Wl,-rpath=/system/lib',
                 '-Wl,--dynamic-linker=/system/bin/linker',
                 '-Wl,-rpath-link=' + ANDROID_PLATFORM_ARM+'/usr/lib',
                 '-L' + ANDROID_PLATFORM_ARM+'/usr/lib',
                 '-nostdlib',
-                ANDROID_TOOLCHAIN_ROOT+'/lib/gcc/arm-eabi/4.2.1/interwork/libgcc.a',
+                ANDROID_TOOLCHAIN_ROOT+'/lib/gcc/arm-eabi/4.4.0/libgcc.a',
                 ANDROID_PLATFORM_ARM+'/usr/lib/libc.so',
                 ANDROID_PLATFORM_ARM+'/usr/lib/libstdc++.so',
                 ANDROID_PLATFORM_ARM+'/usr/lib/libm.so',
-                '-ldl']
+                '-ldl',
+                '-llog']
 
 env['NPT_EXTRA_EXECUTABLE_OBJECTS'] = [ANDROID_PLATFORM_ARM+'/usr/lib/crtbegin_static.o',
                                        ANDROID_PLATFORM_ARM+'/usr/lib/crtend_android.o']
@@ -96,14 +100,27 @@ env.PrependENVPath('PATH', ANDROID_TOOLCHAIN_BIN)
 
 ### Load the tools
 LoadTool('gcc-generic', env, gcc_cross_prefix='arm-eabi', gcc_strict=False)
-
-LoadTool('gcc-generic', env, gcc_cross_prefix='arm-eabi', gcc_strict=False)
 env.AppendUnique(CCFLAGS = ['-I'+ANDROID_PLATFORM_ARM+'/'+x for x in android_includes] + android_extras + android_defines + android_optimize )
 env.AppendUnique(CXXFLAGS = android_extras_cpp)
 env.AppendUnique(LINKFLAGS = android_link)
 
+### Force the dynamic libraries to be bundles
+env['SHLIBSUFFIX'] = '.so' # we need to override the scons default on linux which is '.dylib'
+
+### Specify shared flag for dynamic libraries
+#env.Append(SHLINKFLAGS = ['-Wl','-shared'])
+env.Append(SHLINKFLAGS = "-Wl,-shared")
+
+### Neptune System Files
 env['NPT_SYSTEM_SOURCES']={'System/StdC':'NptStdc[!D]*.cpp',
                            'System/Bsd':'*.cpp',
                            'System/Posix':'*.cpp',
                            'System/Null':'NptNullSerialPort.cpp',
                            'System/Android':'*.cpp'}
+
+
+### Atomix System Files
+env['ATX_SYSTEM_SOURCES']={'System/StdC':'*.c', 'System/Bsd':'*.c', 'System/Posix':'*.c'}
+env['ATX_EXTRA_LIBS']=['m']
+
+

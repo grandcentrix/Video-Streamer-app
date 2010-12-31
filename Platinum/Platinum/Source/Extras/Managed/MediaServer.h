@@ -56,6 +56,7 @@ public:
 
     delegate Int32 BrowseMetadataDelegate(Action^ action, String^ object_id, String^ filter, Int32 starting_index, Int32 requested_count, String^ sort_criteria, HttpRequestContext^ context);
     delegate Int32 BrowseDirectChildrenDelegate(Action^ action, String^ object_id, String^ filter, Int32 starting_index, Int32 requested_count, String^ sort_criteria, HttpRequestContext^ context);
+    delegate Int32 SearchContainerDelegate(Action^ action, String^ object_id, String^ searchCriteria, String^ filter, Int32 starting_index, Int32 requested_count, String^ sort_criteria, HttpRequestContext^ context);
     delegate Int32 ProcessFileRequestDelegate(HttpRequestContext^ context, HttpResponse^ response);
 
 private:
@@ -74,6 +75,7 @@ public:
 
     event BrowseMetadataDelegate^ BrowseMetadata;
     event BrowseDirectChildrenDelegate^ BrowseDirectChildren;
+    event SearchContainerDelegate^ SearchContainer;
     event ProcessFileRequestDelegate^ ProcessFileRequest;
 
 
@@ -91,6 +93,12 @@ internal:
         return this->BrowseDirectChildren(action, object_id, filter, starting_index, requested_count, sort_criteria, context);
     }
 
+    Int32 OnSearchContainerDelegate(Action^ action, String^ object_id, String^ searchCriteria, String^ filter, Int32 starting_index, Int32 requested_count, String^ sort_criteria, HttpRequestContext^ context)
+    {
+        // handle events
+        return this->SearchContainer(action, object_id, searchCriteria, filter, starting_index, requested_count, sort_criteria, context);
+    }
+
     Int32 OnProcessFileRequestDelegate(HttpRequestContext^ context, HttpResponse^ response)
     {
         return this->ProcessFileRequest(context, response);
@@ -101,6 +109,9 @@ public:
     MediaServer(String^ friendlyName);
     MediaServer(String^ friendlyName, String^ uuid);
     MediaServer(PLT_MediaServer* server);
+    
+    void UpdateSystemUpdateID(Int32 update);
+    void UpdateContainerUpdateID(String^ id, Int32 update);
 
     ~MediaServer()
     {
@@ -114,7 +125,7 @@ public:
 
 
     static Int32 SetResponseFilePath(HttpRequestContext^ context, HttpResponse^ response, String^ filepath);
-
+    static Int32 SetResponseData(HttpRequestContext^ context, HttpResponse^ response, array<Byte>^ data);
 };
 
 }

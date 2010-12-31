@@ -61,6 +61,11 @@ internal:
 
 public:
 
+    ObjectClass(String^ type)
+    {
+        Type = type;
+	}
+
     ObjectClass(String^ type, String^ friendly_name)
     {
         Type = type;
@@ -93,6 +98,18 @@ internal:
     PersonRole(PLT_PersonRole& native) :
         ManagedWrapper<PLT_PersonRole>(native)
     {}
+
+public:
+	PersonRole(String^ name)
+    {
+        Name = name;
+    }
+
+	PersonRole(String^ name, String^ role)
+    {
+        Name = name;
+		Role = role;
+    }
 };
 
 }
@@ -381,15 +398,18 @@ internal:
 
 public:
 
-    ProtocolInfo(String^ protocol_info) :
-        ManagedWrapper<PLT_ProtocolInfo>(PLT_ProtocolInfo(StringConv(protocol_info)))
-    {}
+    ProtocolInfo(NPT_String& protocol_info) :
+        ManagedWrapper<PLT_ProtocolInfo>()
+    {
+		*m_pHandle = PLT_ProtocolInfo(protocol_info);
+	}
 };
 
 }
 
 // marshal wrapper
 PLATINUM_MANAGED_MARSHAL_AS(Platinum::ProtocolInfo, PLT_ProtocolInfo);
+PLATINUM_MANAGED_MARSHAL_AS(Platinum::ProtocolInfo, NPT_String);
 
 namespace Platinum
 {

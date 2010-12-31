@@ -35,6 +35,51 @@
 namespace Platinum
 {
 
+/*----------------------------------------------------------------------
+|   DeviceIcon
++---------------------------------------------------------------------*/
+public ref class DeviceIcon : public ManagedWrapper<PLT_DeviceIcon>
+{  
+public:
+
+    // properties
+
+    PLATINUM_MANAGED_IMPLEMENT_STRING_PROPERTY(String^, MimeType, m_MimeType, m_pHandle);
+    PLATINUM_MANAGED_IMPLEMENT_PROPERTY(Int32, Width, m_Width, m_pHandle);
+    PLATINUM_MANAGED_IMPLEMENT_PROPERTY(Int32, Height, m_Height, m_pHandle);
+    PLATINUM_MANAGED_IMPLEMENT_PROPERTY(Int32, Depth, m_Depth, m_pHandle);
+    PLATINUM_MANAGED_IMPLEMENT_STRING_PROPERTY(String^, UrlPath, m_UrlPath, m_pHandle);
+
+internal:
+
+    DeviceIcon(PLT_DeviceIcon& native) :
+        ManagedWrapper<PLT_DeviceIcon>(native)
+    {}
+
+public:
+    DeviceIcon() :
+        ManagedWrapper<PLT_DeviceIcon>()
+    {}
+
+	DeviceIcon(String^ mimeType, Int32 width, Int32 height, Int32 depth, String^ urlPath) :
+        ManagedWrapper<PLT_DeviceIcon>()
+    {
+		MimeType = mimeType;
+		Width = width;
+		Height = height;
+		Depth = depth;
+		UrlPath = urlPath;
+	}
+};
+
+}
+
+// marshal wrapper
+PLATINUM_MANAGED_MARSHAL_AS(Platinum::DeviceIcon, PLT_DeviceIcon);
+
+namespace Platinum
+{
+
 ref class Service;
 
 /*----------------------------------------------------------------------

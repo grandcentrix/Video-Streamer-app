@@ -281,6 +281,21 @@ PLT_DeviceData::AddService(PLT_Service* service)
 }
 
 /*----------------------------------------------------------------------
+|   PLT_DeviceData::RemoveService
++---------------------------------------------------------------------*/
+NPT_Result
+PLT_DeviceData::RemoveService(PLT_Service* service)
+{
+	for (NPT_Cardinal i=0;
+         i<m_Services.GetItemCount();
+         i++) {
+        if (m_Services[i] == service) return m_Services.Erase(i);
+    }
+
+    return NPT_ERROR_NO_SUCH_ITEM;
+}
+
+/*----------------------------------------------------------------------
 |   PLT_GetDescriptionIterator class
 +---------------------------------------------------------------------*/
 template <class T>
@@ -526,7 +541,7 @@ PLT_DeviceData::SetDescriptionDevice(NPT_XmlElementNode* device_node)
             NPT_String type, id, url;
             PLT_XmlHelper::GetChildText(services[k], "serviceType", type);
             PLT_XmlHelper::GetChildText(services[k], "serviceId", id);    
-            PLT_Service* service = new PLT_Service(this, type, id);
+            PLT_Service* service = new PLT_Service(this, type, id, NULL);
             
             PLT_XmlHelper::GetChildText(services[k], "SCPDURL", url);
             service->SetSCPDURL(url);
@@ -631,17 +646,43 @@ PLT_DeviceData::FindServiceByType(const char* type, PLT_Service*& service)
 }
 
 /*----------------------------------------------------------------------
-|   PLT_DeviceData::FindServiceBySCPDURL
+|   PLT_DeviceData::FindServiceByName
 +---------------------------------------------------------------------*/
 NPT_Result
-PLT_DeviceData::FindServiceBySCPDURL(const char* url, PLT_Service*& service)
+PLT_DeviceData::FindServiceByName(const char* name, PLT_Service*& service)
 {
     // do not try to find it within embedded devices, since different
     // embedded devices could have an identical service
-    return NPT_ContainerFind(
+    return NPT_ContainerFind(m_Services, 
+        PLT_ServiceNameFinder(name), 
+        service);
+}
+
+/*----------------------------------------------------------------------
+|   PLT_DeviceData::FindServiceBySCPDURL
++---------------------------------------------------------------------*/
+NPT_Result
+PLT_DeviceData::FindServiceBySCPDURL(const char*   url,
+                                     PLT_Service*& service, 
+                                     bool          recursive /* = false */)
+{
+    NPT_Result res = NPT_ContainerFind(
         m_Services, 
         PLT_ServiceSCPDURLFinder(url), 
         service);
+    if (NPT_SUCCEEDED(res)) return res;
+
+    if (recursive) {
+		for (int i=0; i<(int)m_EmbeddedDevices.GetItemCount(); i++) {
+            res = m_EmbeddedDevices[i]->FindServiceBySCPDURL(
+                url, 
+                service,
+                recursive);
+            if (NPT_SUCCEEDED(res)) return res;
+        }
+    }
+
+    return NPT_FAILURE;
 }
 
 /*----------------------------------------------------------------------
@@ -658,7 +699,7 @@ PLT_DeviceData::FindServiceByControlURL(const char*   url,
     if (NPT_SUCCEEDED(res)) return res;
 
     if (recursive) {
-            for (int i=0; i<(int)m_EmbeddedDevices.GetItemCount(); i++) {
+		for (int i=0; i<(int)m_EmbeddedDevices.GetItemCount(); i++) {
             res = m_EmbeddedDevices[i]->FindServiceByControlURL(
                 url, 
                 service,

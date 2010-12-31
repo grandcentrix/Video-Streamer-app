@@ -64,6 +64,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		E402C7551297CECB00565B76 /* ContentDirectorySCPD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E402C7541297CECB00565B76 /* ContentDirectorySCPD.cpp */; };
 		E40C69AA11E6ED710024CAD4 /* PltFrameBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E40C699E11E6ED710024CAD4 /* PltFrameBuffer.cpp */; };
 		E40C69AB11E6ED710024CAD4 /* PltFrameBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = E40C699F11E6ED710024CAD4 /* PltFrameBuffer.h */; };
 		E40C69AC11E6ED710024CAD4 /* PltFrameServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E40C69A011E6ED710024CAD4 /* PltFrameServer.cpp */; };
@@ -160,6 +161,8 @@
 		E43F6BC110F1B74E00C97612 /* libPlatinum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC046055464E500DB518D /* libPlatinum.a */; };
 		E43F6BC910F1B78400C97612 /* TimeTest1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E43F6BC810F1B78400C97612 /* TimeTest1.cpp */; };
 		E44D5133116CF1D40074906A /* libaxTLS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E48157B611350F9500A786DA /* libaxTLS.a */; };
+		E47769AF12A9C22C0011EEE4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4374268123FFF5B00000109 /* Cocoa.framework */; };
+		E47769B012A9C22C0011EEE4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E477694512A9C00E0011EEE4 /* SystemConfiguration.framework */; };
 		E48158021135106000A786DA /* libNeptune.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E48157B411350F9500A786DA /* libNeptune.a */; };
 		E4A7DB79108596B900E6ADE2 /* AVTransportSCPD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4A7DB76108596B900E6ADE2 /* AVTransportSCPD.cpp */; };
 		E4A7DB7A108596B900E6ADE2 /* RdrConnectionManagerSCPD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4A7DB77108596B900E6ADE2 /* RdrConnectionManagerSCPD.cpp */; };
@@ -623,6 +626,7 @@
 
 /* Begin PBXFileReference section */
 		D2AAC046055464E500DB518D /* libPlatinum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPlatinum.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E402C7541297CECB00565B76 /* ContentDirectorySCPD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContentDirectorySCPD.cpp; sourceTree = "<group>"; };
 		E40C699E11E6ED710024CAD4 /* PltFrameBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PltFrameBuffer.cpp; sourceTree = "<group>"; };
 		E40C699F11E6ED710024CAD4 /* PltFrameBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PltFrameBuffer.h; sourceTree = "<group>"; };
 		E40C69A011E6ED710024CAD4 /* PltFrameServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PltFrameServer.cpp; sourceTree = "<group>"; };
@@ -753,6 +757,7 @@
 		E43EEEFF101E1AEF007A9CE7 /* PltVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PltVersion.h; sourceTree = "<group>"; };
 		E43F6BC510F1B74E00C97612 /* TimeTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TimeTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E43F6BC810F1B78400C97612 /* TimeTest1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeTest1.cpp; sourceTree = "<group>"; };
+		E477694512A9C00E0011EEE4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E481576A11350F9400A786DA /* Neptune.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Neptune.xcodeproj; path = "../../../../Neptune/Build/Targets/universal-apple-macosx/Neptune.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		E4A7DB76108596B900E6ADE2 /* AVTransportSCPD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AVTransportSCPD.cpp; sourceTree = "<group>"; };
 		E4A7DB77108596B900E6ADE2 /* RdrConnectionManagerSCPD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RdrConnectionManagerSCPD.cpp; sourceTree = "<group>"; };
@@ -788,6 +793,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E42D3AD90FDC87E20045379C /* libPlatinum.a in Frameworks */,
+				E47769AF12A9C22C0011EEE4 /* Cocoa.framework in Frameworks */,
+				E47769B012A9C22C0011EEE4 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -883,6 +890,7 @@
 				C6A0FF2B0290797F04C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 				E4374268123FFF5B00000109 /* Cocoa.framework */,
+				E477694512A9C00E0011EEE4 /* SystemConfiguration.framework */,
 			);
 			name = Platinum;
 			sourceTree = "<group>";
@@ -1165,6 +1173,7 @@
 		E43155A40D6FFE4C00899579 /* MediaServer */ = {
 			isa = PBXGroup;
 			children = (
+				E402C7541297CECB00565B76 /* ContentDirectorySCPD.cpp */,
 				E419C18D125E545D001628A7 /* PltMimeType.cpp */,
 				E419C18E125E545D001628A7 /* PltMimeType.h */,
 				E419C18F125E545D001628A7 /* PltProtocolInfo.cpp */,
@@ -1266,39 +1275,39 @@
 		E481576B11350F9400A786DA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E48157B411350F9500A786DA /* libNeptune.a */,
-				E48157B611350F9500A786DA /* libaxTLS.a */,
 				E48157B811350F9500A786DA /* ArraysTest1 */,
+				E48157B611350F9500A786DA /* libaxTLS.a */,
 				E48157BA11350F9500A786DA /* BufferedStreamsTest1 */,
-				E48157BC11350F9500A786DA /* HttpServerTest1 */,
+				E48157E811350F9500A786DA /* FileTest1 */,
+				E48157F211350F9500A786DA /* FileTest2 */,
 				E48157BE11350F9500A786DA /* HttpClientTest1 */,
+				E48157EE11350F9500A786DA /* HttpClientTest2 */,
+				E48157BC11350F9500A786DA /* HttpServerTest1 */,
 				E48157C011350F9500A786DA /* ListsTest1 */,
 				E48157C211350F9500A786DA /* LoggingTest1 */,
 				E48157C411350F9500A786DA /* LoggingTest2 */,
 				E48157C611350F9500A786DA /* MapsTest1 */,
 				E48157C811350F9500A786DA /* MessagesTest1 */,
 				E48157CA11350F9500A786DA /* MessagesTest2 */,
+				E48157EC11350F9500A786DA /* minihttpserver */,
 				E48157CC11350F9500A786DA /* MiscTest1 */,
+				E48157B411350F9500A786DA /* libNeptune.a */,
+				E48157E211350F9500A786DA /* NetConfig */,
+				E48157E011350F9500A786DA /* NetEcho */,
+				E48157E411350F9500A786DA /* NetPing */,
+				E48157DE11350F9500A786DA /* NetPump */,
 				E48157CE11350F9500A786DA /* QueueTest1 */,
 				E48157D011350F9500A786DA /* RingBufferTest1 */,
+				E48157F411350F9500A786DA /* SocketsTest1 */,
+				E48157E611350F9500A786DA /* StreamsTest1 */,
 				E48157D211350F9500A786DA /* StringsTest1 */,
 				E48157D411350F9500A786DA /* ThreadsTest1 */,
+				E48157F011350F9500A786DA /* TimeTest1 */,
+				E48157EA11350F9500A786DA /* TlsTest1 */,
 				E48157D611350F9500A786DA /* UdpTest1 */,
 				E48157D811350F9500A786DA /* UrlTest1 */,
 				E48157DA11350F9500A786DA /* XmlTest1 */,
 				E48157DC11350F9500A786DA /* ZipTest1 */,
-				E48157DE11350F9500A786DA /* NetPump */,
-				E48157E011350F9500A786DA /* NetEcho */,
-				E48157E211350F9500A786DA /* NetConfig */,
-				E48157E411350F9500A786DA /* NetPing */,
-				E48157E611350F9500A786DA /* StreamsTest1 */,
-				E48157E811350F9500A786DA /* FileTest1 */,
-				E48157EA11350F9500A786DA /* TlsTest1 */,
-				E48157EC11350F9500A786DA /* minihttpserver */,
-				E48157EE11350F9500A786DA /* HttpClientTest2 */,
-				E48157F011350F9500A786DA /* TimeTest1 */,
-				E48157F211350F9500A786DA /* FileTest2 */,
-				E48157F411350F9500A786DA /* SocketsTest1 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1949,6 +1958,7 @@
 				E4374C1C12417AA800000109 /* PltUPnPObject.mm in Sources */,
 				E419C191125E545D001628A7 /* PltMimeType.cpp in Sources */,
 				E419C193125E545D001628A7 /* PltProtocolInfo.cpp in Sources */,
+				E402C7551297CECB00565B76 /* ContentDirectorySCPD.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2301,7 +2311,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INSTALL_PATH = /usr/local/bin;
 				PREBINDING = NO;
 				PRODUCT_NAME = MediaCrawler;
@@ -2361,7 +2371,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INSTALL_PATH = /usr/local/bin;
 				PREBINDING = NO;
 				PRODUCT_NAME = MicroMediaController;
@@ -2394,7 +2404,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INSTALL_PATH = /usr/local/bin;
 				PREBINDING = NO;
 				PRODUCT_NAME = FrameStreamer;

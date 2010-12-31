@@ -296,6 +296,14 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\..\..\Source\Devices\MediaServer\PltMimeType.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\..\Source\Devices\MediaServer\PltProtocolInfo.cpp"
+					>
+				</File>
+				<File
 					RelativePath="..\..\..\..\Source\Devices\MediaServer\PltSyncMediaBrowser.cpp"
 					>
 				</File>
@@ -591,6 +599,14 @@
 				</File>
 				<File
 					RelativePath="..\..\..\..\Source\Devices\MediaServer\PltMediaServer.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\..\Source\Devices\MediaServer\PltMimeType.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\..\Source\Devices\MediaServer\PltProtocolInfo.h"
 					>
 				</File>
 				<File

@@ -89,10 +89,11 @@ protected:
 class PLT_CtrlPointGetSCPDRequest : public NPT_HttpRequest
 {
 public:
-    PLT_CtrlPointGetSCPDRequest(const char* url,
-                                const char* method = "GET",
-                                const char* protocol = NPT_HTTP_PROTOCOL_1_1) : // 1.1 for pipelining
-        NPT_HttpRequest(url, method, protocol) {}
+    PLT_CtrlPointGetSCPDRequest(PLT_DeviceDataReference& device,
+                                const char*              url,
+                                const char*              method = "GET",
+                                const char*              protocol = NPT_HTTP_PROTOCOL_1_1) : // 1.1 for pipelining
+        NPT_HttpRequest(url, method, protocol), m_Device(device) {}
     virtual ~PLT_CtrlPointGetSCPDRequest() {}
 
     // members

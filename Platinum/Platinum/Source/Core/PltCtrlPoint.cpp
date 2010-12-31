@@ -156,8 +156,7 @@ public:
 
         // Create request and attach service to it
         PLT_CtrlPointGetSCPDRequest* request = 
-            new PLT_CtrlPointGetSCPDRequest(scpd_url, "GET", NPT_HTTP_PROTOCOL_1_1);
-        request->m_Device  = m_Device;
+            new PLT_CtrlPointGetSCPDRequest((PLT_DeviceDataReference&)m_Device, scpd_url, "GET", NPT_HTTP_PROTOCOL_1_1);
         return m_Task.AddSCPDRequest(request);
     }
 
@@ -1197,7 +1196,6 @@ PLT_CtrlPoint::FetchDeviceSCPDs(PLT_CtrlPointGetSCPDTask* task,
     for (NPT_Cardinal i = 0;
          i<device->m_EmbeddedDevices.GetItemCount();
          i++) {
-
          NPT_CHECK_SEVERE(FetchDeviceSCPDs(task, device->m_EmbeddedDevices[i], level));
     }
 

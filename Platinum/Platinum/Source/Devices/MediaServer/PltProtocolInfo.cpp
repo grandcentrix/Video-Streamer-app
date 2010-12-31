@@ -81,21 +81,23 @@ PLT_HttpFileRequestHandler_DefaultDlnaMap[] = {
     {"image/png",      "DLNA.ORG_PN=PNG_LRG"},
     {"image/bmp",      "DLNA.ORG_PN=BMP_LRG"},
     {"image/tiff",     "DLNA.ORG_PN=TIFF_LRG"},
-    {"audio/mpeg",     "DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_CI=0"},
-    {"audio/mp4",      "DLNA.ORG_PN=AAC_ISO_320;DLNA.ORG_OP=01;DLNA.ORG_CI=0"},
-    {"audio/x-ms-wma", "DLNA.ORG_PN=WMABASE;DLNA.ORG_OP=01;DLNA.ORG_CI=0"},
-    {"audio/x-wav",    "DLNA.ORG_PN=WAV;DLNA.ORG_OP=01;DLNA.ORG_CI=0"},
-    {"video/avi",      "DLNA.ORG_PN=AVI;DLNA.ORG_OP=01;DLNA.ORG_CI=0"},
-    {"video/mp4",      "DLNA.ORG_PN=MPEG4_P2_SP_AAC;DLNA.ORG_OP=01;DLNA.ORG_CI=0"},
-    {"video/mpeg",     "DLNA.ORG_PN=MPEG_PS_PAL;DLNA.ORG_OP=01;DLNA.ORG_CI=0"},
-    {"video/x-ms-wmv", "DLNA.ORG_PN=WMVMED_FULL;DLNA.ORG_OP=01;DLNA.ORG_CI=0"},
-    {"video/x-msvideo","DLNA.ORG_PN=AVI;DLNA.ORG_OP=01;DLNA.ORG_CI=0"},
-    {"video/x-ms-asf", "DLNA.ORG_OP=01;DLNA.ORG_CI=0"}
+    {"audio/mpeg",     "DLNA.ORG_PN=MP3;DLNA.ORG_OP=01;DLNA.ORG_FLAGS=01700000000000000000000000000000"},
+    {"audio/mp4",      "DLNA.ORG_PN=AAC_ISO_320;DLNA.ORG_OP=01;DLNA.ORG_FLAGS=01700000000000000000000000000000"},
+    {"audio/x-ms-wma", "DLNA.ORG_PN=WMABASE;DLNA.ORG_OP=01;DLNA.ORG_FLAGS=01700000000000000000000000000000"},
+    {"audio/x-wav",    "DLNA.ORG_PN=WAV;DLNA.ORG_OP=01;DLNA.ORG_FLAGS=01700000000000000000000000000000"},
+    {"video/avi",      "DLNA.ORG_PN=AVI;DLNA.ORG_OP=01;DLNA.ORG_FLAGS=01700000000000000000000000000000"},
+    {"video/mp4",      "DLNA.ORG_PN=MPEG4_P2_SP_AAC;DLNA.ORG_OP=01;DLNA.ORG_FLAGS=01700000000000000000000000000000"},
+    {"video/mpeg",     "DLNA.ORG_PN=MPEG_PS_PAL;DLNA.ORG_OP=01;DLNA.ORG_FLAGS=01700000000000000000000000000000"},
+    {"video/quicktime","DLNA.ORG_OP=01;DLNA.ORG_FLAGS=01700000000000000000000000000000"},
+    {"video/x-ms-wmv", "DLNA.ORG_PN=WMVHIGH_BASE;DLNA.ORG_OP=01;DLNA.ORG_FLAGS=01700000000000000000000000000000"},
+    {"video/x-msvideo","DLNA.ORG_PN=AVI;DLNA.ORG_OP=01;DLNA.ORG_FLAGS=01700000000000000000000000000000"},
+    {"video/x-ms-asf", "DLNA.ORG_OP=01;DLNA.ORG_FLAGS=01700000000000000000000000000000"}
 };
 
 static const PLT_HttpFileRequestHandler_DefaultDlnaExtMapEntry 
 PLT_HttpFileRequestHandler_360DlnaMap[] = {
-    {"video/mp4",  "DLNA.ORG_OP=01;DLNA.ORG_CI=0"}
+    {"video/quicktime","DLNA.ORG_OP=01;DLNA.ORG_FLAGS=01700000000000000000000000000000"},
+    {"video/mp4",      "DLNA.ORG_OP=01;DLNA.ORG_FLAGS=01700000000000000000000000000000"}
 };
 
 static const PLT_HttpFileRequestHandler_DefaultDlnaExtMapEntry 
@@ -145,20 +147,6 @@ PLT_ProtocolInfo::PLT_ProtocolInfo(const char* protocol,
 {
     ValidateExtra();
 }
-
-/*----------------------------------------------------------------------
-|   types
-+---------------------------------------------------------------------*/
-typedef enum {
-    PLT_PROTINFO_PARSER_STATE_START,
-    PLT_PROTINFO_PARSER_STATE_PN,
-    PLT_PROTINFO_PARSER_STATE_OP,
-    PLT_PROTINFO_PARSER_STATE_PS,
-    PLT_PROTINFO_PARSER_STATE_CI,
-    PLT_PROTINFO_PARSER_STATE_FLAGS,
-    PLT_PROTINFO_PARSER_STATE_MAXSP,
-    PLT_PROTINFO_PARSER_STATE_OTHER
-} NPT_ProtocolInfoParserState;
 
 /*----------------------------------------------------------------------
 |   PLT_ProtocolInfo::SetProtocolInfo
@@ -242,6 +230,8 @@ NPT_Result
 PLT_ProtocolInfo::ValidateExtra()
 {
     if (m_Extra != "*") {
+		m_Valid = false;
+
         NPT_List<FieldEntry> entries;
         NPT_CHECK(ParseExtra(entries));
 
@@ -249,7 +239,7 @@ PLT_ProtocolInfo::ValidateExtra()
             entries.GetFirstItem();
 
         // parse other optional fields
-        NPT_ProtocolInfoParserState state = PLT_PROTINFO_PARSER_STATE_START;
+        PLT_ProtocolInfoParserState state = PLT_PROTINFO_PARSER_STATE_START;
         for (;entry;entry++) {
             if (entry->m_Key == "DLNA.ORG_PN") {
                 // pn-param only allowed as first param
@@ -378,24 +368,27 @@ PLT_ProtocolInfo::ToString() const
     NPT_String output = m_Protocol + ":";
     output += m_Mask + ":";
     output += m_ContentType + ":";
-    if (m_Extra == "*") {
-        output += "*";
+	// if it wasn't valid or extra is not DLNA, just use it as is
+    if (!m_Valid || m_Extra == "*") {
+        output += m_Extra;
     } else {
-        output += "DLNA.ORG_PN=" + m_DLNA_PN;
+		if (!m_DLNA_PN.IsEmpty()) {
+			output += "DLNA.ORG_PN=" + m_DLNA_PN + ";";
+		}
         if (!m_DLNA_OP.IsEmpty()) {
-            output += ";DLNA.ORG_OP=" + m_DLNA_OP;
+            output += "DLNA.ORG_OP=" + m_DLNA_OP + ";";
         }
         if (!m_DLNA_PS.IsEmpty()) {
-            output += ";DLNA.ORG_PS=" + m_DLNA_PS;
+            output += "DLNA.ORG_PS=" + m_DLNA_PS + ";";
         }
         if (!m_DLNA_CI.IsEmpty()) {
-            output += ";DLNA.ORG_CI=" + m_DLNA_CI;
+            output += "DLNA.ORG_CI=" + m_DLNA_CI + ";";
         }
         if (!m_DLNA_FLAGS.IsEmpty()) {
-            output += ";DLNA.ORG_FLAGS=" + m_DLNA_FLAGS;
+            output += "DLNA.ORG_FLAGS=" + m_DLNA_FLAGS + ";";
         }
         if (!m_DLNA_MAXSP.IsEmpty()) {
-            output += ";DLNA.ORG_MAXSP=" + m_DLNA_MAXSP;
+            output += "DLNA.ORG_MAXSP=" + m_DLNA_MAXSP + ";";
         }
         if (m_DLNA_OTHER.GetItemCount()) {
             for (NPT_List<FieldEntry>::Iterator iter;
@@ -462,19 +455,15 @@ PLT_ProtocolInfo::GetDlnaExtension(const char*                   mime_type,
     _mime_type.MakeLowercase();
     
     if (context) {
-        const NPT_String* agent = context->GetRequest().GetHeaders().GetHeaderValue(NPT_HTTP_HEADER_USER_AGENT);
-        const NPT_String* hdr = context->GetRequest().GetHeaders().GetHeaderValue("X-AV-Client-Info");
-
         // look for special case for 360
-        if (agent && (agent->Find("XBox", 0, true) >= 0 || agent->Find("Xenon", 0, true) >= 0)) {
-            for (unsigned int i=0; i<NPT_ARRAY_SIZE(PLT_HttpFileRequestHandler_360DlnaMap); i++) {
+        if (PLT_HttpHelper::GetDeviceSignature(context->GetRequest()) == PLT_XBOX || 
+			PLT_HttpHelper::GetDeviceSignature(context->GetRequest()) == PLT_WMP ) {
+			for (unsigned int i=0; i<NPT_ARRAY_SIZE(PLT_HttpFileRequestHandler_360DlnaMap); i++) {
                 if (_mime_type == PLT_HttpFileRequestHandler_360DlnaMap[i].mime_type) {
                     return PLT_HttpFileRequestHandler_360DlnaMap[i].dlna_ext;
                 }
             }
-            
-            return "*"; // Should we try default dlna instead?
-        } else if (hdr && hdr->Find("PLAYSTATION 3", 0, true) >= 0) {
+		} else if (PLT_HttpHelper::GetDeviceSignature(context->GetRequest()) == PLT_PS3) {
             for (unsigned int i=0; i<NPT_ARRAY_SIZE(PLT_HttpFileRequestHandler_PS3DlnaMap); i++) {
                 if (_mime_type == PLT_HttpFileRequestHandler_PS3DlnaMap[i].mime_type) {
                     return PLT_HttpFileRequestHandler_PS3DlnaMap[i].dlna_ext;

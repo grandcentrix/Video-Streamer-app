@@ -74,7 +74,7 @@ public:
     
     // constructor
     PLT_MediaConnect(const char*  friendly_name,
-                     bool         show_ip = false,
+                     bool         add_hostname = true,
                      const char*  udn = NULL,
                      NPT_UInt16   port = 0,
                      bool         port_rebind = false);
@@ -93,6 +93,10 @@ protected:
     virtual NPT_Result ProcessGetDescription(NPT_HttpRequest&              request,
                                              const NPT_HttpRequestContext& context,
                                              NPT_HttpResponse&             response);
+    virtual NPT_Result ProcessGetSCPD(PLT_Service*                  service,
+                                      NPT_HttpRequest&              request,
+                                      const NPT_HttpRequestContext& context,
+                                      NPT_HttpResponse&             response);
 
     // X_MS_MediaReceiverRegistrar
     virtual NPT_Result OnIsAuthorized(PLT_ActionReference&  action, 
@@ -110,6 +114,8 @@ protected:
     PLT_MediaConnectDeviceInfoMap m_MediaConnectDeviceInfoMap;
     PLT_UDNtoMACMap               m_MediaConnectUDNMap;
     PLT_Service*                  m_RegistrarService;
+	NPT_Mutex					  m_Lock;
+    bool                          m_AddHostname;
 };
 
 /*----------------------------------------------------------------------

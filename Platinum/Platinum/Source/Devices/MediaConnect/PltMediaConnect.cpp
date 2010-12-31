@@ -44,17 +44,19 @@ NPT_SET_LOCAL_LOGGER("platinum.devices.mediaconnect")
 |       forward references
 +---------------------------------------------------------------------*/
 extern NPT_UInt8 X_MS_MediaReceiverRegistrarSCPD[];
+extern NPT_UInt8 MS_ContentDirectorySCPD[];
 
 /*----------------------------------------------------------------------
 |       PLT_MediaConnect::PLT_MediaConnect
 +---------------------------------------------------------------------*/
 PLT_MediaConnect::PLT_MediaConnect(const char*  friendly_name, 
-                                   bool         show_ip     /* = false */, 
-                                   const char*  uuid        /* = NULL */, 
-                                   NPT_UInt16   port        /* = 0 */,
-                                   bool         port_rebind /* = false */) :	
-    PLT_MediaServer(friendly_name, show_ip, uuid, port, port_rebind),
-    m_RegistrarService(NULL)
+                                   bool         add_hostname     /* = true */, 
+                                   const char*  uuid             /* = NULL */, 
+                                   NPT_UInt16   port             /* = 0 */,
+                                   bool         port_rebind      /* = false */) :	
+    PLT_MediaServer(friendly_name, false, uuid, port, port_rebind),
+    m_RegistrarService(NULL),
+    m_AddHostname(add_hostname)
 {
 }
 
@@ -71,19 +73,21 @@ PLT_MediaConnect::~PLT_MediaConnect()
 NPT_Result
 PLT_MediaConnect::SetupServices()
 {
-    m_RegistrarService = new PLT_Service(
-        this,
-        "urn:microsoft.com:service:X_MS_MediaReceiverRegistrar:1", 
-        "urn:microsoft.com:serviceId:X_MS_MediaReceiverRegistrar",
-        "X_MS_MediaReceiverRegistrar");
+	{
+		m_RegistrarService = new PLT_Service(
+			this,
+			"urn:microsoft.com:service:X_MS_MediaReceiverRegistrar:1", 
+			"urn:microsoft.com:serviceId:X_MS_MediaReceiverRegistrar",
+			"X_MS_MediaReceiverRegistrar");
 
-    NPT_CHECK_FATAL(m_RegistrarService->SetSCPDXML((const char*) X_MS_MediaReceiverRegistrarSCPD));
-    NPT_CHECK_FATAL(AddService(m_RegistrarService));
-    
-    m_RegistrarService->SetStateVariable("AuthorizationGrantedUpdateID", "0");
-    m_RegistrarService->SetStateVariable("AuthorizationDeniedUpdateID", "0");
-    m_RegistrarService->SetStateVariable("ValidationSucceededUpdateID", "0");
-    m_RegistrarService->SetStateVariable("ValidationRevokedUpdateID", "0");
+		NPT_CHECK_FATAL(m_RegistrarService->SetSCPDXML((const char*) X_MS_MediaReceiverRegistrarSCPD));
+		NPT_CHECK_FATAL(AddService(m_RegistrarService));
+
+		m_RegistrarService->SetStateVariable("AuthorizationGrantedUpdateID", "0");
+		m_RegistrarService->SetStateVariable("AuthorizationDeniedUpdateID", "0");
+		m_RegistrarService->SetStateVariable("ValidationSucceededUpdateID", "0");
+		m_RegistrarService->SetStateVariable("ValidationRevokedUpdateID", "0");
+	}
 
     return PLT_MediaServer::SetupServices();
 }
@@ -96,56 +100,94 @@ PLT_MediaConnect::ProcessGetDescription(NPT_HttpRequest&              request,
                                         const NPT_HttpRequestContext& context,
                                         NPT_HttpResponse&             response)
 {
-    NPT_String m_OldModelName        = m_ModelName;
-    NPT_String m_OldModelNumber      = m_ModelNumber;
-    NPT_String m_OldModelURL         = m_ModelURL;
-    NPT_String m_OldManufacturerURL  = m_ManufacturerURL;
-    NPT_String m_OldDlnaDoc          = m_DlnaDoc;
-    NPT_String m_OldDlnaCap          = m_DlnaCap;
-    NPT_String m_OldAggregationFlags = m_AggregationFlags;
+	// lock to make sure another request is not modifying the device while we are already
+	NPT_AutoLock lock(m_Lock);
 
-    // change some things based on User-Agent header
-    NPT_HttpHeader* user_agent = request.GetHeaders().GetHeader(NPT_HTTP_HEADER_USER_AGENT);
-    if (user_agent && user_agent->GetValue().Find("Xbox", 0, true)>=0) {
-        m_ModelName        = "Windows Media Connect";
-        m_ModelNumber      = "2.0";
-        m_ModelURL         = "http://www.microsoft.com/";
-        m_ManufacturerURL  = "http://www.microsoft.com/";
-        m_DlnaDoc          = "";
-        m_DlnaCap          = "";
-        m_AggregationFlags = "";
-        if (m_FriendlyName.Find(":") == -1) {
+	NPT_Result res				   = NPT_SUCCESS;
+    NPT_String oldModelName        = m_ModelName;
+    NPT_String oldModelNumber      = m_ModelNumber;
+    NPT_String oldModelURL         = m_ModelURL;
+    NPT_String oldManufacturerURL  = m_ManufacturerURL;
+    NPT_String oldDlnaDoc          = m_DlnaDoc;
+    NPT_String oldDlnaCap          = m_DlnaCap;
+    NPT_String oldAggregationFlags = m_AggregationFlags;
+    NPT_String oldFriendlyName     = m_FriendlyName;
+    
+    NPT_String hostname;
+    NPT_System::GetMachineName(hostname);
+
+    if (PLT_HttpHelper::GetDeviceSignature(request) == PLT_XBOX) {
+        // XBox needs to see something behind a ':'
+        if (m_AddHostname && hostname.GetLength() > 0) {
+            m_FriendlyName += ": " + hostname;
+        } else if (m_FriendlyName.Find(":") == -1) {
             m_FriendlyName += ": 1";
         }
-        if (!m_FriendlyName.EndsWith(": Windows Media Connect")) {
-            m_FriendlyName += ": Windows Media Connect";
-        }
-    } else if (user_agent && user_agent->GetValue().Find("Sonos", 0, true)>=0) {
+    } else if (m_AddHostname && hostname.GetLength() > 0) {
+        m_FriendlyName += " (" + hostname + ")";
+    }
+
+    // change some things based on device signature from request
+    if (PLT_HttpHelper::GetDeviceSignature(request) == PLT_XBOX || 
+        PLT_HttpHelper::GetDeviceSignature(request) == PLT_WMP) {
         m_ModelName        = "Windows Media Player Sharing";
-        m_ModelNumber      = "3.0";
-    }
+        m_ModelNumber      = "12.0";
+        m_ModelURL         = "http://go.microsoft.com/fwlink/?LinkId=105926";
+        m_Manufacturer     = "Microsoft Corporation";
+        m_ManufacturerURL  = "http://www.microsoft.com/";
+        m_DlnaDoc          = "DMS-1.50";
+        m_DlnaCap          = "";
+        m_AggregationFlags = "";
+        // TODO: http://msdn.microsoft.com/en-us/library/ff362657(PROT.10).aspx
+        // TODO: <serialNumber>GUID</serialNumber>
 
-    // PS3
-    NPT_HttpHeader* client_info = request.GetHeaders().GetHeader("X-AV-Client-Info");
-    if (client_info && client_info->GetValue().Find("PLAYSTATION 3", 0, true)>=0) {
-        m_DlnaDoc = "DMS-1.50";
-        m_DlnaCap = "av-upload,image-upload,audio-upload";
-        m_AggregationFlags = "10";
-    }
+        // return description with modified params
+        res = PLT_MediaServer::ProcessGetDescription(request, context, response);
+    } else {
+        if (PLT_HttpHelper::GetDeviceSignature(request) == PLT_PS3) {
+           m_DlnaDoc = "DMS-1.50";
+           m_DlnaCap = "av-upload,image-upload,audio-upload";
+           m_AggregationFlags = "10";
+        }
 
-    // return description with modified params
-    NPT_Result res = PLT_MediaServer::ProcessGetDescription(request, context, response);
+        // return description with modified params
+        res = PLT_MediaServer::ProcessGetDescription(request, context, response);
+    }
     
     // reset to old values now
-    m_ModelName        = m_OldModelName;
-    m_ModelNumber      = m_OldModelNumber;
-    m_ModelURL         = m_OldModelURL;
-    m_ManufacturerURL  = m_OldManufacturerURL;
-    m_DlnaDoc          = m_OldDlnaDoc;
-    m_DlnaCap          = m_OldDlnaCap;
-    m_AggregationFlags = m_OldAggregationFlags;
+    m_FriendlyName     = oldFriendlyName;
+    m_ModelName        = oldModelName;
+    m_ModelNumber      = oldModelNumber;
+    m_ModelURL         = oldModelURL;
+    m_ManufacturerURL  = oldManufacturerURL;
+    m_DlnaDoc          = oldDlnaDoc;
+    m_DlnaCap          = oldDlnaCap;
+    m_AggregationFlags = oldAggregationFlags;
     
     return res;
+}
+
+/*----------------------------------------------------------------------
+|   PLT_MediaConnect::ProcessGetSCPD
++---------------------------------------------------------------------*/
+NPT_Result 
+PLT_MediaConnect::ProcessGetSCPD(PLT_Service*                  service,
+                                 NPT_HttpRequest&              request,
+                                 const NPT_HttpRequestContext& context,
+                                 NPT_HttpResponse&             response)
+{
+    // Override SCPD response by providing an SCPD without a Search action
+    // to all devices except XBox or WMP which need it
+    if (service->GetServiceType() == "urn:schemas-upnp-org:service:ContentDirectory:1" &&
+        PLT_HttpHelper::GetDeviceSignature(request) != PLT_XBOX &&
+        PLT_HttpHelper::GetDeviceSignature(request) != PLT_WMP) {
+        NPT_HttpEntity* entity;
+        PLT_HttpHelper::SetBody(response, (const char*) MS_ContentDirectorySCPD, &entity);    
+        entity->SetContentType("text/xml; charset=\"utf-8\"");
+        return NPT_SUCCESS;
+    }
+
+    return PLT_MediaServer::ProcessGetSCPD(service, request, context, response);
 }
 
 /*----------------------------------------------------------------------

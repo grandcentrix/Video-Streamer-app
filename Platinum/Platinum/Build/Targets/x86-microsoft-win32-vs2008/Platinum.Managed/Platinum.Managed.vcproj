@@ -62,17 +62,19 @@
 				Name="VCLinkerTool"
 				AdditionalOptions="/NOENTRY"
 				LinkIncremental="2"
-				IgnoreDefaultLibraryNames=""
+				IgnoreDefaultLibraryNames="libcmtd.lib"
 				ForceSymbolReferences="__DllMainCRTStartup@12"
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
 				TargetMachine="1"
+				KeyFile="Platinum.Managed.snk"
 			/>
 			<Tool
 				Name="VCALinkTool"
 			/>
 			<Tool
 				Name="VCManifestTool"
+				EmbedManifest="true"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
@@ -88,6 +90,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="mkdir &quot;$(ProjectDir)..\..\..\..\Targets\x86-microsoft-win32-vs2008\$(ConfigurationName)&quot;&#x0D;&#x0A;copy &quot;$(TargetPath)&quot; &quot;$(ProjectDir)\..\..\..\..\Targets\x86-microsoft-win32-vs2008\$(ConfigurationName)\$(TargetFileName)&quot;&#x0D;&#x0A;copy &quot;$(ProjectDir)\..\..\..\..\ThirdParty\log4net\log4net.*&quot; &quot;$(ProjectDir)\..\..\..\..\Targets\x86-microsoft-win32-vs2008\$(ConfigurationName)&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -135,18 +138,19 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/NOENTRY"
-				AdditionalDependencies="msvcrt.lib"
 				LinkIncremental="1"
-				IgnoreDefaultLibraryNames="nochkclr.obj"
+				IgnoreDefaultLibraryNames="libcmt.lib"
 				ForceSymbolReferences="__DllMainCRTStartup@12"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
+				KeyFile="Platinum.Managed.snk"
 			/>
 			<Tool
 				Name="VCALinkTool"
 			/>
 			<Tool
 				Name="VCManifestTool"
+				EmbedManifest="true"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
@@ -162,6 +166,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="mkdir &quot;$(ProjectDir)..\..\..\..\Targets\x86-microsoft-win32-vs2008\$(ConfigurationName)&quot;&#x0D;&#x0A;copy &quot;$(TargetPath)&quot; &quot;$(ProjectDir)\..\..\..\..\Targets\x86-microsoft-win32-vs2008\$(ConfigurationName)\$(TargetFileName)&quot;&#x0D;&#x0A;copy &quot;$(ProjectDir)\..\..\..\..\ThirdParty\log4net\log4net.*&quot; &quot;$(ProjectDir)\..\..\..\..\Targets\x86-microsoft-win32-vs2008\$(ConfigurationName)&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 	</Configurations>
@@ -278,6 +283,14 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\..\..\Source\Extras\Managed\MediaConnect.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\..\Source\Extras\Managed\MediaConnect.h"
+				>
+			</File>
+			<File
 				RelativePath="..\..\..\..\Source\Extras\Managed\MediaObject.cpp"
 				>
 			</File>
@@ -315,6 +328,10 @@
 			</File>
 			<File
 				RelativePath="..\..\..\..\Source\Extras\Managed\NeptuneLoggingBridge.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Platinum.Managed.snk"
 				>
 			</File>
 			<File
@@ -373,6 +390,10 @@
 				Name="Helpers"
 				>
 				<File
+					RelativePath="..\..\..\..\Source\Extras\Managed\Clix.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\..\..\Source\Extras\Managed\EnumerableNptArray.h"
 					>
 				</File>
@@ -394,24 +415,6 @@
 				</File>
 			</Filter>
 		</Filter>
-		<Filter
-			Name="Resource Files"
-			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
-			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
-			>
-			<File
-				RelativePath=".\app.ico"
-				>
-			</File>
-			<File
-				RelativePath=".\app.rc"
-				>
-			</File>
-		</Filter>
-		<File
-			RelativePath=".\ReadMe.txt"
-			>
-		</File>
 	</Files>
 	<Globals>
 	</Globals>

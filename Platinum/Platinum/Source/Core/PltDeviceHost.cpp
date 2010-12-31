@@ -71,7 +71,7 @@ PLT_DeviceHost::PLT_DeviceHost(const char*  description_path /* = "/" */,
     m_Broadcast(false),
     m_Port(port),
     m_PortRebind(port_rebind),
-    m_ByeByeFirst(false)
+    m_ByeByeFirst(true)
 {
     if (show_ip) {
         NPT_List<NPT_IpAddress> ips;
@@ -131,18 +131,20 @@ PLT_DeviceHost::AddIcon(const PLT_DeviceIcon& icon,
 NPT_Result
 PLT_DeviceHost::SetupIcons()
 {
-    AddIcon(
-        PLT_DeviceIcon("image/jpeg", 120, 120, 24, "/images/platinum-120x120.jpg"),
-        Platinum_120x120_jpg, sizeof(Platinum_120x120_jpg), false);
-    AddIcon(
-        PLT_DeviceIcon("image/jpeg", 48, 48, 24, "/images/platinum-48x48.jpg"),
-        Platinum_48x48_jpg, sizeof(Platinum_48x48_jpg), false);
-    AddIcon(
-        PLT_DeviceIcon("image/png", 120, 120, 24, "/images/platinum-120x120.png"),
-        Platinum_120x120_png, sizeof(Platinum_120x120_png), false);
-    AddIcon(
-        PLT_DeviceIcon("image/png", 48, 48, 24, "/images/platinum-48x48.png"),
-        Platinum_48x48_png, sizeof(Platinum_48x48_png), false);
+	/*if (m_Icons.GetItemCount() == 0) {
+		AddIcon(
+			PLT_DeviceIcon("image/jpeg", 120, 120, 24, "/images/platinum-120x120.jpg"),
+			Platinum_120x120_jpg, sizeof(Platinum_120x120_jpg), false);
+		AddIcon(
+			PLT_DeviceIcon("image/jpeg", 48, 48, 24, "/images/platinum-48x48.jpg"),
+			Platinum_48x48_jpg, sizeof(Platinum_48x48_jpg), false);
+		AddIcon(
+			PLT_DeviceIcon("image/png", 120, 120, 24, "/images/platinum-120x120.png"),
+			Platinum_120x120_png, sizeof(Platinum_120x120_png), false);
+		AddIcon(
+			PLT_DeviceIcon("image/png", 48, 48, 24, "/images/platinum-48x48.png"),
+			Platinum_48x48_png, sizeof(Platinum_48x48_png), false);
+	}*/
     return NPT_SUCCESS;
 }
 
@@ -154,20 +156,6 @@ PLT_DeviceHost::SetupDevice()
 {
     NPT_CHECK_FATAL(SetupServices());
     NPT_CHECK_WARNING(SetupIcons());
-    return NPT_SUCCESS;
-}
-
-/*----------------------------------------------------------------------
-|   PLT_DeviceHost::SetupServiceSCPDHandler
-+---------------------------------------------------------------------*/
-NPT_Result
-PLT_DeviceHost::SetupServiceSCPDHandler(PLT_Service* service)
-{  
-    NPT_String  doc;
-    NPT_CHECK_FATAL(service->GetSCPDXML(doc));
-
-    NPT_HttpStaticRequestHandler* scpd_handler = new NPT_HttpStaticRequestHandler(doc, "text/xml; charset=\"utf-8\"");
-    m_HttpServer->AddRequestHandler(scpd_handler, service->GetSCPDURL(), false);
     return NPT_SUCCESS;
 }
 
@@ -192,20 +180,6 @@ PLT_DeviceHost::Start(PLT_SsdpListenTask* task)
 
     // callback to initialize the device
     NPT_CHECK_FATAL(SetupDevice());
-
-    // set up static handlers first as the order is important
-
-    // services static root device scpd documents
-    for (NPT_Cardinal i=0; i<m_Services.GetItemCount(); i++) {
-        SetupServiceSCPDHandler(m_Services[i]);
-    }
-
-    // services static embedded devices scpd documents
-    for (NPT_Cardinal j=0; j<m_EmbeddedDevices.GetItemCount(); j++) {
-        for (NPT_Cardinal i=0; i<m_EmbeddedDevices[j]->m_Services.GetItemCount(); i++) {
-            SetupServiceSCPDHandler(m_EmbeddedDevices[j]->m_Services[i]);
-        }
-    }
 
     // all other requests including description document
     // and service control are dynamically handled
@@ -379,9 +353,18 @@ PLT_DeviceHost::SetupResponse(NPT_HttpRequest&              request,
     } else if (method.Compare("SUBSCRIBE") == 0 || method.Compare("UNSUBSCRIBE") == 0) {
         return ProcessHttpSubscriberRequest(request, context, response);
     } else if (method.Compare("GET") == 0 || method.Compare("HEAD") == 0) {
+        // process SCPD requests
+        PLT_Service* service;
+        if (NPT_SUCCEEDED(FindServiceBySCPDURL(request.GetUrl().GetPath(), service, true))) {
+            return ProcessGetSCPD(service, request, context, response);
+        }
+
+        // process Description document requests
         if (request.GetUrl().GetPath() == m_URLDescription.GetPath()) {
             return ProcessGetDescription(request, context, response);
         }
+
+        // process other requests
         return ProcessHttpGetRequest(request, context, response);
     }
 
@@ -417,6 +400,30 @@ PLT_DeviceHost::ProcessGetDescription(NPT_HttpRequest&              /*request*/,
     NPT_String doc;
     NPT_CHECK_FATAL(GetDescription(doc));
     NPT_LOG_FINEST_2("Returning description to %s: %s", 
+        (const char*)context.GetRemoteAddress().GetIpAddress().ToString(),
+        (const char*)doc);
+
+    NPT_HttpEntity* entity;
+    PLT_HttpHelper::SetBody(response, doc, &entity);    
+    entity->SetContentType("text/xml; charset=\"utf-8\"");
+    return NPT_SUCCESS;
+}
+
+/*----------------------------------------------------------------------
+|   PLT_DeviceHost::ProcessGetSCPD
++---------------------------------------------------------------------*/
+NPT_Result 
+PLT_DeviceHost::ProcessGetSCPD(PLT_Service*                  service,
+                               NPT_HttpRequest&              /*request*/,
+                               const NPT_HttpRequestContext& context,
+                               NPT_HttpResponse&             response)
+{
+    NPT_COMPILER_UNUSED(context);
+    NPT_CHECK_POINTER_FATAL(service);
+
+    NPT_String doc;
+    NPT_CHECK_FATAL(service->GetSCPDXML(doc));
+    NPT_LOG_FINEST_2("Returning SCPD to %s: %s", 
         (const char*)context.GetRemoteAddress().GetIpAddress().ToString(),
         (const char*)doc);
 

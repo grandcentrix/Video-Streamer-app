@@ -43,6 +43,17 @@
 +---------------------------------------------------------------------*/
 #include "Neptune.h"
 
+
+/*----------------------------------------------------------------------
+|   types
++---------------------------------------------------------------------*/
+typedef enum {
+	PLT_UNKNOWN_DEVICE,
+	PLT_XBOX,
+	PLT_PS3,
+	PLT_WMP
+} PLT_DeviceSignature;
+
 /*----------------------------------------------------------------------
 |   PLT_HttpHelper
 +---------------------------------------------------------------------*/
@@ -67,12 +78,14 @@ public:
     static void         SetHost(NPT_HttpRequest& request, const char* host);
     static NPT_Result   GetRange(const NPT_HttpRequest& request, NPT_Position& start, NPT_Position& end);
     static void         SetRange(NPT_HttpRequest& request, NPT_Position start, NPT_Position end = (NPT_Position)-1);
+	static PLT_DeviceSignature GetDeviceSignature(const NPT_HttpRequest& request);
 
     static NPT_Result   GetContentRange(const NPT_HttpResponse& response, NPT_Position& start, NPT_Position& end, NPT_LargeSize& length);
     static NPT_Result   SetContentRange(NPT_HttpResponse& response, NPT_Position start, NPT_Position end, NPT_LargeSize length);
 
-    static NPT_Result   SetBody(NPT_HttpMessage& message, NPT_String& body, NPT_HttpEntity** entity = NULL);
-    static NPT_Result   SetBody(NPT_HttpMessage& message, const char* body, NPT_LargeSize len, NPT_HttpEntity** entity = NULL);
+    static NPT_Result   SetBody(NPT_HttpMessage& message, NPT_String& text, NPT_HttpEntity** entity = NULL);
+    static NPT_Result   SetBody(NPT_HttpMessage& message, const char* text, NPT_HttpEntity** entity = NULL);
+    static NPT_Result   SetBody(NPT_HttpMessage& message, const void* body, NPT_LargeSize len, NPT_HttpEntity** entity = NULL);
     static NPT_Result   SetBody(NPT_HttpMessage& message, NPT_InputStreamReference stream, NPT_HttpEntity** entity = NULL);
     static NPT_Result   GetBody(const NPT_HttpMessage& message, NPT_String& body);
     static NPT_Result   ParseBody(const NPT_HttpMessage& message, NPT_XmlElementNode*& xml);
@@ -102,6 +115,7 @@ public:
     virtual ~PLT_HttpRequestContext() {}
     
     const NPT_HttpRequest& GetRequest() const { return m_Request; }
+	PLT_DeviceSignature GetDeviceSignature() { return PLT_HttpHelper::GetDeviceSignature(m_Request); }
     
 private:
     const NPT_HttpRequest& m_Request;

@@ -1131,7 +1131,7 @@ NPT_HttpClient::WriteRequest(NPT_OutputStream& output_stream,
         }
     } else {
         //FIXME: We should only set content length of 0 for methods with expected entities.
-        headers.SetHeader(NPT_HTTP_HEADER_CONTENT_LENGTH, 0);
+        headers.SetHeader(NPT_HTTP_HEADER_CONTENT_LENGTH, "0");
     }
 
     // create a memory stream to buffer the headers
@@ -1884,7 +1884,7 @@ NPT_HttpStaticRequestHandler::SetupResponse(NPT_HttpRequest&              /*requ
 }
 
 const NPT_HttpFileRequestHandler_DefaultFileTypeMapEntry 
-NPT_HttpFileRequestHandler_DefaultFileTypeMap[45] = {
+NPT_HttpFileRequestHandler_DefaultFileTypeMap[46] = {
     {"xml",  "text/xml; charset=\"utf-8\""  },
     {"htm",  "text/html" },
     {"html", "text/html" },
@@ -1919,6 +1919,7 @@ NPT_HttpFileRequestHandler_DefaultFileTypeMap[45] = {
     {"ts",   "video/MP2T"}, // RFC 3555
     {"mov",  "video/quicktime"},
     {"wmv",  "video/x-ms-wmv"},
+    {"wtv",  "video/x-ms-wmv"},
     {"asf",  "video/x-ms-asf"},
     {"avi",  "video/x-msvideo"},
     {"divx", "video/x-msvideo"},
