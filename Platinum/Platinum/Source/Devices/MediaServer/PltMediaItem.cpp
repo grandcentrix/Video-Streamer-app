@@ -53,8 +53,6 @@ extern const char* didl_namespace_upnp;
 |   globals
 +---------------------------------------------------------------------*/
 NPT_DEFINE_DYNAMIC_CAST_ANCHOR(PLT_MediaObject)
-NPT_DEFINE_DYNAMIC_CAST_ANCHOR(PLT_MediaItem)
-NPT_DEFINE_DYNAMIC_CAST_ANCHOR(PLT_MediaContainer)
 
 /*----------------------------------------------------------------------
 |   PLT_PersonRoles::AddPerson
@@ -331,61 +329,64 @@ PLT_MediaObject::ToDidl(NPT_UInt32 mask, NPT_String& didl)
     // resource
     if (mask & PLT_FILTER_MASK_RES) {
         for (NPT_Cardinal i=0; i<m_Resources.GetItemCount(); i++) {
-            didl += "<res";
-            
-            if (mask & PLT_FILTER_MASK_RES_DURATION && m_Resources[i].m_Duration != (NPT_UInt32)-1) {
-                didl += " duration=\"";
-                didl += PLT_Didl::FormatTimeStamp(m_Resources[i].m_Duration);
-                didl += "\"";
-            }
+            if (m_Resources[i].m_ProtocolInfo.IsValid()) {
+                // protocol info is required
+                didl += "<res";
+                
+                if (mask & PLT_FILTER_MASK_RES_DURATION && m_Resources[i].m_Duration != (NPT_UInt32)-1) {
+                    didl += " duration=\"";
+                    didl += PLT_Didl::FormatTimeStamp(m_Resources[i].m_Duration);
+                    didl += "\"";
+                }
 
-            if (mask & PLT_FILTER_MASK_RES_SIZE && m_Resources[i].m_Size != (NPT_LargeSize)-1) {
-                didl += " size=\"";
-                didl += NPT_String::FromIntegerU(m_Resources[i].m_Size);
-                didl += "\"";
-            }
+                if (mask & PLT_FILTER_MASK_RES_SIZE && m_Resources[i].m_Size != (NPT_LargeSize)-1) {
+                    didl += " size=\"";
+                    didl += NPT_String::FromIntegerU(m_Resources[i].m_Size);
+                    didl += "\"";
+                }
 
-            if (mask & PLT_FILTER_MASK_RES_PROTECTION && !m_Resources[i].m_Protection.IsEmpty()) {
-                didl += " protection=\"";
-                PLT_Didl::AppendXmlEscape(didl, m_Resources[i].m_Protection);
-                didl += "\"";
-            }
-            
-            if (mask & PLT_FILTER_MASK_RES_RESOLUTION && !m_Resources[i].m_Resolution.IsEmpty()) {
-                didl += " resolution=\"";
-                PLT_Didl::AppendXmlEscape(didl, m_Resources[i].m_Resolution);
-                didl += "\"";
-            }
-            
-            if (mask & PLT_FILTER_MASK_RES_BITRATE && m_Resources[i].m_Bitrate != (NPT_Size)-1) {                    
-                didl += " bitrate=\"";
-                didl += NPT_String::FromIntegerU(m_Resources[i].m_Bitrate);
-                didl += "\"";
-            }
+                if (mask & PLT_FILTER_MASK_RES_PROTECTION && !m_Resources[i].m_Protection.IsEmpty()) {
+                    didl += " protection=\"";
+                    PLT_Didl::AppendXmlEscape(didl, m_Resources[i].m_Protection);
+                    didl += "\"";
+                }
+                
+                if (mask & PLT_FILTER_MASK_RES_RESOLUTION && !m_Resources[i].m_Resolution.IsEmpty()) {
+                    didl += " resolution=\"";
+                    PLT_Didl::AppendXmlEscape(didl, m_Resources[i].m_Resolution);
+                    didl += "\"";
+                }
+                
+                if (mask & PLT_FILTER_MASK_RES_BITRATE && m_Resources[i].m_Bitrate != (NPT_Size)-1) {                    
+                    didl += " bitrate=\"";
+                    didl += NPT_String::FromIntegerU(m_Resources[i].m_Bitrate);
+                    didl += "\"";
+                }
 
-			if (mask & PLT_FILTER_MASK_RES_BITSPERSAMPLE && m_Resources[i].m_BitsPerSample != (NPT_Size)-1) {                    
-                didl += " bitsPerSample=\"";
-                didl += NPT_String::FromIntegerU(m_Resources[i].m_BitsPerSample);
-                didl += "\"";
-            }
+				if (mask & PLT_FILTER_MASK_RES_BITSPERSAMPLE && m_Resources[i].m_BitsPerSample != (NPT_Size)-1) {                    
+                    didl += " bitsPerSample=\"";
+                    didl += NPT_String::FromIntegerU(m_Resources[i].m_BitsPerSample);
+                    didl += "\"";
+                }
 
-			if (mask & PLT_FILTER_MASK_RES_SAMPLEFREQUENCY && m_Resources[i].m_SampleFrequency != (NPT_Size)-1) {                    
-                didl += " sampleFrequency=\"";
-                didl += NPT_String::FromIntegerU(m_Resources[i].m_SampleFrequency);
-                didl += "\"";
-            }
+				if (mask & PLT_FILTER_MASK_RES_SAMPLEFREQUENCY && m_Resources[i].m_SampleFrequency != (NPT_Size)-1) {                    
+                    didl += " sampleFrequency=\"";
+                    didl += NPT_String::FromIntegerU(m_Resources[i].m_SampleFrequency);
+                    didl += "\"";
+                }
 
-			if (mask & PLT_FILTER_MASK_RES_NRAUDIOCHANNELS && m_Resources[i].m_NbAudioChannels != (NPT_Size)-1) {                    
-                didl += " nrAudioChannels=\"";
-                didl += NPT_String::FromIntegerU(m_Resources[i].m_NbAudioChannels);
-                didl += "\"";
+				if (mask & PLT_FILTER_MASK_RES_NRAUDIOCHANNELS && m_Resources[i].m_NbAudioChannels != (NPT_Size)-1) {                    
+                    didl += " nrAudioChannels=\"";
+                    didl += NPT_String::FromIntegerU(m_Resources[i].m_NbAudioChannels);
+                    didl += "\"";
+                }
+                
+                didl += " protocolInfo=\"";
+                PLT_Didl::AppendXmlEscape(didl, m_Resources[i].m_ProtocolInfo.ToString());
+                didl += "\">";
+                PLT_Didl::AppendXmlEscape(didl, m_Resources[i].m_Uri);
+                didl += "</res>";
             }
-            
-            didl += " protocolInfo=\"";
-            PLT_Didl::AppendXmlEscape(didl, m_Resources[i].m_ProtocolInfo.ToString());
-            didl += "\">";
-            PLT_Didl::AppendXmlEscape(didl, m_Resources[i].m_Uri);
-            didl += "</res>";
         }
     }
 

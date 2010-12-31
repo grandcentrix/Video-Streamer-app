@@ -61,7 +61,7 @@ public:
 
 	void Stop()
 	{
-		if (m_pHandle) m_pHandle->Stop();
+		Helpers::ThrowOnError(m_pHandle->Stop());
 	}
 
 	void AddControlPoint(ControlPoint^ cp);
@@ -75,14 +75,6 @@ public:
         return GetIpAddresses(false);
     }
     static List<String^>^ GetIpAddresses(bool include_localhost);
-
-    property bool Running
-    {
-        bool get()
-        {
-            return m_pHandle->IsRunning();
-        }
-    }
 
 public:
 

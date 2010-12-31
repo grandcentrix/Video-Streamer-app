@@ -90,12 +90,6 @@ public:
         (*m_pHostHandle)->SetLeaseTime(NPT_TimeInterval((double)lease->TotalSeconds));
     }
 
-	NPT_Result AddIcon(DeviceIcon^ icon, array<Byte>^ data)
-	{
-		pin_ptr<Byte> pinnedBuffer = &data[0];
-		return (*m_pHostHandle)->AddIcon(icon->Handle, (const void*)pinnedBuffer, data->Length, true);
-	}
-
     ~DeviceHost()
     {
         // clean-up managed

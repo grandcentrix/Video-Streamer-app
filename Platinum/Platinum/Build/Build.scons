@@ -77,8 +77,7 @@ class LibraryModule(Module):
                  environment           = None,
                  excluded_files        = [],
                  extra_cpp_defines     = [],
-                 shared                = False,
-                 install               = False) :
+                 shared                = False) :
         build_source_dirs = [source_root+'/'+drct for drct in build_source_dirs]
         Module.__init__(self, 
                         name, 
@@ -120,14 +119,9 @@ class LibraryModule(Module):
             libs = GetLibraries(Split(linked_modules))
             self.product = self.env.SharedLibrary(target=name, LIBS=libs, source=sources)
         self.env.Alias(name, self.product)
-            
-        # copy to Targets folder
-        if install is True:
-            inst = env.Install(dir=env.GetBuildPath('#/Targets/'+env['target']+'/'+env['build_config']), source=self.product)
-            if env['build_config'] == 'Release' and env.has_key('STRIP'):
-                env.AddPostAction(inst, env['STRIP']+' $TARGETS');
         
-def Application(name, dir, deps, install = False):
+        
+def Application(name, dir, deps):
     DeclareBuildDir(dir)
     libs = GetLibraries(deps)
     cpp_path = GetIncludeDirs(deps)
@@ -140,10 +134,9 @@ def Application(name, dir, deps, install = False):
         env.AddPostAction(prog, env['NPT_EXECUTABLE_POST_PROCESSOR'])
     
     # copy to Targets folder
-    if install is True:
-        inst = env.Install(dir=env.GetBuildPath('#/Targets/'+env['target']+'/'+env['build_config']), source=prog)
-        if env['build_config'] == 'Release' and env.has_key('STRIP'):
-            env.AddPostAction(inst, env['STRIP']+' $TARGETS');
+    inst = env.Install (dir=env.GetBuildPath('#/Targets/'+env['target']+'/'+env['build_config']), source=prog)
+    if env['build_config'] == 'Release' and env.has_key('STRIP'):
+       env.AddPostAction(inst, env['STRIP']+' $TARGETS');
 
 #######################################################
 # Main Build
@@ -220,15 +213,7 @@ LibraryModule(name               = 'Platinum',
               build_source_dirs  = ['Core', 'Extras'],
               build_include_dirs = ['Source/Platinum'],
               included_modules   = ['Neptune'])
-
-# Platinum (jni)
-if env['target'] == 'arm-android-linux':
-     LibraryModule(name               = 'PlatinumJNI', 
-                   build_source_dirs  = ['Extras/JNI/C++'],
-                   linked_modules     = ['Platinum'],
-                   shared             = True,
-                   install            = True)
-
+                 
 # Platinum MediaServer         
 LibraryModule(name               = 'PltMediaServer',
               build_source_dirs  = ['MediaServer'],
@@ -245,23 +230,20 @@ LibraryModule(name               = 'PltMediaRenderer',
 LibraryModule(name               = 'PltMediaConnect',
               build_source_dirs  = ['MediaConnect'],
               included_modules   = ['Platinum', 'PltMediaServer', 'PltMediaRenderer'],
-              excluded_files	 = ['MACFromIP.cpp'],
+              excluded_files	    = ['MACFromIP.cpp'],
               source_root        = 'Source/Devices')
                                            
 for app in ['MicroMediaController', 'MediaCrawler', 'MediaConnect', 'FrameStreamer']:
-    Application(name    = app, 
-                dir     = 'Source/Apps/' + app, 
-                deps    = ['Platinum', 'PltMediaServer', 'PltMediaRenderer', 'PltMediaConnect'],
-              	install = True)
+    Application(name = app, 
+                dir = 'Source/Apps/' + app, 
+                deps = ['Platinum', 'PltMediaServer', 'PltMediaRenderer', 'PltMediaConnect'])
     
 for test in ['FileMediaServer', 'MediaRenderer', 'LightSample', 'Http', 'Time']:
-    Application(name    = test+'Test', 
-                dir     = 'Source/Tests/' + test, 
-                deps    = ['Platinum', 'PltMediaServer', 'PltMediaRenderer'],
-              	install = True)
+    Application(name = test+'Test', 
+                dir = 'Source/Tests/' + test, 
+                deps = ['Platinum', 'PltMediaServer', 'PltMediaRenderer'])
     		 
 for tool in ['TextToHeader']:
-    Application(name    = tool, 
-                dir     = 'Source/Tools/' + tool, 
-                deps    = ['Platinum'],
-             	install = True)
+    Application(name = tool, 
+                dir = 'Source/Tools/' + tool, 
+                deps = ['Platinum'])

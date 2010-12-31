@@ -102,7 +102,6 @@ public:
 public:
 
 	ActionDescription^ FindAction(String^ name);
-    StateVariable^ FindStateVariable(String^ name);
 
 public:
 

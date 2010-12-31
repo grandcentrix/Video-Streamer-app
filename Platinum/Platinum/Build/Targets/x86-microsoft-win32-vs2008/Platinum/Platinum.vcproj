@@ -79,7 +79,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(ProjectDir)..\..\..\..\Targets\x86-microsoft-win32-vs2008\$(ConfigurationName)&quot;&#x0D;&#x0A;xcopy /Y &quot;$(TargetPath)&quot; &quot;$(ProjectDir)\..\..\..\..\Targets\x86-microsoft-win32-vs2008\$(ConfigurationName)&quot;&#x0D;&#x0A;"
+				CommandLine=""
 			/>
 		</Configuration>
 		<Configuration
@@ -141,7 +141,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(ProjectDir)..\..\..\..\Targets\x86-microsoft-win32-vs2008\$(ConfigurationName)&quot;&#x0D;&#x0A;xcopy /Y &quot;$(TargetPath)&quot; &quot;$(ProjectDir)\..\..\..\..\Targets\x86-microsoft-win32-vs2008\$(ConfigurationName)&quot;&#x0D;&#x0A;"
+				CommandLine=""
 			/>
 		</Configuration>
 	</Configurations>
@@ -427,7 +427,15 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\..\..\Source\Core\PltHttpServerListener.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\..\..\Source\Core\PltHttpServerTask.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\..\Source\Core\PltLeaks.h"
 					>
 				</File>
 				<File
@@ -436,6 +444,10 @@
 				</File>
 				<File
 					RelativePath="..\..\..\..\Source\Core\PltSsdp.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\..\Source\Core\PltSsdpListener.h"
 					>
 				</File>
 				<File
@@ -487,6 +499,10 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\..\..\Source\Devices\MediaServer\PltMediaBrowserListener.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\..\..\Source\Devices\MediaServer\PltMediaCache.h"
 					>
 				</File>
@@ -516,6 +532,10 @@
 				>
 				<File
 					RelativePath="..\..\..\..\Source\Devices\MediaRenderer\PltMediaController.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\..\Source\Devices\MediaRenderer\PltMediaControllerListener.h"
 					>
 				</File>
 				<File

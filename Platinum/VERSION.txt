@@ -1,7 +1,7 @@
-Platinum Kit Version 0-6-4
+Platinum Kit Version 0-6-0
 --------------------------
 
 This kit is composed of modules with the following SVN repository versions:
 
-Neptune: 286
-Platinum:   690
+Neptune: 269
+Platinum:   630

@@ -160,7 +160,7 @@ PLT_UPnP::Start()
     NPT_CHECK_SEVERE(socket->Bind(NPT_SocketAddress(NPT_IpAddress::Any, m_Port)));
 
     /* create the ssdp listener */
-    m_SsdpListenTask = new PLT_SsdpListenTask(socket, m_Multicast, true);
+    m_SsdpListenTask = new PLT_SsdpListenTask(socket, m_Multicast);
     NPT_CHECK_SEVERE(m_TaskManager.StartTask(m_SsdpListenTask));
 
     /* start devices & ctrlpoints */

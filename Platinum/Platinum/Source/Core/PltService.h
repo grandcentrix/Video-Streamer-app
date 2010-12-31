@@ -78,7 +78,7 @@ public:
     PLT_Service(PLT_DeviceData* device,
                 const char*     type, 
                 const char*     id,
-                const char*     name,
+                const char*     name = NULL,
                 const char*     last_change_namespace = NULL);
     virtual ~PLT_Service();
     
@@ -167,13 +167,7 @@ public:
      Return the service type.
      @return service type
      */
-    const NPT_String& GetServiceType() const { return m_ServiceType; }
-
-    /**
-     Return the service friendly name.
-     @return service name
-     */
-    const NPT_String& GetServiceName() const { return m_ServiceName; } 
+    const NPT_String& GetServiceType() const { return m_ServiceType; }  
 
     /**
      Return the PLT_DeviceData* the service is associated with.
@@ -362,7 +356,6 @@ protected:
     PLT_DeviceData*                 m_Device;
     NPT_String                      m_ServiceType;
     NPT_String                      m_ServiceID;
-	NPT_String						m_ServiceName;
     NPT_String                      m_SCPDURL;
     NPT_String                      m_ControlURL;
     NPT_String                      m_EventSubURL;
@@ -475,26 +468,6 @@ public:
 private:
     // members
     NPT_String m_Type;
-};
-
-/*----------------------------------------------------------------------
-|    PLT_ServiceNameFinder
-+---------------------------------------------------------------------*/
-/** 
- The PLT_ServiceNameFinder class returns an instance of a PLT_Service given a 
- service name.
- */
-class PLT_ServiceNameFinder
-{
-public:
-    // methods
-    PLT_ServiceNameFinder(const char* name) : m_Name(name) {}
-    virtual ~PLT_ServiceNameFinder() {}
-    bool operator()(PLT_Service* const & service) const;
-
-private:
-    // members
-    NPT_String m_Name;
 };
 
 /*----------------------------------------------------------------------

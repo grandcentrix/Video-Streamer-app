@@ -347,25 +347,6 @@
 		CAF2EFDF0E64A2B700948C04 /* libNeptune.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F912B69F0B8EB1C700C1E90D /* libNeptune.a */; };
 		CAFB23700EC760FE009C3459 /* NptTls.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CAFB236E0EC760FE009C3459 /* NptTls.cpp */; };
 		CAFB23710EC760FE009C3459 /* NptTls.h in Headers */ = {isa = PBXBuildFile; fileRef = CAFB236F0EC760FE009C3459 /* NptTls.h */; };
-		E477695F12A9C0B10011EEE4 /* libaxTLS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1A5EA90EC0152A00A9040C /* libaxTLS.a */; };
-		E477696212A9C0C00011EEE4 /* libaxTLS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1A5EA90EC0152A00A9040C /* libaxTLS.a */; };
-		E477696312A9C0C70011EEE4 /* libaxTLS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1A5EA90EC0152A00A9040C /* libaxTLS.a */; };
-		E477696812A9C0D10011EEE4 /* libaxTLS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1A5EA90EC0152A00A9040C /* libaxTLS.a */; };
-		E477696B12A9C0D80011EEE4 /* libaxTLS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1A5EA90EC0152A00A9040C /* libaxTLS.a */; };
-		E477697012A9C11F0011EEE4 /* libaxTLS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1A5EA90EC0152A00A9040C /* libaxTLS.a */; };
-		E477697312A9C1290011EEE4 /* libaxTLS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1A5EA90EC0152A00A9040C /* libaxTLS.a */; };
-		E477697612A9C1350011EEE4 /* libaxTLS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1A5EA90EC0152A00A9040C /* libaxTLS.a */; };
-		E477697D12A9C1590011EEE4 /* libaxTLS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1A5EA90EC0152A00A9040C /* libaxTLS.a */; };
-		E477698012A9C16C0011EEE4 /* libaxTLS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1A5EA90EC0152A00A9040C /* libaxTLS.a */; };
-		E477698312A9C1780011EEE4 /* libaxTLS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1A5EA90EC0152A00A9040C /* libaxTLS.a */; };
-		E477698612A9C1810011EEE4 /* libaxTLS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1A5EA90EC0152A00A9040C /* libaxTLS.a */; };
-		E477698912A9C18E0011EEE4 /* libaxTLS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1A5EA90EC0152A00A9040C /* libaxTLS.a */; };
-		E477698C12A9C1960011EEE4 /* libaxTLS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1A5EA90EC0152A00A9040C /* libaxTLS.a */; };
-		E477699312A9C1BC0011EEE4 /* libaxTLS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1A5EA90EC0152A00A9040C /* libaxTLS.a */; };
-		E477699612A9C1C60011EEE4 /* libaxTLS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1A5EA90EC0152A00A9040C /* libaxTLS.a */; };
-		E477699912A9C1D10011EEE4 /* libaxTLS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1A5EA90EC0152A00A9040C /* libaxTLS.a */; };
-		E477699C12A9C1DC0011EEE4 /* libaxTLS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1A5EA90EC0152A00A9040C /* libaxTLS.a */; };
-		E47769DC12A9C6E40011EEE4 /* NptCocoaSystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = E477668F12A9B2740011EEE4 /* NptCocoaSystem.mm */; };
 		F912B7480B8EB27400C1E90D /* Neptune.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F912B6B00B8EB27400C1E90D /* Neptune.cpp */; };
 		F912B7490B8EB27400C1E90D /* Neptune.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B6B10B8EB27400C1E90D /* Neptune.h */; };
 		F912B74A0B8EB27400C1E90D /* NptArray.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B6B20B8EB27400C1E90D /* NptArray.h */; };
@@ -882,132 +863,6 @@
 			remoteGlobalIDString = F912B69E0B8EB1C700C1E90D;
 			remoteInfo = Neptune;
 		};
-		E477695A12A9C0900011EEE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F912B6870B8EB12700C1E90D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA1A5EA80EC0152A00A9040C;
-			remoteInfo = axTLS;
-		};
-		E477696012A9C0BE0011EEE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F912B6870B8EB12700C1E90D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA1A5EA80EC0152A00A9040C;
-			remoteInfo = axTLS;
-		};
-		E477696412A9C0CA0011EEE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F912B6870B8EB12700C1E90D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA1A5EA80EC0152A00A9040C;
-			remoteInfo = axTLS;
-		};
-		E477696612A9C0CE0011EEE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F912B6870B8EB12700C1E90D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA1A5EA80EC0152A00A9040C;
-			remoteInfo = axTLS;
-		};
-		E477696912A9C0D60011EEE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F912B6870B8EB12700C1E90D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA1A5EA80EC0152A00A9040C;
-			remoteInfo = axTLS;
-		};
-		E477696E12A9C11B0011EEE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F912B6870B8EB12700C1E90D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA1A5EA80EC0152A00A9040C;
-			remoteInfo = axTLS;
-		};
-		E477697112A9C1270011EEE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F912B6870B8EB12700C1E90D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA1A5EA80EC0152A00A9040C;
-			remoteInfo = axTLS;
-		};
-		E477697412A9C1310011EEE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F912B6870B8EB12700C1E90D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA1A5EA80EC0152A00A9040C;
-			remoteInfo = axTLS;
-		};
-		E477697B12A9C1560011EEE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F912B6870B8EB12700C1E90D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA1A5EA80EC0152A00A9040C;
-			remoteInfo = axTLS;
-		};
-		E477697E12A9C16A0011EEE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F912B6870B8EB12700C1E90D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA1A5EA80EC0152A00A9040C;
-			remoteInfo = axTLS;
-		};
-		E477698112A9C1750011EEE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F912B6870B8EB12700C1E90D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA1A5EA80EC0152A00A9040C;
-			remoteInfo = axTLS;
-		};
-		E477698412A9C17F0011EEE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F912B6870B8EB12700C1E90D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA1A5EA80EC0152A00A9040C;
-			remoteInfo = axTLS;
-		};
-		E477698712A9C18C0011EEE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F912B6870B8EB12700C1E90D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA1A5EA80EC0152A00A9040C;
-			remoteInfo = axTLS;
-		};
-		E477698A12A9C1940011EEE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F912B6870B8EB12700C1E90D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA1A5EA80EC0152A00A9040C;
-			remoteInfo = axTLS;
-		};
-		E477699112A9C1B90011EEE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F912B6870B8EB12700C1E90D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA1A5EA80EC0152A00A9040C;
-			remoteInfo = axTLS;
-		};
-		E477699412A9C1C40011EEE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F912B6870B8EB12700C1E90D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA1A5EA80EC0152A00A9040C;
-			remoteInfo = axTLS;
-		};
-		E477699712A9C1CE0011EEE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F912B6870B8EB12700C1E90D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA1A5EA80EC0152A00A9040C;
-			remoteInfo = axTLS;
-		};
-		E477699A12A9C1DA0011EEE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F912B6870B8EB12700C1E90D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA1A5EA80EC0152A00A9040C;
-			remoteInfo = axTLS;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -1294,7 +1149,6 @@
 		CAF2EFD70E64A27200948C04 /* FileTest1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FileTest1; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFB236E0EC760FE009C3459 /* NptTls.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NptTls.cpp; sourceTree = "<group>"; };
 		CAFB236F0EC760FE009C3459 /* NptTls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NptTls.h; sourceTree = "<group>"; };
-		E477668F12A9B2740011EEE4 /* NptCocoaSystem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NptCocoaSystem.mm; sourceTree = "<group>"; };
 		F912B69F0B8EB1C700C1E90D /* libNeptune.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNeptune.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F912B6B00B8EB27400C1E90D /* Neptune.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Neptune.cpp; sourceTree = "<group>"; };
 		F912B6B10B8EB27400C1E90D /* Neptune.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Neptune.h; sourceTree = "<group>"; };
@@ -1376,7 +1230,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA197D250E1AE4400018E87C /* libNeptune.a in Frameworks */,
-				E477697D12A9C1590011EEE4 /* libaxTLS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1425,7 +1278,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA550D500D20A37E00B22D72 /* libNeptune.a in Frameworks */,
-				E477698012A9C16C0011EEE4 /* libaxTLS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1434,7 +1286,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA7848450F3B6E9B009E84AD /* libNeptune.a in Frameworks */,
-				E477695F12A9C0B10011EEE4 /* libaxTLS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1451,7 +1302,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA9958A61046FFD20073F34A /* libNeptune.a in Frameworks */,
-				E477697612A9C1350011EEE4 /* libaxTLS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1460,7 +1310,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA9DDC6C10AE3DE8008B871E /* libNeptune.a in Frameworks */,
-				E477697012A9C11F0011EEE4 /* libaxTLS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1509,7 +1358,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAE416DA0E0DBE6400A530D1 /* libNeptune.a in Frameworks */,
-				E477698312A9C1780011EEE4 /* libaxTLS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1526,7 +1374,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAE416F40E0DBEB900A530D1 /* libNeptune.a in Frameworks */,
-				E477698612A9C1810011EEE4 /* libaxTLS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1543,7 +1390,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAE4170E0E0DBF1100A530D1 /* libNeptune.a in Frameworks */,
-				E477698912A9C18E0011EEE4 /* libaxTLS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1552,7 +1398,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAE4171B0E0DBF3100A530D1 /* libNeptune.a in Frameworks */,
-				E477698C12A9C1960011EEE4 /* libaxTLS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1569,7 +1414,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAE417410E0DC06F00A530D1 /* libNeptune.a in Frameworks */,
-				E477699312A9C1BC0011EEE4 /* libaxTLS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1578,7 +1422,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAE4174E0E0DC09500A530D1 /* libNeptune.a in Frameworks */,
-				E477699612A9C1C60011EEE4 /* libaxTLS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1587,7 +1430,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAE4175B0E0DC0B200A530D1 /* libNeptune.a in Frameworks */,
-				E477699912A9C1D10011EEE4 /* libaxTLS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1596,7 +1438,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAE417680E0DC0DB00A530D1 /* libNeptune.a in Frameworks */,
-				E477699C12A9C1DC0011EEE4 /* libaxTLS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1605,7 +1446,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAE417A40E0DC14100A530D1 /* libNeptune.a in Frameworks */,
-				E477696312A9C0C70011EEE4 /* libaxTLS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1614,7 +1454,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAE417C20E0DC1A100A530D1 /* libNeptune.a in Frameworks */,
-				E477696212A9C0C00011EEE4 /* libaxTLS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1623,7 +1462,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAE417CF0E0DC1BF00A530D1 /* libNeptune.a in Frameworks */,
-				E477696812A9C0D10011EEE4 /* libaxTLS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1632,7 +1470,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAE417DC0E0DC1DF00A530D1 /* libNeptune.a in Frameworks */,
-				E477696B12A9C0D80011EEE4 /* libaxTLS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1641,7 +1478,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAF2EFDF0E64A2B700948C04 /* libNeptune.a in Frameworks */,
-				E477697312A9C1290011EEE4 /* libaxTLS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1725,7 +1561,6 @@
 		CA289B6610E16150001BC817 /* Cocoa */ = {
 			isa = PBXGroup;
 			children = (
-				E477668F12A9B2740011EEE4 /* NptCocoaSystem.mm */,
 				CA289B6710E16150001BC817 /* NptCocoaConsole.mm */,
 				CA289B6810E16150001BC817 /* NptCocoaMessageQueue.h */,
 				CA289B6910E16150001BC817 /* NptCocoaMessageQueue.mm */,
@@ -2515,7 +2350,6 @@
 			);
 			dependencies = (
 				CA197D240E1AE43B0018E87C /* PBXTargetDependency */,
-				E477697C12A9C1560011EEE4 /* PBXTargetDependency */,
 			);
 			name = QueueTest1;
 			productName = QueueTest1;
@@ -2620,7 +2454,6 @@
 			);
 			dependencies = (
 				CA550D4B0D20A37E00B22D72 /* PBXTargetDependency */,
-				E477697F12A9C16A0011EEE4 /* PBXTargetDependency */,
 			);
 			name = HttpServerTest1;
 			productName = XmlTest1;
@@ -2638,7 +2471,6 @@
 			);
 			dependencies = (
 				CA7848440F3B6E95009E84AD /* PBXTargetDependency */,
-				E477695B12A9C0900011EEE4 /* PBXTargetDependency */,
 			);
 			name = MiniHttpServer;
 			productName = MiniHttpServer;
@@ -2673,7 +2505,6 @@
 			);
 			dependencies = (
 				CA9958A51046FFCD0073F34A /* PBXTargetDependency */,
-				E477697512A9C1310011EEE4 /* PBXTargetDependency */,
 			);
 			name = HttpClientTest2;
 			productName = HttpClientTest2;
@@ -2691,7 +2522,6 @@
 			);
 			dependencies = (
 				CA9DDC6B10AE3DE3008B871E /* PBXTargetDependency */,
-				E477696F12A9C11B0011EEE4 /* PBXTargetDependency */,
 			);
 			name = FileTest2;
 			productName = FileTest2;
@@ -2794,7 +2624,6 @@
 			);
 			dependencies = (
 				CAE416D90E0DBE5F00A530D1 /* PBXTargetDependency */,
-				E477698212A9C1750011EEE4 /* PBXTargetDependency */,
 			);
 			name = HttpClientTest1;
 			productName = HttpClientTest1;
@@ -2829,7 +2658,6 @@
 			);
 			dependencies = (
 				CAE416F30E0DBEB400A530D1 /* PBXTargetDependency */,
-				E477698512A9C17F0011EEE4 /* PBXTargetDependency */,
 			);
 			name = LoggingTest1;
 			productName = LoggingTest1;
@@ -2864,7 +2692,6 @@
 			);
 			dependencies = (
 				CAE4170D0E0DBF0E00A530D1 /* PBXTargetDependency */,
-				E477698812A9C18C0011EEE4 /* PBXTargetDependency */,
 			);
 			name = MessagesTest1;
 			productName = MessagesTest1;
@@ -2882,7 +2709,6 @@
 			);
 			dependencies = (
 				CAE4171A0E0DBF2D00A530D1 /* PBXTargetDependency */,
-				E477698B12A9C1940011EEE4 /* PBXTargetDependency */,
 			);
 			name = MessagesTest2;
 			productName = MessagesTest2;
@@ -2917,7 +2743,6 @@
 			);
 			dependencies = (
 				CAE417400E0DC06B00A530D1 /* PBXTargetDependency */,
-				E477699212A9C1B90011EEE4 /* PBXTargetDependency */,
 			);
 			name = ThreadsTest1;
 			productName = ThreadsTest1;
@@ -2935,7 +2760,6 @@
 			);
 			dependencies = (
 				CAE4174D0E0DC09100A530D1 /* PBXTargetDependency */,
-				E477699512A9C1C40011EEE4 /* PBXTargetDependency */,
 			);
 			name = UdpTest1;
 			productName = UdpTest1;
@@ -2953,7 +2777,6 @@
 			);
 			dependencies = (
 				CAE4175A0E0DC0AE00A530D1 /* PBXTargetDependency */,
-				E477699812A9C1CE0011EEE4 /* PBXTargetDependency */,
 			);
 			name = UrlTest1;
 			productName = UrlTest1;
@@ -2971,7 +2794,6 @@
 			);
 			dependencies = (
 				CAE417670E0DC0D700A530D1 /* PBXTargetDependency */,
-				E477699B12A9C1DA0011EEE4 /* PBXTargetDependency */,
 			);
 			name = ZipTest1;
 			productName = ZipTest1;
@@ -2989,7 +2811,6 @@
 			);
 			dependencies = (
 				CAE417A30E0DC13E00A530D1 /* PBXTargetDependency */,
-				E477696512A9C0CA0011EEE4 /* PBXTargetDependency */,
 			);
 			name = NetPump;
 			productName = NetPump;
@@ -3007,7 +2828,6 @@
 			);
 			dependencies = (
 				CAE417C10E0DC19C00A530D1 /* PBXTargetDependency */,
-				E477696112A9C0BE0011EEE4 /* PBXTargetDependency */,
 			);
 			name = NetEcho;
 			productName = NetEcho;
@@ -3025,7 +2845,6 @@
 			);
 			dependencies = (
 				CAE417CE0E0DC1BA00A530D1 /* PBXTargetDependency */,
-				E477696712A9C0CE0011EEE4 /* PBXTargetDependency */,
 			);
 			name = NetConfig;
 			productName = NetConfig;
@@ -3043,7 +2862,6 @@
 			);
 			dependencies = (
 				CAE417DB0E0DC1DB00A530D1 /* PBXTargetDependency */,
-				E477696A12A9C0D60011EEE4 /* PBXTargetDependency */,
 			);
 			name = NetPing;
 			productName = NetPing;
@@ -3061,7 +2879,6 @@
 			);
 			dependencies = (
 				CAF2EFDD0E64A28000948C04 /* PBXTargetDependency */,
-				E477697212A9C1270011EEE4 /* PBXTargetDependency */,
 			);
 			name = FileTest1;
 			productName = FileTest1;
@@ -3092,14 +2909,7 @@
 			isa = PBXProject;
 			buildConfigurationList = F912B6880B8EB12700C1E90D /* Build configuration list for PBXProject "Neptune" */;
 			compatibilityVersion = "Xcode 3.1";
-			developmentRegion = English;
 			hasScannedForEncodings = 0;
-			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
-			);
 			mainGroup = F912B6850B8EB12700C1E90D;
 			productRefGroup = F912B6A00B8EB1C700C1E90D /* Products */;
 			projectDirPath = "";
@@ -3107,40 +2917,40 @@
 			targets = (
 				CAE417920E0DC11800A530D1 /* All */,
 				CAE417DF0E0DC1F600A530D1 /* Apps */,
-				CAE416B80E0DBDF800A530D1 /* ArraysTest1 */,
+				CAE4176C0E0DC0FE00A530D1 /* Tests */,
+				F912B69E0B8EB1C700C1E90D /* Neptune */,
 				CA1A5EA80EC0152A00A9040C /* axTLS */,
+				CAE416B80E0DBDF800A530D1 /* ArraysTest1 */,
 				CAE416C50E0DBE2F00A530D1 /* BufferedStreamsTest1 */,
-				CAF2EFD60E64A27200948C04 /* FileTest1 */,
-				CA9DDC6510AE3DD6008B871E /* FileTest2 */,
-				CAE416D20E0DBE5A00A530D1 /* HttpClientTest1 */,
-				CA99589F1046FFC70073F34A /* HttpClientTest2 */,
 				CA550D4A0D20A37E00B22D72 /* HttpServerTest1 */,
+				CAE416D20E0DBE5A00A530D1 /* HttpClientTest1 */,
 				CAE416DF0E0DBE7F00A530D1 /* ListsTest1 */,
 				CAE416EC0E0DBEAF00A530D1 /* LoggingTest1 */,
 				CA30B76A0F0DCE990085B46E /* LoggingTest2 */,
 				CAE416F90E0DBEDD00A530D1 /* MapsTest1 */,
 				CAE417060E0DBF0900A530D1 /* MessagesTest1 */,
 				CAE417130E0DBF2800A530D1 /* MessagesTest2 */,
-				CA78483C0F3B6E69009E84AD /* MiniHttpServer */,
 				CAE4169A0E0DBD6600A530D1 /* MiscTest1 */,
-				F912B69E0B8EB1C700C1E90D /* Neptune */,
-				CAE417C70E0DC1B400A530D1 /* NetConfig */,
-				CAE417BA0E0DC19400A530D1 /* NetEcho */,
-				CAE417D40E0DC1D600A530D1 /* NetPing */,
-				CAE4179C0E0DC13A00A530D1 /* NetPump */,
 				CA197D1D0E1AE4360018E87C /* QueueTest1 */,
 				CAE4172C0E0DC03500A530D1 /* RingBufferTest1 */,
-				CA289DB610E31600001BC817 /* SocketsTest1 */,
-				CA97E01F0E2FDFB30090CC9B /* StreamsTest1 */,
 				CAA97A100CF1654A00C01909 /* StringsTest1 */,
-				CAE4176C0E0DC0FE00A530D1 /* Tests */,
 				CAE417390E0DC06700A530D1 /* ThreadsTest1 */,
-				CA4090C310AA257B00ED81C5 /* TimeTest1 */,
-				CA2F54230EC115E600AEBC12 /* TlsTest1 */,
 				CAE417460E0DC08C00A530D1 /* UdpTest1 */,
 				CAE417530E0DC0A800A530D1 /* UrlTest1 */,
 				CAA97A000CF164A700C01909 /* XmlTest1 */,
 				CAE417600E0DC0D200A530D1 /* ZipTest1 */,
+				CAE4179C0E0DC13A00A530D1 /* NetPump */,
+				CAE417BA0E0DC19400A530D1 /* NetEcho */,
+				CAE417C70E0DC1B400A530D1 /* NetConfig */,
+				CAE417D40E0DC1D600A530D1 /* NetPing */,
+				CA97E01F0E2FDFB30090CC9B /* StreamsTest1 */,
+				CAF2EFD60E64A27200948C04 /* FileTest1 */,
+				CA2F54230EC115E600AEBC12 /* TlsTest1 */,
+				CA78483C0F3B6E69009E84AD /* MiniHttpServer */,
+				CA99589F1046FFC70073F34A /* HttpClientTest2 */,
+				CA4090C310AA257B00ED81C5 /* TimeTest1 */,
+				CA9DDC6510AE3DD6008B871E /* FileTest2 */,
+				CA289DB610E31600001BC817 /* SocketsTest1 */,
 			);
 		};
 /* End PBXProject section */
@@ -3629,7 +3439,6 @@
 				CAE4F8971157C3A100DD82F9 /* NptTlsTrustAnchor_0147.cpp in Sources */,
 				CAE4F8981157C3A100DD82F9 /* NptTlsTrustAnchor_0148.cpp in Sources */,
 				CAE4F8991157C3A100DD82F9 /* NptTlsTrustAnchor_0149.cpp in Sources */,
-				E47769DC12A9C6E40011EEE4 /* NptCocoaSystem.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3950,96 +3759,6 @@
 			isa = PBXTargetDependency;
 			target = F912B69E0B8EB1C700C1E90D /* Neptune */;
 			targetProxy = CAF2EFDC0E64A28000948C04 /* PBXContainerItemProxy */;
-		};
-		E477695B12A9C0900011EEE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA1A5EA80EC0152A00A9040C /* axTLS */;
-			targetProxy = E477695A12A9C0900011EEE4 /* PBXContainerItemProxy */;
-		};
-		E477696112A9C0BE0011EEE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA1A5EA80EC0152A00A9040C /* axTLS */;
-			targetProxy = E477696012A9C0BE0011EEE4 /* PBXContainerItemProxy */;
-		};
-		E477696512A9C0CA0011EEE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA1A5EA80EC0152A00A9040C /* axTLS */;
-			targetProxy = E477696412A9C0CA0011EEE4 /* PBXContainerItemProxy */;
-		};
-		E477696712A9C0CE0011EEE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA1A5EA80EC0152A00A9040C /* axTLS */;
-			targetProxy = E477696612A9C0CE0011EEE4 /* PBXContainerItemProxy */;
-		};
-		E477696A12A9C0D60011EEE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA1A5EA80EC0152A00A9040C /* axTLS */;
-			targetProxy = E477696912A9C0D60011EEE4 /* PBXContainerItemProxy */;
-		};
-		E477696F12A9C11B0011EEE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA1A5EA80EC0152A00A9040C /* axTLS */;
-			targetProxy = E477696E12A9C11B0011EEE4 /* PBXContainerItemProxy */;
-		};
-		E477697212A9C1270011EEE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA1A5EA80EC0152A00A9040C /* axTLS */;
-			targetProxy = E477697112A9C1270011EEE4 /* PBXContainerItemProxy */;
-		};
-		E477697512A9C1310011EEE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA1A5EA80EC0152A00A9040C /* axTLS */;
-			targetProxy = E477697412A9C1310011EEE4 /* PBXContainerItemProxy */;
-		};
-		E477697C12A9C1560011EEE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA1A5EA80EC0152A00A9040C /* axTLS */;
-			targetProxy = E477697B12A9C1560011EEE4 /* PBXContainerItemProxy */;
-		};
-		E477697F12A9C16A0011EEE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA1A5EA80EC0152A00A9040C /* axTLS */;
-			targetProxy = E477697E12A9C16A0011EEE4 /* PBXContainerItemProxy */;
-		};
-		E477698212A9C1750011EEE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA1A5EA80EC0152A00A9040C /* axTLS */;
-			targetProxy = E477698112A9C1750011EEE4 /* PBXContainerItemProxy */;
-		};
-		E477698512A9C17F0011EEE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA1A5EA80EC0152A00A9040C /* axTLS */;
-			targetProxy = E477698412A9C17F0011EEE4 /* PBXContainerItemProxy */;
-		};
-		E477698812A9C18C0011EEE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA1A5EA80EC0152A00A9040C /* axTLS */;
-			targetProxy = E477698712A9C18C0011EEE4 /* PBXContainerItemProxy */;
-		};
-		E477698B12A9C1940011EEE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA1A5EA80EC0152A00A9040C /* axTLS */;
-			targetProxy = E477698A12A9C1940011EEE4 /* PBXContainerItemProxy */;
-		};
-		E477699212A9C1B90011EEE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA1A5EA80EC0152A00A9040C /* axTLS */;
-			targetProxy = E477699112A9C1B90011EEE4 /* PBXContainerItemProxy */;
-		};
-		E477699512A9C1C40011EEE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA1A5EA80EC0152A00A9040C /* axTLS */;
-			targetProxy = E477699412A9C1C40011EEE4 /* PBXContainerItemProxy */;
-		};
-		E477699812A9C1CE0011EEE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA1A5EA80EC0152A00A9040C /* axTLS */;
-			targetProxy = E477699712A9C1CE0011EEE4 /* PBXContainerItemProxy */;
-		};
-		E477699B12A9C1DA0011EEE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA1A5EA80EC0152A00A9040C /* axTLS */;
-			targetProxy = E477699A12A9C1DA0011EEE4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -5113,12 +4832,12 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				"ARCHS[sdk=iphonesimulator*]" = i386;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NPT_CONFIG_ENABLE_LOGGING,
 					NPT_CONFIG_ENABLE_ZIP,
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_TREAT_NONCONFORMANT_CODE_ERRORS_AS_WARNINGS = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;

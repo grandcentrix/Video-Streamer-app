@@ -48,6 +48,7 @@ NPT_SET_LOCAL_LOGGER("platinum.media.server")
 |   forward references
 +---------------------------------------------------------------------*/
 extern NPT_UInt8 MS_ConnectionManagerSCPD[];
+extern NPT_UInt8 MS_ContentDirectorySCPD[];
 extern NPT_UInt8 MS_ContentDirectorywSearchSCPD[];
 
 const char* BrowseFlagsStr[] = {
@@ -126,24 +127,6 @@ PLT_MediaServer::SetupServices()
     }
 
     return NPT_SUCCESS;
-}
-
-/*----------------------------------------------------------------------
-|   PLT_MediaServer::UpdateSystemUpdateID
-+---------------------------------------------------------------------*/
-void 
-PLT_MediaServer::UpdateSystemUpdateID(NPT_UInt32 update)
-{
-    NPT_COMPILER_UNUSED(update);
-}
-
-/*----------------------------------------------------------------------
-|   PLT_MediaServer::UpdateContainerUpdateID
-+---------------------------------------------------------------------*/
-void PLT_MediaServer::UpdateContainerUpdateID(const char* id, NPT_UInt32 update)
-{
-    NPT_COMPILER_UNUSED(id);
-    NPT_COMPILER_UNUSED(update);
 }
 
 /*----------------------------------------------------------------------

@@ -78,20 +78,3 @@ Platinum::ActionDescription^ Platinum::Service::FindAction( String^ name )
 	return marshal_as<ActionDescription^>(*d);
 }
 
-Platinum::StateVariable^ Platinum::Service::FindStateVariable( String^ name )
-{
-	if (String::IsNullOrEmpty(name))
-		throw gcnew ArgumentException("null or empty", "name");
-
-	marshal_context c;
-
-	PLT_StateVariable* d = m_pHandle->FindStateVariable(
-		c.marshal_as<const char*>(name)
-		);
-
-	if (!d)
-		return nullptr;
-
-	return marshal_as<StateVariable^>(*d);
-}
-

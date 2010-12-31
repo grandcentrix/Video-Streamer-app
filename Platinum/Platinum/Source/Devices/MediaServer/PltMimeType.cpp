@@ -48,7 +48,7 @@ PLT_HttpFileRequestHandler_360FileTypeMap[] = {
     {"avi",  "video/avi"},
     {"divx", "video/avi"},
     {"xvid", "video/avi"},
-    {"mov",  "video/quicktime"}
+    {"mov",  "video/mp4"}
 };
 
 const NPT_HttpFileRequestHandler_FileTypeMapEntry 
@@ -85,17 +85,19 @@ PLT_MimeType::GetMimeTypeFromExtension(const NPT_String&             extension,
                                        const PLT_HttpRequestContext* context /* = NULL */)
 {
     if (context) {
+        const NPT_String* agent  = context->GetRequest().GetHeaders().GetHeaderValue(NPT_HTTP_HEADER_USER_AGENT);
+        const NPT_String* hdr    = context->GetRequest().GetHeaders().GetHeaderValue("X-AV-Client-Info");
+
         // look for special case for 360
-        if (PLT_HttpHelper::GetDeviceSignature(context->GetRequest()) == PLT_XBOX || 
-			PLT_HttpHelper::GetDeviceSignature(context->GetRequest()) == PLT_WMP ) {
-			for (unsigned int i=0; i<NPT_ARRAY_SIZE(PLT_HttpFileRequestHandler_360FileTypeMap); i++) {
+        if (agent && (agent->Find("XBox", 0, true) >= 0 || agent->Find("Xenon", 0, true) >= 0)) {
+            for (unsigned int i=0; i<NPT_ARRAY_SIZE(PLT_HttpFileRequestHandler_360FileTypeMap); i++) {
                 if (extension == PLT_HttpFileRequestHandler_360FileTypeMap[i].extension) {
                     return PLT_HttpFileRequestHandler_360FileTypeMap[i].mime_type;
                 }
             }
 
             // fallback to default if not found
-		} else if (PLT_HttpHelper::GetDeviceSignature(context->GetRequest()) == PLT_PS3) {
+        } else if (hdr && hdr->Find("PLAYSTATION 3", 0, true) >= 0) {
             for (unsigned int i=0; i<NPT_ARRAY_SIZE(PLT_HttpFileRequestHandler_PS3FileTypeMap); i++) {
                 if (extension == PLT_HttpFileRequestHandler_PS3FileTypeMap[i].extension) {
                     return PLT_HttpFileRequestHandler_PS3FileTypeMap[i].mime_type;

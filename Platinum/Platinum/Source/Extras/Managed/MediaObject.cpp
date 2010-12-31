@@ -78,18 +78,20 @@ Platinum::ProtocolInfo^ Platinum::ProtocolInfo::GetProtocolInfo(String^ filename
                                                                 bool with_dlna_extension, 
                                                                 HttpRequestContext^ context)
 {
-    return marshal_as<Platinum::ProtocolInfo^>(PLT_ProtocolInfo::GetProtocolInfo(StringConv(filename),
-											  with_dlna_extension,
-											  (context==nullptr)?NULL:&context->Handle).ToString());
+    return marshal_as<Platinum::ProtocolInfo^>(
+        PLT_ProtocolInfo::GetProtocolInfo(StringConv(filename),
+                                          with_dlna_extension,
+                                          (context==nullptr)?NULL:&context->Handle));
 }
 
 Platinum::ProtocolInfo^ Platinum::ProtocolInfo::GetProtocolInfoFromMimeType(String^ mime_type, 
                                                                             bool with_dlna_extension, 
                                                                             HttpRequestContext^ context)
 {
-    return marshal_as<Platinum::ProtocolInfo^>(PLT_ProtocolInfo::GetProtocolInfoFromMimeType(StringConv(mime_type),
-														  with_dlna_extension,
-														  (context==nullptr)?NULL:&context->Handle).ToString());
+    return marshal_as<Platinum::ProtocolInfo^>(
+        PLT_ProtocolInfo::GetProtocolInfoFromMimeType(StringConv(mime_type),
+                                                      with_dlna_extension,
+                                                      (context==nullptr)?NULL:&context->Handle));
 }
 
 Platinum::MediaItem^ Platinum::MediaObject::item()

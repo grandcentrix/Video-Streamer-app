@@ -542,7 +542,7 @@ typedef struct NPT_HttpFileRequestHandler_DefaultFileTypeMapEntry {
 } NPT_HttpFileRequestHandler_FileTypeMapEntry;
 
 // specify size here so NPT_ARRAY_SIZE can work
-extern const NPT_HttpFileRequestHandler_DefaultFileTypeMapEntry NPT_HttpFileRequestHandler_DefaultFileTypeMap[46];
+extern const NPT_HttpFileRequestHandler_DefaultFileTypeMapEntry NPT_HttpFileRequestHandler_DefaultFileTypeMap[45];
 
 /*----------------------------------------------------------------------
 |   NPT_HttpFileRequestHandler

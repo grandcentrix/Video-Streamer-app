@@ -101,7 +101,6 @@
 
 #define PLT_FILTER_FIELD_RES                        "res"
 #define PLT_FILTER_FIELD_RES_DURATION               "res@duration"
-#define PLT_FILTER_FIELD_RES_DURATION_SHORT         "@duration"
 #define PLT_FILTER_FIELD_RES_SIZE                   "res@size"
 #define PLT_FILTER_FIELD_RES_PROTECTION             "res@protection"
 #define PLT_FILTER_FIELD_RES_RESOLUTION             "res@resolution"

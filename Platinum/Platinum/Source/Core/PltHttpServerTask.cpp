@@ -351,31 +351,3 @@ PLT_HttpServerSocketTask::Write(NPT_HttpResponse* response,
     return NPT_SUCCESS;
 }
 
-/*----------------------------------------------------------------------
-|   PLT_HttpListenTask::DoRun
-+---------------------------------------------------------------------*/
-void 
-PLT_HttpListenTask::DoRun() 
-{
-    while (!IsAborting(0)) {
-        NPT_Socket* client = NULL;
-        NPT_Result  result = m_Socket->WaitForNewClient(client, 5000);
-        if (NPT_FAILED(result)) {
-            // cleanup just in case
-            if (client) delete client;
-            
-            // normal error
-            if (result == NPT_ERROR_TIMEOUT) continue;
-            
-            // exit on other errors ?
-            NPT_LOG_WARNING_2("PLT_HttpListenTask exiting with %d (%s)", result, NPT_ResultText(result));
-            break;
-        } else {
-            PLT_ThreadTask* task = new PLT_HttpServerTask(m_Handler, client);
-            if (NPT_FAILED(m_TaskManager->StartTask(task))) {
-                task->Kill();
-                delete client;
-            }
-        }
-    }
-}

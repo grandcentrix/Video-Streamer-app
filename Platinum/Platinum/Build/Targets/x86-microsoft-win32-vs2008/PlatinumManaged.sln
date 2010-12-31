@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Platinum.Managed", "Platinum.Managed\Platinum.Managed.vcproj", "{8AA224CC-41AA-44EC-802E-F71E8F272D1E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platinum.Managed.MediaServerTest", "Platinum.Managed.MediaServerTest\Platinum.Managed.MediaServerTest.csproj", "{F0AAE0D9-FA94-47EE-B823-9D997B42CEAD}"
-	ProjectSection(ProjectDependencies) = postProject
-		{8AA224CC-41AA-44EC-802E-F71E8F272D1E} = {8AA224CC-41AA-44EC-802E-F71E8F272D1E}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platinum.Managed.SsdpTest", "Platinum.Managed.SsdpTest\Platinum.Managed.SsdpTest.csproj", "{BE0A8A03-7EBA-438D-A60D-11AC101CD766}"
 EndProject

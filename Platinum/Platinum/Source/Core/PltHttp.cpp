@@ -149,21 +149,10 @@ PLT_HttpHelper::GetContentLength(const NPT_HttpMessage& message,
 +---------------------------------------------------------------------*/
 NPT_Result
 PLT_HttpHelper::SetBody(NPT_HttpMessage& message, 
-                        NPT_String&      text, 
+                        NPT_String&      body, 
                         NPT_HttpEntity** entity /* = NULL */)
 {
-    return SetBody(message, (const char*)text, text.GetLength(), entity);
-}
-
-/*----------------------------------------------------------------------
-|   PLT_HttpHelper::SetBody
-+---------------------------------------------------------------------*/
-NPT_Result
-PLT_HttpHelper::SetBody(NPT_HttpMessage& message, 
-                        const char*      text, 
-                        NPT_HttpEntity** entity /* = NULL */)
-{
-    return SetBody(message, (const char*)text, NPT_StringLength(text), entity);
+    return SetBody(message, (const char*)body, body.GetLength(), entity);
 }
 
 /*----------------------------------------------------------------------
@@ -171,7 +160,7 @@ PLT_HttpHelper::SetBody(NPT_HttpMessage& message,
 +---------------------------------------------------------------------*/
 NPT_Result
 PLT_HttpHelper::SetBody(NPT_HttpMessage& message, 
-                        const void*      body, 
+                        const char*      body, 
                         NPT_LargeSize    len, 
                         NPT_HttpEntity** entity /* = NULL */)
 {
@@ -484,26 +473,6 @@ PLT_HttpHelper::SetContentRange(NPT_HttpResponse& response,
     range += NPT_String::FromIntegerU(length);
     response.GetHeaders().SetHeader(NPT_HTTP_HEADER_CONTENT_RANGE, range);
     return NPT_SUCCESS;
-}
-
-/*----------------------------------------------------------------------
-|   PLT_HttpHelper::GetDeviceSignature
-+---------------------------------------------------------------------*/
-PLT_DeviceSignature
-PLT_HttpHelper::GetDeviceSignature(const NPT_HttpRequest& request)
-{
-	const NPT_String* agent = request.GetHeaders().GetHeaderValue(NPT_HTTP_HEADER_USER_AGENT);
-	const NPT_String* hdr   = request.GetHeaders().GetHeaderValue("X-AV-Client-Info");
-
-	if (agent && (agent->Find("XBox", 0, true) >= 0 || agent->Find("Xenon", 0, true) >= 0)) {
-		return PLT_XBOX;
-	} else if (hdr && hdr->Find("PLAYSTATION 3", 0, true) >= 0) {
-		return PLT_PS3;
-	} else if (agent && agent->Find("Windows-Media-Player", 0, true) >= 0) {
-		return PLT_WMP;
-	}
-
-	return PLT_UNKNOWN_DEVICE;
 }
 
 /*----------------------------------------------------------------------

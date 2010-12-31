@@ -36,9 +36,6 @@
 |   includes
 +---------------------------------------------------------------------*/
 #include "NeptuneException.h"
-#include "Clix.h"
-
-using namespace clix;
 
 namespace Platinum
 {
@@ -202,13 +199,11 @@ public:
 struct StringConv
 {
     gcroot<msclr::interop::marshal_context^> c;
-    //const char* szAnsi;
-    std::string szAnsi;
+    const char* szAnsi;
     
     StringConv(System::String^ s) :
-        //c(gcnew msclr::interop::marshal_context),
-        //szAnsi(c->marshal_as<E_UTF8>(s))
-        szAnsi(marshalString<E_UTF8>(s))
+        c(gcnew msclr::interop::marshal_context),
+        szAnsi(c->marshal_as<const char*>(s))
     {}
 
     ~StringConv()
@@ -216,8 +211,7 @@ struct StringConv
 
     operator const char*() const
     {
-        //return szAnsi;
-        return szAnsi.c_str();
+        return szAnsi;
     }
 };
 
@@ -276,7 +270,6 @@ public ref class ManagedWrapper
 protected:
 
     T_NativeType* m_pHandle;
-	bool		  m_Owned;
 
 internal:
 
@@ -303,7 +296,7 @@ public:
 
 internal:
 
-	ManagedWrapper() : m_Owned(true)
+    ManagedWrapper()
     {
         m_pHandle = new T_NativeType();
     }
@@ -311,18 +304,11 @@ internal:
     /*ManagedWrapper(ManagedWrapper^ obj)
     {
         m_pHandle = new T_NativeType(obj->Handle);
-    }
-
-	ManagedWrapper(T_NativeType object_class) : m_Owned(true)
-    {
-        m_pHandle = new T_NativeType(object_class.Handle);
     }*/
 
-	ManagedWrapper(T_NativeType& object_class) : m_Owned(false)
+    ManagedWrapper(T_NativeType& object_class)
     {
-		// IMPORTANT: we're keeping a reference of the native pointer
-		// so passing a reference to a local variable allocated on the stack is not OK
-        m_pHandle = &object_class;
+        m_pHandle = new T_NativeType(object_class);
     }
 
 public:
@@ -334,12 +320,12 @@ public:
 
     !ManagedWrapper()
     {
-        if (m_pHandle != 0 && m_Owned)
+        if (m_pHandle != 0)
         {
             delete m_pHandle;
-		}
 
-		m_pHandle = 0;
+            m_pHandle = 0;
+        }
     }
 };
 
@@ -358,18 +344,18 @@ property propertyType propertyName {						             \
 #define PLATINUM_MANAGED_IMPLEMENT_STRING_PROPERTY(propertyType, propertyName, nativeVar, nativePtr) \
 property propertyType propertyName {						             \
 	propertyType get() {	                                             \
-		return marshal_as<propertyType>(nativePtr##->##nativeVar);		 \
+    return marshal_as<propertyType>(nativePtr##->##nativeVar);	         \
 	}																     \
 	void set(propertyType var) {	                                     \
-        std::string s = marshalString<E_UTF8>(var);                      \
-        nativePtr##->##nativeVar = s.c_str();                            \
+        marshal_context c;                                               \
+        nativePtr##->##nativeVar = c.marshal_as<const char*>(var);       \
 	}																     \
 }
 
 #define PLATINUM_MANAGED_IMPLEMENT_OBJECT_PROPERTY(propertyType, propertyName, nativeVar, nativePtr) \
 property propertyType propertyName {						             \
 	propertyType get() {	                                             \
-		return marshal_as<propertyType>(nativePtr##->##nativeVar);	     \
+    return marshal_as<propertyType>(nativePtr##->##nativeVar);	         \
 	}																     \
 	void set(propertyType var) {                                         \
         nativePtr##->##nativeVar = var->Handle;                          \

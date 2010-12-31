@@ -74,19 +74,6 @@ Platinum::MediaServer::!MediaServer()
 
 }
 
-void Platinum::MediaServer::UpdateSystemUpdateID(Int32 update)
-{
-    PLT_MediaServer* server = (PLT_MediaServer*)(Handle.AsPointer());
-    server->UpdateSystemUpdateID(update);
-}
-
-
-void Platinum::MediaServer::UpdateContainerUpdateID(String^ id, Int32 update)
-{
-    PLT_MediaServer* server = (PLT_MediaServer*)(Handle.AsPointer());
-    server->UpdateContainerUpdateID(StringConv(id), update);
-}
-
 Int32 Platinum::MediaServer::SetResponseFilePath(HttpRequestContext^ context, HttpResponse^ response, String^ filepath)
 {
     NPT_CHECK_WARNING(PLT_HttpServer::ServeFile(context->Request->Handle, 
@@ -98,23 +85,5 @@ Int32 Platinum::MediaServer::SetResponseFilePath(HttpRequestContext^ context, Ht
     if (entity) entity->SetContentType(
         PLT_MimeType::GetMimeType(NPT_String(StringConv(filepath)), 
                                   &context->Handle));
-
-    /* streaming header for DLNA */
-    response->Handle.GetHeaders().SetHeader("transferMode.dlna.org", "Streaming");
     return NPT_SUCCESS;
-}
-
-
-Int32 Platinum::MediaServer::SetResponseData(HttpRequestContext^ context, HttpResponse^ response, array<Byte>^ data)
-{
-    NPT_HttpEntity* entity = response->Handle.GetEntity();
-	if (entity) 
-	{
-		pin_ptr<Byte> pinnedBuffer = &data[0];
-		entity->SetInputStream((const void*)pinnedBuffer, data->Length);
-	}
-	
-    /* interactive header for DLNA ?*/
-    response->Handle.GetHeaders().SetHeader("transferMode.dlna.org", "Interactive");
-	return NPT_SUCCESS;
 }
