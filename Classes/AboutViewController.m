@@ -26,6 +26,17 @@
     [super dealloc];
 }
 
+- (IBAction)showLicense:(id)sender
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"License"
+                                                    message:@"This app is released under the GPL version 2.0. The code can be found at github.com/baalexander"
+                                                   delegate:self 
+                                          cancelButtonTitle:@"Ok"
+                                          otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+}
+
 
 #pragma mark -
 #pragma mark UIViewController

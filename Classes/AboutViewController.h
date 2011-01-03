@@ -20,4 +20,6 @@
 
 }
 
+- (IBAction)showLicense:(id)sender;
+
 @end
