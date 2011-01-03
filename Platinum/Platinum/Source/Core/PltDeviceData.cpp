@@ -31,6 +31,11 @@
 |
 ****************************************************************/
 
+/*****************************************************************
+| baalexander - Changed the Manufacturer and Manufacturer URL to Alexander
+|               Mobile. 1/2/2011.
+****************************************************************/
+
 /*----------------------------------------------------------------------
 |   includes
 +---------------------------------------------------------------------*/
@@ -49,8 +54,8 @@ PLT_DeviceData::PLT_DeviceData(NPT_HttpUrl      description_url,
                                NPT_TimeInterval lease_time,
                                const char*      device_type,
                                const char*      friendly_name) :
-    m_Manufacturer("Plutinosoft LLC"),
-    m_ManufacturerURL("http://www.plutinosoft.com"),
+    m_Manufacturer("Alexander Mobile LLC"),
+    m_ManufacturerURL("http://www.alexandermobile.com"),
     m_UUID(uuid),
     m_URLDescription(description_url),
     m_DeviceType(device_type),

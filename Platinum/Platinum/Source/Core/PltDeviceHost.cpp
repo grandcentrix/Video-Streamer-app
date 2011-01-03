@@ -31,6 +31,10 @@
 |
 ****************************************************************/
 
+/*****************************************************************
+ | baalexander - Removed the default icons. 1/2/2011.
+ ****************************************************************/
+
 /*----------------------------------------------------------------------
 |   includes
 +---------------------------------------------------------------------*/
@@ -131,18 +135,20 @@ PLT_DeviceHost::AddIcon(const PLT_DeviceIcon& icon,
 NPT_Result
 PLT_DeviceHost::SetupIcons()
 {
-    AddIcon(
-        PLT_DeviceIcon("image/jpeg", 120, 120, 24, "/images/platinum-120x120.jpg"),
-        Platinum_120x120_jpg, sizeof(Platinum_120x120_jpg), false);
-    AddIcon(
-        PLT_DeviceIcon("image/jpeg", 48, 48, 24, "/images/platinum-48x48.jpg"),
-        Platinum_48x48_jpg, sizeof(Platinum_48x48_jpg), false);
-    AddIcon(
-        PLT_DeviceIcon("image/png", 120, 120, 24, "/images/platinum-120x120.png"),
-        Platinum_120x120_png, sizeof(Platinum_120x120_png), false);
-    AddIcon(
-        PLT_DeviceIcon("image/png", 48, 48, 24, "/images/platinum-48x48.png"),
-        Platinum_48x48_png, sizeof(Platinum_48x48_png), false);
+//    // baalexander - Commented out default icons until the app's icons are 
+//    // hooked up. See notice at top of file.
+//    AddIcon(
+//        PLT_DeviceIcon("image/jpeg", 120, 120, 24, "/images/platinum-120x120.jpg"),
+//        Platinum_120x120_jpg, sizeof(Platinum_120x120_jpg), false);
+//    AddIcon(
+//        PLT_DeviceIcon("image/jpeg", 48, 48, 24, "/images/platinum-48x48.jpg"),
+//        Platinum_48x48_jpg, sizeof(Platinum_48x48_jpg), false);
+//    AddIcon(
+//        PLT_DeviceIcon("image/png", 120, 120, 24, "/images/platinum-120x120.png"),
+//        Platinum_120x120_png, sizeof(Platinum_120x120_png), false);
+//    AddIcon(
+//        PLT_DeviceIcon("image/png", 48, 48, 24, "/images/platinum-48x48.png"),
+//        Platinum_48x48_png, sizeof(Platinum_48x48_png), false);
     return NPT_SUCCESS;
 }
 
