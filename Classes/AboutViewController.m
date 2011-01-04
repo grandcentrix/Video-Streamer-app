@@ -29,7 +29,7 @@
 - (IBAction)showLicense:(id)sender
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"License"
-                                                    message:@"This app is released under the GPL version 2.0. The code can be found at github.com/baalexander"
+                                                    message:@"This app is released under the GPL version 2.0. The code can be found at github.com/baalexander/video-streamer-app"
                                                    delegate:self 
                                           cancelButtonTitle:@"Ok"
                                           otherButtonTitles:nil];
