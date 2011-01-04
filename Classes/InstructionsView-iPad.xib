@@ -55,8 +55,8 @@
 						<string type="base64-UTF8" key="IBUIText">ICAgICAgICAgICAgICAgICAgICAgICAgQWxtb3N0IHRoZXJlLi4uCjEpIFBsdWcgeW91ciBpUGFkIGlu
 dG8geW91ciBjb21wdXRlcgoyKSBPcGVuIGlUdW5lcwozKSBTZWxlY3QgeW91ciBpUGFkIHVuZGVyIERl
 dmljZXMKNCkgQ2xpY2sgQXBwcyBpbiB0aGUgdG9wIGJhcgo1KSBTY3JvbGwgZG93biB0byBGaWxlIFNo
-YXJpbmcKNikgU2VsZWN0IFVQblAgTWVkaWEgU2VydmVyCjcpIEFkZCBhbnkgbWVkaWEgeW91IHdhbnQg
-dG8gc3RyZWFtCjgpIEVuam95A</string>
+YXJpbmcKNikgU2VsZWN0IFZpZGVvIFN0cmVhbWVyCjcpIEFkZCBhbnkgbWVkaWEgeW91IHdhbnQgdG8g
+c3RyZWFtCjgpIEVuam95A</string>
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Helvetica</string>
 							<double key="NSSize">36</double>
