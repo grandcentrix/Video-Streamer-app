@@ -55,7 +55,7 @@
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:1.25];
     [UIView setAnimationBeginsFromCurrentState:NO];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.subview cache:YES];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.subview cache:NO];
     
     // Remove whatever view is currently showing
     for (UIView *view in self.subview.subviews)
@@ -84,6 +84,7 @@
             [aboutViewController release];
         }
         
+        self.aboutViewController.view.frame = CGRectMake(0, 0, self.subview.frame.size.width, self.subview.frame.size.height);
         [self.subview addSubview:self.aboutViewController.view];
     }
     
@@ -114,6 +115,9 @@
             [instructionsViewController release];
         }
 
+        // Set the frame size manually to fix a bug where switching views and
+        // changing orientation shifts this new subview around
+        self.instructionsViewController.view.frame = CGRectMake(0, 0, self.subview.frame.size.width, self.subview.frame.size.height);
         [self.subview addSubview:self.instructionsViewController.view];
     }
     else
@@ -144,6 +148,7 @@
 
         self.filesViewController.documentUrls = self.documentUrls;
         [self.filesViewController.tableView reloadData];
+        self.filesViewController.view.frame = CGRectMake(0, 0, self.subview.frame.size.width, self.subview.frame.size.height);
         [self.subview addSubview:self.filesViewController.view];
     }
 }
