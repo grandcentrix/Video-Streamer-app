@@ -1,0 +1,6 @@
+Stream videos from your iPhone, iPod Touch, or iPad to your Playstation 3 and Xbox 360.
+
+Video Streamer turns your iPhone, iPod Touch, or iPad into a UPnP/DLNA media server to stream videos to the Playstation 3 and Xbox 360. Stream any video files the consoles support, including: avi, mov, wmv, m4v, mp4v, and divx.
+
+Please note that you need to add the files directly to the app in iTunes. Video Streamer cannot integrate with your iPod library due to iOS restrictions.
+
