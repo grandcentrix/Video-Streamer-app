@@ -184,6 +184,7 @@
 		45C03AD61284F87400433460 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		45C03AE31284FBF700433460 /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
 		45C03AE41284FBF700433460 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		45EE7F0812D818BB0031F77E /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		45F2FA7F12CAE102003B3E1B /* FilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilesViewController.h; path = Classes/FilesViewController.h; sourceTree = "<group>"; };
 		45F2FA8012CAE102003B3E1B /* FilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilesViewController.m; path = Classes/FilesViewController.m; sourceTree = "<group>"; };
 		45F2FA8112CAE102003B3E1B /* FilesView-iPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "FilesView-iPhone.xib"; path = "Classes/FilesView-iPhone.xib"; sourceTree = "<group>"; };
@@ -287,6 +288,7 @@
 		45117DA612722CE8002B821F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				45EE7F0812D818BB0031F77E /* Entitlements.plist */,
 				45B95CC112C06F3D00670BD4 /* Icon-72.png */,
 				45B95CC212C06F3D00670BD4 /* Icon-Small-50.png */,
 				45B95CC312C06F3D00670BD4 /* Icon-Small.png */,
@@ -580,6 +582,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "~/Development/alexander_mobile/Video-Streamer/Entitlements.plist";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -594,6 +597,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "~/Development/alexander_mobile/Video-Streamer/Entitlements.plist";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = UPnP_Media_Server_Prefix.pch;
@@ -629,6 +633,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "~/Development/alexander_mobile/Video-Streamer/Entitlements.plist";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = UPnP_Media_Server_Prefix.pch;
@@ -637,6 +642,43 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Distribution;
+		};
+		45EE7F0912D819330031F77E /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Brandon Alexander";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"Platinum/Neptune/Source/**",
+					"Platinum/Platinum/Source/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "37CBFD7A-D476-4865-BBDE-6542DA7D4F81";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Ad Hoc";
+		};
+		45EE7F0A12D819330031F77E /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "~/Development/alexander_mobile/Video-Streamer/Entitlements.plist";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = UPnP_Media_Server_Prefix.pch;
+				INFOPLIST_FILE = "UPnP_Media_Server-Info.plist";
+				PRODUCT_NAME = "Video Streamer";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Ad Hoc";
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -687,6 +729,7 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				45EE7F0A12D819330031F77E /* Ad Hoc */,
 				450F451312D5820D00545DBB /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -697,6 +740,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				45EE7F0912D819330031F77E /* Ad Hoc */,
 				450F451212D5820D00545DBB /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
